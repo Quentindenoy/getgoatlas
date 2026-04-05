@@ -461,20 +461,32 @@ p { color: var(--text-secondary); }
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
 }
+.footer-col {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: nowrap;
+}
+
 .footer-col h4 {
     font-size: 13px;
     font-weight: 500;
     color: var(--text);
-    margin-bottom: 16px;
+    margin: 0;
 }
+
 .footer-col a {
-    display: block;
+    display: inline-block;
     font-size: 14px;
     color: var(--text-muted);
-    padding: 6px 0;
+    padding: 0;
+    white-space: nowrap;
     transition: color 0.15s;
 }
-.footer-col a:hover { color: var(--text); }
+
+.footer-col a:hover {
+    color: var(--text);
+}
 
 .footer-bottom {
     max-width: var(--max-width);
