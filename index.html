@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Atlas - Professional Map Animation Software</title>
+    <meta name="description" content="Create stunning animated map videos with timeline-based editing, 3D camera animation, and GPU-accelerated exports. The professional tool for geospatial storytelling.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <svg width="28" height="28" viewBox="0 0 40 40" fill="none">
+                    <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.5"/>
+                    <circle cx="20" cy="20" r="6" fill="currentColor"/>
+                </svg>
+                <span>Go Atlas</span>
+            </a>
+            <div class="nav-menu">
+                <a href="#features">Features</a>
+                <a href="#usecases">Use Cases</a>
+                <a href="#pricing">Pricing</a>
+                <a href="https://docs.goatlas.co">Docs</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#cta" class="btn-primary">Download</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Animated maps for<br>professional storytelling</h1>
+            <p class="hero-lead">
+                Go Atlas is the first dedicated software for creating cinematic map animations.
+                Timeline editing, Bezier curves, 3D terrain, and GPU-accelerated export.
+            </p>
+            <div class="hero-cta">
+                <a href="#cta" class="btn-primary btn-lg">
+                    Download for Free
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <a href="#demo" class="btn-ghost btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Watch Demo
+                </a>
+            </div>
+            <p class="hero-platforms">Available for Windows and macOS</p>
+        </div>
+
+        <!-- Video Placeholder -->
+        <div class="hero-media">
+            <div class="video-container">
+                <!-- Replace with your video -->
+                <video autoplay muted loop playsinline poster="poster.jpg">
+                    <source src="demo.mp4" type="video/mp4">
+                </video>
+                <div class="video-placeholder">
+                    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    <span>Video demo</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos -->
+    <section class="logos">
+        <p>Trusted by teams at</p>
+        <div class="logos-grid">
+            <span>Reuters</span>
+            <span>BBC</span>
+            <span>National Geographic</span>
+            <span>Al Jazeera</span>
+            <span>The Guardian</span>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="features">
+        <div class="section-intro">
+            <h2>Built for cartographers,<br>designed for storytellers</h2>
+            <p>Everything you need to create professional map animations, without the complexity of generic video editors.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
+                </div>
+                <h3>Bezier curve editor</h3>
+                <p>Professional animation curves with handles. Create smooth, cinematic camera movements with precision control over easing.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
+                </div>
+                <h3>Mapbox integration</h3>
+                <p>Access satellite, terrain, streets, and custom map styles. Full 3D terrain support with adjustable exaggeration.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M14 12h4"/></svg>
+                </div>
+                <h3>Multi-track timeline</h3>
+                <p>Professional timeline with tracks for camera, shapes, text, and media. Frame-accurate editing at 60 FPS.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                </div>
+                <h3>GeoJSON & data import</h3>
+                <p>Import GeoJSON, Shapefiles, CSV, and KML. Animate geographic data with automatic format conversion.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <h3>GPU-accelerated export</h3>
+                <p>WebCodecs H.264 encoding delivers 2-4x faster exports than traditional methods. Up to 4K at 60fps.</p>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l-4 4l6 6l4 -16l-18 7l7 2l2 7l3 -4"/></svg>
+                </div>
+                <h3>Camera path visualization</h3>
+                <p>See your camera trajectory directly on the map with markers at each keyframe position.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="video-wrapper">
+            <!-- Replace with your video -->
+            <video controls poster="tutorial-poster.jpg">
+                <source src="tutorial.mp4" type="video/mp4">
+            </video>
+            <div class="video-placeholder large">
+                <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                    <circle cx="12" cy="12" r="10"/>
+                    <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
+                </svg>
+                <span>See Go Atlas in action</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases -->
+    <section id="usecases" class="usecases">
+        <div class="section-intro">
+            <h2>Used across industries</h2>
+            <p>From newsrooms to documentaries, Go Atlas powers professional map animations worldwide.</p>
+        </div>
+
+        <div class="usecases-grid">
+            <div class="usecase">
+                <h3>Broadcast & News</h3>
+                <p>Create map graphics for news segments, weather reports, and breaking coverage in minutes.</p>
+            </div>
+            <div class="usecase">
+                <h3>Documentary</h3>
+                <p>Visualize historical journeys, migrations, and geographic narratives with cinematic quality.</p>
+            </div>
+            <div class="usecase">
+                <h3>Data Journalism</h3>
+                <p>Animate geographic datasets and statistics to tell compelling data-driven stories.</p>
+            </div>
+            <div class="usecase">
+                <h3>Travel & Tourism</h3>
+                <p>Showcase destinations, routes, and experiences with engaging animated maps.</p>
+            </div>
+            <div class="usecase">
+                <h3>Education</h3>
+                <p>Create educational content about geography, history, and world events.</p>
+            </div>
+            <div class="usecase">
+                <h3>Urban Planning</h3>
+                <p>Present development projects and infrastructure plans with dynamic visualizations.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison -->
+    <section class="comparison">
+        <div class="section-intro">
+            <h2>Why Go Atlas</h2>
+            <p>Purpose-built for map animations, not adapted from generic video editing.</p>
+        </div>
+
+        <div class="comparison-table">
+            <div class="comparison-row header">
+                <div class="comparison-cell"></div>
+                <div class="comparison-cell highlight">Go Atlas</div>
+                <div class="comparison-cell">After Effects + Plugin</div>
+                <div class="comparison-cell">Generic Editor</div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Real-time map preview</div>
+                <div class="comparison-cell highlight"><span class="yes"></span></div>
+                <div class="comparison-cell"><span class="partial"></span></div>
+                <div class="comparison-cell"><span class="no"></span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">Native GeoJSON support</div>
+                <div class="comparison-cell highlight"><span class="yes"></span></div>
+                <div class="comparison-cell"><span class="partial"></span></div>
+                <div class="comparison-cell"><span class="no"></span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">GPU-accelerated export</div>
+                <div class="comparison-cell highlight"><span class="yes"></span></div>
+                <div class="comparison-cell"><span class="no"></span></div>
+                <div class="comparison-cell"><span class="partial"></span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">No plugins required</div>
+                <div class="comparison-cell highlight"><span class="yes"></span></div>
+                <div class="comparison-cell"><span class="no"></span></div>
+                <div class="comparison-cell"><span class="yes"></span></div>
+            </div>
+            <div class="comparison-row">
+                <div class="comparison-cell label">3D terrain support</div>
+                <div class="comparison-cell highlight"><span class="yes"></span></div>
+                <div class="comparison-cell"><span class="partial"></span></div>
+                <div class="comparison-cell"><span class="no"></span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="cta" class="cta">
+        <h2>Start creating map animations today</h2>
+        <p>Download Go Atlas for free. No credit card required.</p>
+        <div class="cta-buttons">
+            <a href="https://goatlas.co/download" class="btn-primary btn-lg">
+                Download for Free
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            </a>
+        </div>
+        <div class="cta-platforms">
+            <div class="platform">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+                Windows
+            </div>
+            <div class="platform">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                macOS
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="#" class="nav-logo">
+                    <svg width="24" height="24" viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.5"/>
+                        <circle cx="20" cy="20" r="6" fill="currentColor"/>
+                    </svg>
+                    <span>Go Atlas</span>
+                </a>
+                <p>Professional map animation software.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <a href="#features">Features</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#">Changelog</a>
+                    <a href="#">Roadmap</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <a href="#">Documentation</a>
+                    <a href="#">Tutorials</a>
+                    <a href="#">Support</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Neovi Media. All rights reserved.</p>
+            <div class="social">
+                <a href="https://github.com/Quentindenoy/Go_Atlas" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="#" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href="#" aria-label="YouTube">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
