@@ -49,12 +49,17 @@
 <div class="hero-cta">
 <a href="#pricing" class="btn-primary btn-lg">Get Go Atlas</a>
 
-    <a href="#demo" class="btn-ghost btn-lg">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <polygon points="5 3 19 12 5 21 5 3"/>
-        </svg>
-        Watch Demo
-    </a>
+<a 
+    href="https://youtu.be/wWcW2JRzU9E" 
+    target="_blank" 
+    rel="noopener"
+    class="btn-ghost btn-lg demo-btn"
+>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+        <polygon points="5 3 19 12 5 21 5 3"/>
+    </svg>
+    Watch Demo
+</a>
 </div>
         </div>
 
@@ -262,7 +267,10 @@
     </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 <script>
+document.addEventListener("DOMContentLoaded", () => {
+
     AOS.init({
         duration: 800,
         once: true,
@@ -271,6 +279,40 @@
 
     const hero = document.querySelector(".hero-window");
 
+    // ===== VIDEO MODAL =====
+    const openBtn = document.getElementById("openVideo");
+    const modal = document.getElementById("videoModal");
+    const closeBtn = document.getElementById("closeVideo");
+    const frame = document.getElementById("videoFrame");
+
+    const videoURL = "https://www.youtube.com/embed/wWcW2JRzU9E?autoplay=1";
+
+    if (openBtn && modal && closeBtn && frame) {
+
+        openBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            modal.classList.add("active");
+            frame.src = videoURL;
+
+            document.body.style.overflow = "hidden"; // UX clean
+        });
+
+        closeBtn.addEventListener("click", () => {
+            modal.classList.remove("active");
+            frame.src = "";
+            document.body.style.overflow = "";
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target.classList.contains("video-backdrop")) {
+                modal.classList.remove("active");
+                frame.src = "";
+                document.body.style.overflow = "";
+            }
+        });
+    }
+
+    // ===== HERO PARALLAX =====
     if (hero) {
         hero.addEventListener("mousemove", (e) => {
             const rect = hero.getBoundingClientRect();
@@ -301,7 +343,11 @@
             `;
         });
     }
+
+});
 </script>
-	
+
+
+
 </body>
 </html>
