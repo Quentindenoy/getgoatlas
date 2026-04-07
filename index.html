@@ -4,172 +4,299 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Go Atlas - Professional Map Animation Software</title>
-    <meta name="description" content="Create stunning animated map videos with timeline-based editing, 3D camera animation, and GPU-accelerated exports. The professional tool for geospatial storytelling.">
+    <meta name="description" content="Create stunning animated map videos with timeline-based editing, cinematic camera motion, and GPU-accelerated exports.">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Navigation -->
-<nav class="nav">
-    <div class="nav-inner">
 
-        <a href="#" class="nav-logo">
-            <img src="assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
-            <span>Go Atlas</span>
-        </a>
+    <div class="site-bg"></div>
+    <div class="site-grid"></div>
 
-        <div class="nav-menu">       
-			<a href="#features">For What</a>
-            <a href="#usecases">For who</a>
-			<a href="#pricing">Pricing</a>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                <img src="assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
+                <span>Go Atlas</span>
+            </a>
+
+            <div class="nav-menu">
+                <a href="#features">Features</a>
+                <a href="#usecases">Use Cases</a>
+                <a href="#pricing">Pricing</a>
+            </div>
         </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-glow"></div>
+
+        <div class="hero-content" data-aos="fade-up">
+            <h1>
+                Animated maps for
+                <span class="gradient-text">professional storytelling</span>
+            </h1>
+
+            <p class="hero-lead">
+                Go Atlas helps creators, journalists, and studios produce cinematic map videos with
+                timeline-based editing, Bezier animation curves, custom overlays, and GPU-accelerated export.
+            </p>
+
+            <div class="hero-cta">
+             
+                <a href="#demo" class="btn-ghost btn-lg">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Watch Demo
+                </a>
+				<a href="#" class="btn-primary btn-lg">Get Go Atlas</a>
+            </div>
+        </div>
+
+        <div class="hero-visual" data-aos="fade-up" data-aos-delay="200">
+            <div class="hero-window">
+                <div class="window-topbar">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div class="window-content">
+                    <div class="mock-sidebar">
+                        <div class="mock-sidebar-block"></div>
+                        <div class="mock-sidebar-block short"></div>
+                        <div class="mock-sidebar-block"></div>
+                        <div class="mock-sidebar-block"></div>
+                    </div>
+
+                    <div class="mock-main">
+                        <div class="mock-map">
+                            <div class="mock-route route-1"></div>
+                            <div class="mock-route route-2"></div>
+                            <div class="mock-point point-1"></div>
+                            <div class="mock-point point-2"></div>
+                            <div class="mock-point point-3"></div>
+                        </div>
+
+                        <div class="mock-timeline">
+                            <div class="timeline-track"></div>
+                            <div class="timeline-track short"></div>
+                            <div class="timeline-track"></div>
+                            <div class="timeline-playhead"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
+        <div class="section-intro" data-aos="fade-up">
+            <p class="section-label">Features</p>
+            <h2>Built for cartographers, designed for storytellers</h2>
+            <p>
+                Everything you need to create cinematic map animations without forcing your workflow
+                into a generic video editor.
+            </p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="6" width="20" height="12" rx="2"/>
+                        <path d="M6 12h4M14 12h4"/>
+                    </svg>
+                </div>
+                <h3>Multi-track timeline</h3>
+                <p>Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS.</p>
+            </div>
+
+            <div class="feature" data-aos="fade-up" data-aos-delay="150">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 20V10M18 20V4M6 20v-4"/>
+                    </svg>
+                </div>
+                <h3>Advanced keyframe editor</h3>
+                <p>Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
+            </div>
+
+            <div class="feature" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/>
+                    </svg>
+                </div>
+                <h3>Customizable map styles</h3>
+                <p>Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone.</p>
+            </div>
+
+            <div class="feature" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
+                        <polyline points="2 17 12 22 22 17"/>
+                        <polyline points="2 12 12 17 22 12"/>
+                    </svg>
+                </div>
+                <h3>Geospatial data import</h3>
+                <p>Import GeoJSON, Shapefiles, and KML. Bring real geographic data into your animation workflow with minimal friction.</p>
+            </div>
+
+            <div class="feature" data-aos="fade-up" data-aos-delay="150">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                </div>
+                <h3>GPU-accelerated export</h3>
+                <p>Fast H.264 export with WebCodecs support for efficient rendering up to 4K, keeping iteration smooth and production-ready.</p>
+            </div>
+
+            <div class="feature" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M15 10l-4 4l6 6l4 -16l-18 7l7 2l2 7l3 -4"/>
+                    </svg>
+                </div>
+                <h3>Path visualization</h3>
+                <p>See the full camera trajectory directly on the map, with visual markers for each keyframe and better control of motion design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="usecases" class="usecases">
+        <div class="section-intro" data-aos="fade-up">
+            <p class="section-label">Use Cases</p>
+            <h2>Why creators choose Go Atlas</h2>
+            <p>
+                From newsroom explainers to documentary sequences, Go Atlas gives teams a faster
+                way to build beautiful geographic storytelling.
+            </p>
+        </div>
+
+        <div class="usecases-grid">
+            <div class="usecase" data-aos="zoom-in-up">
+                <div class="usecase-icon">📺</div>
+                <h3>Broadcast & News</h3>
+                <p>Create map graphics for breaking stories, international coverage, and regional context in minutes.</p>
+            </div>
+
+            <div class="usecase" data-aos="zoom-in-up" data-aos-delay="100">
+                <div class="usecase-icon">🎬</div>
+                <h3>Documentary</h3>
+                <p>Reconstruct journeys, migrations, historical events, or geopolitical shifts with cinematic motion.</p>
+            </div>
+
+            <div class="usecase" data-aos="zoom-in-up" data-aos-delay="200">
+                <div class="usecase-icon">📊</div>
+                <h3>Data Journalism</h3>
+                <p>Animate routes, territories, and geographic datasets to turn information into compelling visual stories.</p>
+            </div>
+        </div>
+    </section>
+
+<section id="pricing" class="pricing">
+    <div class="section-intro">
+        <p class="section-label">Pricing</p>
+        <h2>Simple pricing</h2>
+        <p>Choose the plan that fits your workflow.</p>
     </div>
-</nav>
 
-  <!-- Hero -->
-<section class="hero">
-    <div class="hero-content">
-        <h1>Animated maps for<br>professional storytelling</h1>
-        <p class="hero-lead">
-            Go Atlas is the first dedicated software for creating cinematic map animations.
-            Timeline editing, Bezier curves, and GPU-accelerated export.
-        </p>
+    <div class="pricing-grid">
 
-        <div class="hero-cta">
-           <a href="#demo" class="btn-ghost btn-lg">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <polygon points="5 3 19 12 5 21 5 3"/>
-                </svg>
-                Watch Demo
+        <!-- MONTHLY -->
+        <div class="pricing-card">
+            <h3>Pro Monthly</h3>
+
+            <div class="price">
+                €49 <span>/ month</span>
+            </div>
+
+            <ul class="pricing-features">
+                <li>Unlimited animations</li>
+                <li>4K exports</li>
+                <li>Advanced keyframes</li>
+                <li>All map styles</li>
+            </ul>
+
+            <a 
+                href="https://goatlas.lemonsqueezy.com/checkout/buy/de737ed7-e4fc-4e2c-a34c-887a6c432157?embed=1"
+                class="btn-ghost lemonsqueezy-button"
+            >
+                Subscribe Monthly
+            </a>
+        </div>
+
+        <!-- YEARLY -->
+        <div class="pricing-card featured">
+            <div class="badge">Best Value</div>
+
+            <h3>Pro Yearly</h3>
+
+            <div class="price">
+                €360 <span>/ year</span>
+            </div>
+
+            <p class="saving">Save €228 per year</p>
+
+            <ul class="pricing-features">
+                <li>Everything in Pro</li>
+                <li>Priority updates</li>
+                <li>Best value plan</li>
+            </ul>
+
+            <a 
+                href="https://goatlas.lemonsqueezy.com/checkout/buy/01086d6a-b888-4e43-b717-adf26f966d78?embed=1"
+                class="btn-primary lemonsqueezy-button"
+            >
+                Subscribe Yearly
             </a>
         </div>
 
     </div>
 </section>
 
-
-    <!-- Features -->
-    <section id="features" class="features">
-        <div class="section-intro">
-            <h2>Built for cartographers,<br>designed for storytellers</h2>
-            <p>Everything you need to create professional map animations, without the complexity of generic video editors.</p>
-        </div>
-
-        <div class="features-grid">
-            <div class="feature">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 12h4M14 12h4"/></svg>
-                </div>
-                <h3>Multi-track timeline</h3>
-                <p>Professional timeline with tracks for camera, shapes, text, and media. Frame-accurate editing at 60 FPS.</p>
-            </div>            
-			
-			<div class="feature">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 20V10M18 20V4M6 20v-4"/></svg>
-                </div>
-                <h3>Keyframe and curves editor</h3>
-                <p>Professional animation curves with handles. Create smooth, cinematic camera movements with precision control over easing.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/></svg>
-                </div>
-                <h3>Customizable Map</h3>
-                <p>satellite, streets, images, and custom map styles.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                </div>
-                <h3>GeoJSON & data import</h3>
-                <p>Import GeoJSON, Shapefiles, CSV, and KML. Animate geographic data with automatic format conversion.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                </div>
-                <h3>GPU-accelerated export</h3>
-                <p>WebCodecs H.264 encoding delivers 2-4x faster exports than traditional methods. Up to 4K at 60fps.</p>
-            </div>
-
-            <div class="feature">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 10l-4 4l6 6l4 -16l-18 7l7 2l2 7l3 -4"/></svg>
-                </div>
-                <h3>Camera path visualization</h3>
-                <p>See your camera trajectory directly on the map with markers at each keyframe position.</p>
-            </div>
-        </div>
-    </section>
-
-
-    <!-- Use Cases -->
-    <section id="usecases" class="usecases">
-
-<h2>Why Go Atlas</h2>
-
-        <div class="usecases-grid">
-            <div class="usecase">
-                <h3>Broadcast & News</h3>
-                <p>Create map graphics for news segments, weather reports, and breaking coverage in minutes.</p>
-            </div>
-            <div class="usecase">
-                <h3>Documentary</h3>
-                <p>Visualize historical journeys, migrations, and geographic narratives with cinematic quality.</p>
-            </div>
-            <div class="usecase">
-                <h3>Data Journalism</h3>
-                <p>Animate geographic datasets and statistics to tell compelling data-driven stories.</p>
-            </div>
-            <div class="usecase">
-                <h3>Travel & Tourism</h3>
-                <p>Showcase destinations, routes, and experiences with engaging animated maps.</p>
-            </div>
-            <div class="usecase">
-                <h3>Education</h3>
-                <p>Create educational content about geography, history, and world events.</p>
-            </div>
-            <div class="usecase">
-                <h3>Urban Planning</h3>
-                <p>Present development projects and infrastructure plans with dynamic visualizations.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Comparison -->
-    <section class="comparison">
-        <div class="section-intro">
-            <h2>PRICING</h2>
-            <p>integrate lemonsqueezy</p>
-        </div>
-
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-inner">
+            <div class="footer-brand">
+                <div class="nav-logo">
+                    <img src="assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
+                    <span>Go Atlas</span>
+                </div>
+                <p>The professional tool for geospatial storytelling.</p>
+            </div>
 
             <div class="footer-links">
                 <div class="footer-col">
                     <a href="#">Documentation</a>
                     <a href="#">Contact</a>
-                    <a href="#">About</a>
-                    <a href="#">Contact</a>
                     <a href="#">Privacy</a>
                     <a href="#">Terms</a>
-					<a href="#">Eula</a>
                 </div>
             </div>
-       
-        
-            <p>&copy; 2025 Neovi Media. All rights reserved.</p>   
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 Neovi Media. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
 </body>
 </html>
