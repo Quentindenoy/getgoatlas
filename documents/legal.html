@@ -3,154 +3,66 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Legal | Go Atlas</title>
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../styles.css">
-
-<style>
-html { scroll-behavior: smooth; }
-
-.legal-layout {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    gap: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 160px 24px 80px;
-}
-
-/* SIDEBAR */
-.legal-sidebar {
-    position: sticky;
-    top: 120px;
-}
-
-.legal-sidebar a {
-    display: block;
-    padding: 10px 0;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    transition: 0.2s;
-}
-
-.legal-sidebar a:hover {
-    color: var(--text);
-}
-
-/* CONTENT */
-.legal-content {
-    max-width: 800px;
-}
-
-.legal-content h1 {
-    font-size: 2.6rem;
-    margin-bottom: 20px;
-}
-
-.legal-content h2 {
-    margin-top: 40px;
-    margin-bottom: 10px;
-}
-
-.legal-content h3 {
-    margin-top: 20px;
-}
-
-.legal-content p,
-.legal-content li {
-    color: var(--text-secondary);
-    line-height: 1.7;
-}
-
-.legal-content ul {
-    padding-left: 18px;
-}
-
-.legal-section {
-    margin-bottom: 80px;
-}
-
-@media (max-width: 900px) {
-    .legal-layout {
-        grid-template-columns: 1fr;
-    }
-
-    .legal-sidebar {
-        display: flex;
-        gap: 20px;
-        overflow-x: auto;
-    }
-}
-</style>
 </head>
-
 <body>
+<a href="#main-content" class="skip-link">Skip to content</a>
 
-<nav class="nav">
+<div class="site-bg"></div>
+<div class="site-grid"></div>
+
+<nav class="nav" aria-label="Primary navigation">
     <div class="nav-inner">
-        <a href="../index.html" class="nav-logo">
-            <img src="../assets/loading.gif" class="logo-img">
+        <a href="../index.html#home" class="nav-logo">
+            <img src="../assets/loading.gif" alt="Go Atlas logo" class="logo-img">
             <span>Go Atlas</span>
         </a>
+
+        <div class="nav-menu">
+            <a href="../index.html#features">Features</a>
+            <a href="../index.html#usecases">Use Cases</a>
+            <a href="../index.html#pricing">Pricing</a>
+        </div>
     </div>
 </nav>
 
-<div class="legal-layout">
+<main id="main-content" class="legal-layout">
+    <aside class="legal-sidebar" aria-label="Legal documents">
+        <a href="#privacy" data-doc-link="privacy" class="active" aria-current="page">Privacy</a>
+        <a href="#terms" data-doc-link="terms">Terms</a>
+        <a href="#eula" data-doc-link="eula">EULA</a>
+    </aside>
 
-    <!-- SIDEBAR -->
-    <div class="legal-sidebar">
-        <a href="privacy.html">Privacy</a>
-        <a href="terms.html">Terms</a>
-        <a href="eula.html">EULA</a>
-    </div>
-
-    <!-- CONTENT -->
     <div class="legal-content">
-
-        <!-- ================= PRIVACY ================= -->
-        <section id="privacy" class="legal-section">
+        <section id="privacy" class="legal-doc is-active" data-doc-panel="privacy">
             <h1>Privacy Policy</h1>
             <p><strong>Effective Date:</strong> April 2026</p>
-
-            <p>
-            Neovi Media ("we", "our", "us") is committed to protecting your privacy.
-            </p>
+            <p>Neovi Media ("we", "our", "us") is committed to protecting your privacy.</p>
 
             <h2>Information We Collect</h2>
-
             <h3>Payment Information</h3>
-            <p>
-            Payments are handled by Lemonsqueezy. We do not store billing data.
-            </p>
+            <p>Payments are handled by Lemon Squeezy. We do not store billing data.</p>
 
             <h3>Support Data</h3>
-            <p>
-            We may collect feedback to improve the product.
-            </p>
+            <p>We may collect feedback to improve the product.</p>
 
             <h2>Use of Data</h2>
-            <p>
-            Data is used only for support and improvement.
-            </p>
+            <p>Data is used only for support and improvement.</p>
 
             <h2>Contact</h2>
             <p>contact@getgoatlas.com</p>
         </section>
 
-        <!-- ================= TERMS ================= -->
-        <section id="terms" class="legal-section">
+        <section id="terms" class="legal-doc" data-doc-panel="terms">
             <h1>Terms & Conditions</h1>
-
-            <p>
-            By using Go Atlas, you agree to these terms.
-            </p>
+            <p>By using Go Atlas, you agree to these terms.</p>
 
             <h2>License</h2>
-            <p>
-            Single-device, non-transferable license.
-            </p>
+            <p>Single-device, non-transferable license.</p>
 
             <h2>Restrictions</h2>
             <ul>
@@ -160,47 +72,88 @@ html { scroll-behavior: smooth; }
             </ul>
 
             <h2>Liability</h2>
-            <p>
-            Software is provided "as is".
-            </p>
+            <p>Software is provided "as is".</p>
         </section>
 
-        <!-- ================= EULA ================= -->
-        <section id="eula" class="legal-section">
+        <section id="eula" class="legal-doc" data-doc-panel="eula">
             <h1>EULA</h1>
-
-            <p>
-            This is a license agreement between you and Neovi Media.
-            </p>
+            <p>This is a license agreement between you and Neovi Media.</p>
 
             <h2>Usage</h2>
-            <p>
-            Allowed for personal and commercial use.
-            </p>
+            <p>Allowed for personal and commercial use.</p>
 
             <h2>Ownership</h2>
-            <p>
-            All rights remain with Neovi Media.
-            </p>
+            <p>All rights remain with Neovi Media.</p>
 
             <h2>Third-party</h2>
-            <p>
-            Requires a valid Mapbox account.
-            </p>
+            <p>Requires a valid Mapbox account.</p>
 
             <h2>Limitation</h2>
-            <p>
-            No liability for damages.
-            </p>
+            <p>No liability for damages.</p>
         </section>
 
-        <p style="margin-top:40px; font-size:0.85rem; opacity:0.7;">
-            Neovi Media – Registered in France
-        </p>
+        <p class="legal-meta">Neovi Media - Registered in France</p>
+    </div>
+</main>
 
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="nav-logo">
+                <img src="../assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
+            </div>
+            <p>contact@getgoatlas.com</p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-col">
+                <a href="legal.html">Legal Mentions</a>
+            </div>
+        </div>
     </div>
 
-</div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Neovi Media. All rights reserved.</p>
+    </div>
+</footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const links = [...document.querySelectorAll("[data-doc-link]")];
+    const panels = [...document.querySelectorAll("[data-doc-panel]")];
+    const allowed = new Set(panels.map((panel) => panel.dataset.docPanel));
+
+    const activate = (name) => {
+        const activeName = allowed.has(name) ? name : "privacy";
+
+        links.forEach((link) => {
+            const isActive = link.dataset.docLink === activeName;
+            link.classList.toggle("active", isActive);
+            if (isActive) {
+                link.setAttribute("aria-current", "page");
+            } else {
+                link.removeAttribute("aria-current");
+            }
+        });
+
+        panels.forEach((panel) => {
+            panel.classList.toggle("is-active", panel.dataset.docPanel === activeName);
+        });
+    };
+
+    const readHash = () => window.location.hash.replace("#", "").trim();
+    const initialHash = readHash();
+    const initialDoc = allowed.has(initialHash) ? initialHash : "privacy";
+    activate(initialDoc);
+
+    if (!allowed.has(initialHash)) {
+        window.history.replaceState(null, "", "#" + initialDoc);
+    }
+
+    window.addEventListener("hashchange", () => {
+        activate(readHash());
+    });
+});
+</script>
 </body>
 </html>

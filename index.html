@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
 
     <div class="site-bg"></div>
     <div class="site-grid"></div>
 
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary navigation">
         <div class="nav-inner">
-            <a href="#" class="nav-logo">
+            <a href="#home" class="nav-logo">
                 <img src="assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
                 <span>Go Atlas</span>
             </a>
@@ -33,7 +34,13 @@
         </div>
     </nav>
 
+    <main id="main-content">
     <section class="hero" id="home">
+        <div class="hero-video-bg" aria-hidden="true">
+            <video autoplay muted loop playsinline preload="metadata">
+                <source src="assets/startup-background.mp4" type="video/mp4">
+            </video>
+        </div>
         <div class="hero-glow"></div>
 
         <div class="hero-content" data-aos="fade-up">
@@ -41,10 +48,6 @@
     Create cinematic map animations
     <span class="gradient-text">with precision and control</span>
             </h1>
-
-<p class="hero-lead">
-    A professional editor for animated maps — with timeline control, keyframes, and real-time rendering.
-</p>
 
 <div class="hero-cta">
 <a href="#pricing" class="btn-primary btn-lg">Get Go Atlas</a>
@@ -62,25 +65,6 @@
 </a>
 </div>
         </div>
-
-        <div class="hero-visual" data-aos="fade-up" data-aos-delay="200">
-            <div class="hero-window">
-                <div class="window-topbar">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-<div class="window-content">
-    <img
-        src="assets/UI.png"
-        alt="Go Atlas interface showing timeline-based map animation editor"
-        class="hero-ui-img"
-        loading="eager"
-        decoding="async"
-    >
-</div>
-            </div>
-        </div>
     </section>
 
     <section id="features" class="features">
@@ -92,69 +76,79 @@
             </p>
         </div>
 
-        <div class="features-grid">
-            <div class="feature" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <rect x="2" y="6" width="20" height="12" rx="2"/>
-                        <path d="M6 12h4M14 12h4"/>
-                    </svg>
+        <div class="feature-spotlight" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-screen-wrap">
+                <div class="hero-window feature-screen">
+                    <div class="window-topbar">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="window-content">
+                        <img
+                            src="assets/UI.png"
+                            alt="Go Atlas interface showing timeline-based map animation editor"
+                            class="hero-ui-img"
+                            loading="lazy"
+                            decoding="async"
+                        >
+                    </div>
                 </div>
-                <h3>Multi-track timeline</h3>
-                <p>Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS.</p>
+
+                <div class="feature-hotspot feature-hotspot--keyframe">
+                    <button type="button" class="feature-pin" aria-describedby="tip-keyframe">1</button>
+                    <article id="tip-keyframe" class="feature-tooltip" role="tooltip">
+                        <h3>Advanced keyframe editor</h3>
+                        <p>Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
+                    </article>
+                </div>
+
+                <div class="feature-hotspot feature-hotspot--style">
+                    <button type="button" class="feature-pin" aria-describedby="tip-style">2</button>
+                    <article id="tip-style" class="feature-tooltip" role="tooltip">
+                        <h3>Customizable map styles</h3>
+                        <p>Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone.</p>
+                    </article>
+                </div>
+
+                <div class="feature-hotspot feature-hotspot--timeline">
+                    <button type="button" class="feature-pin" aria-describedby="tip-timeline">3</button>
+                    <article id="tip-timeline" class="feature-tooltip" role="tooltip">
+                        <h3>Multi-track timeline</h3>
+                        <p>Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS.</p>
+                    </article>
+                </div>
+
+                <div class="feature-hotspot feature-hotspot--menu">
+                    <button type="button" class="feature-pin" aria-describedby="tip-menu">4</button>
+                    <article id="tip-menu" class="feature-tooltip" role="tooltip">
+                        <h3>Menu & Export</h3>
+                        <p>Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs.</p>
+                    </article>
+                </div>
             </div>
 
-            <div class="feature" data-aos="fade-up" data-aos-delay="150">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M12 20V10M18 20V4M6 20v-4"/>
-                    </svg>
-                </div>
-                <h3>Advanced keyframe editor</h3>
-                <p>Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
-            </div>
-
-            <div class="feature" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20M2 12h20"/>
-                    </svg>
-                </div>
-                <h3>Customizable map styles</h3>
-                <p>Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone.</p>
-            </div>
-
-            <div class="feature" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <polygon points="12 2 2 7 12 12 22 7 12 2"/>
-                        <polyline points="2 17 12 22 22 17"/>
-                        <polyline points="2 12 12 17 22 12"/>
-                    </svg>
-                </div>
-                <h3>Geospatial data import</h3>
-                <p>Import GeoJSON, Shapefiles, and KML. Bring real geographic data into your animation workflow with minimal friction.</p>
-            </div>
-
-            <div class="feature" data-aos="fade-up" data-aos-delay="150">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                    </svg>
-                </div>
-                <h3>GPU-accelerated export</h3>
-                <p>Fast H.264 export with WebCodecs support for efficient rendering up to 4K, keeping iteration smooth and production-ready.</p>
-            </div>
-
-            <div class="feature" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M15 10l-4 4l6 6l4 -16l-18 7l7 2l2 7l3 -4"/>
-                    </svg>
-                </div>
-                <h3>Path visualization</h3>
-                <p>See the full camera trajectory directly on the map, with visual markers for each keyframe and better control of motion design.</p>
+            <div class="feature-mobile-list">
+                <article class="feature-mobile-item">
+                    <span class="feature-badge">1</span>
+                    <h3>Advanced keyframe editor</h3>
+                    <p>Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
+                </article>
+                <article class="feature-mobile-item">
+                    <span class="feature-badge">2</span>
+                    <h3>Customizable map styles</h3>
+                    <p>Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone.</p>
+                </article>
+                <article class="feature-mobile-item">
+                    <span class="feature-badge">3</span>
+                    <h3>Multi-track timeline</h3>
+                    <p>Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS.</p>
+                </article>
+                <article class="feature-mobile-item">
+                    <span class="feature-badge">4</span>
+                    <h3>Menu & Export</h3>
+                    <p>Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -250,6 +244,7 @@
 
 </div>
 </section>
+    </main>
 
     <footer class="footer">
         <div class="footer-inner">
@@ -262,10 +257,7 @@
 
             <div class="footer-links">
 <div class="footer-col">
-    <a href="documents/legal.html">Legal</a>
-    <a href="documents/privacy.html">Privacy</a>
-    <a href="documents/terms.html">Terms</a>
-    <a href="documents/eula.html">EULA</a>
+    <a href="documents/legal.html">Legal Mentions</a>
 </div>
             </div>
         </div>
@@ -285,74 +277,6 @@ document.addEventListener("DOMContentLoaded", () => {
         once: true,
         offset: 100
     });
-
-    const hero = document.querySelector(".hero-window");
-
-    // ===== VIDEO MODAL =====
-    const openBtn = document.getElementById("openVideo");
-    const modal = document.getElementById("videoModal");
-    const closeBtn = document.getElementById("closeVideo");
-    const frame = document.getElementById("videoFrame");
-
-    const videoURL = "https://www.youtube.com/embed/wWcW2JRzU9E?autoplay=1";
-
-    if (openBtn && modal && closeBtn && frame) {
-
-        openBtn.addEventListener("click", (e) => {
-            e.preventDefault();
-            modal.classList.add("active");
-            frame.src = videoURL;
-
-            document.body.style.overflow = "hidden"; // UX clean
-        });
-
-        closeBtn.addEventListener("click", () => {
-            modal.classList.remove("active");
-            frame.src = "";
-            document.body.style.overflow = "";
-        });
-
-        modal.addEventListener("click", (e) => {
-            if (e.target.classList.contains("video-backdrop")) {
-                modal.classList.remove("active");
-                frame.src = "";
-                document.body.style.overflow = "";
-            }
-        });
-    }
-
-    // ===== HERO PARALLAX =====
-    if (hero) {
-        hero.addEventListener("mousemove", (e) => {
-            const rect = hero.getBoundingClientRect();
-
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -2.2;
-            const rotateY = ((x - centerX) / centerX) * 2.2;
-
-            hero.style.transform = `
-                perspective(1200px)
-                rotateX(${rotateX}deg)
-                rotateY(${rotateY}deg)
-                scale(1.005)
-            `;
-        });
-
-        hero.addEventListener("mouseleave", () => {
-            hero.style.transform = `
-                perspective(1200px)
-                rotateX(0deg)
-                rotateY(0deg)
-                scale(1)
-            `;
-        });
-    }
-
 });
 </script>
 
