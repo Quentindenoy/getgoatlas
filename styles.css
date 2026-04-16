@@ -182,6 +182,7 @@ section {
     align-items: center;
     justify-content: space-between;
     gap: 24px;
+    position: relative;
 }
 
 .nav-logo {
@@ -232,6 +233,41 @@ section {
 .nav-menu a:hover::after {
     width: 100%;
 }
+
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border-strong);
+    background: rgba(255,255,255,0.03);
+    color: var(--text);
+    cursor: pointer;
+}
+
+.nav-toggle .bar {
+    width: 16px;
+    height: 1.8px;
+    border-radius: 2px;
+    background: currentColor;
+    position: relative;
+}
+
+.nav-toggle .bar::before,
+.nav-toggle .bar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 16px;
+    height: 1.8px;
+    border-radius: 2px;
+    background: currentColor;
+}
+
+.nav-toggle .bar::before { top: -5px; }
+.nav-toggle .bar::after { top: 5px; }
 
 /* ===== Buttons ===== */
 .btn-primary,
@@ -539,39 +575,9 @@ section {
     box-shadow: 0 0 0 12px rgba(58, 124, 255, 0.16);
 }
 
-.feature-tooltip {
-    position: fixed;
-    width: 280px;
-    padding: 11px 13px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    background: rgba(14, 19, 27, 0.9);
-    box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(6px);
-    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-    pointer-events: none;
-    z-index: 1200;
-}
-
-.feature-tooltip h3 {
-    font-size: 0.9rem;
-    margin-bottom: 6px;
-    letter-spacing: -0.02em;
-}
-
-.feature-tooltip p {
-    color: var(--text-secondary);
-    font-size: 0.82rem;
-    line-height: 1.45;
-}
-
-.feature-hotspot.is-active .feature-tooltip {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    pointer-events: auto;
+.feature-hotspot.is-active .feature-pin {
+    transform: scale(1.07);
+    box-shadow: 0 0 0 12px rgba(58, 124, 255, 0.20);
 }
 
 .feature-hotspot--keyframe {
@@ -594,27 +600,26 @@ section {
     left: 86%;
 }
 
-.feature-mobile-list {
-    display: none;
-    margin-top: 20px;
-    gap: 14px;
+.feature-info-panel {
+    width: min(760px, 100%);
+    margin: 18px auto 0;
+    padding: 14px 16px;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    background: rgba(12, 18, 29, 0.78);
+    box-shadow: 0 12px 36px rgba(0,0,0,0.22);
 }
 
-.feature-mobile-item {
-    padding: 18px 20px;
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    background: rgba(17, 22, 31, 0.88);
+.feature-info-panel h3 {
+    font-size: 0.92rem;
+    margin-bottom: 5px;
+    letter-spacing: -0.01em;
 }
 
-.feature-mobile-item h3 {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-}
-
-.feature-mobile-item p {
+.feature-info-panel p {
     color: var(--text-secondary);
-    line-height: 1.6;
+    font-size: 0.82rem;
+    line-height: 1.45;
 }
 
 /* ===== Features ===== */
@@ -696,6 +701,7 @@ section {
     flex-direction: column;
     justify-content: flex-start;
     padding-top: clamp(86px, 10vh, 130px);
+    overflow-x: clip;
 }
 
 .usecases-grid {
@@ -930,22 +936,44 @@ section {
     }
 
     .nav-menu {
-        display: flex;
-        gap: 12px;
-        margin-left: auto;
-        max-width: 58vw;
-        overflow-x: auto;
-        white-space: nowrap;
-        scrollbar-width: none;
+        display: none;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 14px;
+        left: 14px;
+        padding: 10px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.10);
+        background: rgba(7, 11, 18, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 14px 36px rgba(0,0,0,0.35);
+        flex-direction: column;
+        gap: 6px;
+        z-index: 1200;
     }
 
-    .nav-menu::-webkit-scrollbar {
-        display: none;
+    .nav.nav-open .nav-menu {
+        display: flex;
     }
 
     .nav-menu a {
-        font-size: 0.84rem;
-        color: #c8d2e0;
+        font-size: 0.9rem;
+        color: #d5deeb;
+        padding: 8px 10px;
+        border-radius: 8px;
+    }
+
+    .nav-menu a::after {
+        display: none;
+    }
+
+    .nav-menu a:hover {
+        background: rgba(255,255,255,0.06);
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
     }
 
     section {
@@ -996,19 +1024,17 @@ section {
         transform: scale(1.12);
     }
 
-    .feature-tooltip {
-        width: min(248px, calc(100vw - 34px));
-        padding: 10px 12px;
+    .feature-info-panel {
+        margin-top: 14px;
+        padding: 12px 13px;
     }
 
-    .feature-tooltip h3 {
-        font-size: 0.84rem;
-        margin-bottom: 5px;
+    .feature-info-panel h3 {
+        font-size: 0.88rem;
     }
 
-    .feature-tooltip p {
+    .feature-info-panel p {
         font-size: 0.78rem;
-        line-height: 1.38;
     }
 
     .window-topbar {
@@ -1043,7 +1069,30 @@ section {
         padding: 26px;
     }
 
-    .usecases-grid,
+    .usecases-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    .usecase {
+        min-width: 0;
+        min-height: 100%;
+        padding: 18px 14px;
+    }
+
+    .usecase h3 {
+        font-size: 1.02rem;
+    }
+
+    .usecase p {
+        font-size: 0.88rem;
+        line-height: 1.45;
+    }
+
     .pricing-grid {
         display: grid;
         grid-auto-flow: column;
@@ -1057,12 +1106,10 @@ section {
         grid-template-columns: none;
     }
 
-    .usecases-grid::-webkit-scrollbar,
     .pricing-grid::-webkit-scrollbar {
         display: none;
     }
 
-    .usecase,
     .pricing-card {
         scroll-snap-align: start;
         min-height: 100%;
@@ -1075,12 +1122,18 @@ section {
 
     .footer-inner {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        text-align: center;
         gap: 10px;
+    }
+
+    .footer-brand {
+        justify-content: center;
     }
 
     .footer-col {
         gap: 12px;
+        justify-content: center;
     }
 
     .footer {

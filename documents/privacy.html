@@ -27,6 +27,9 @@
                 <a href="../index.html#usecases">Use Cases</a>
                 <a href="../index.html#pricing">Pricing</a>
             </div>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
@@ -129,5 +132,31 @@
             <p>&copy; 2025 Neovi Media. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector(".nav");
+        const navToggle = document.querySelector(".nav-toggle");
+        if (!nav || !navToggle) return;
+
+        const closeNav = () => {
+            nav.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+        };
+
+        navToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const isOpen = nav.classList.toggle("nav-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".nav-inner")) closeNav();
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) closeNav();
+        });
+    });
+    </script>
 </body>
 </html>

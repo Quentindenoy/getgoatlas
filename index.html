@@ -31,6 +31,9 @@
                 <a href="#usecases">Use Cases</a>
                 <a href="#pricing">Pricing</a>
             </div>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
@@ -98,59 +101,50 @@
                 </div>
 
                 <div class="feature-hotspot feature-hotspot--keyframe">
-                    <button type="button" class="feature-pin" aria-describedby="tip-keyframe">1</button>
-                    <article id="tip-keyframe" class="feature-tooltip" role="tooltip">
-                        <h3>Advanced keyframe editor</h3>
-                        <p>Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
-                    </article>
+                    <button
+                        type="button"
+                        class="feature-pin"
+                        data-feature-id="1"
+                        data-feature-title="Advanced keyframe editor"
+                        data-feature-text="Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement."
+                    >1</button>
                 </div>
 
                 <div class="feature-hotspot feature-hotspot--style">
-                    <button type="button" class="feature-pin" aria-describedby="tip-style">2</button>
-                    <article id="tip-style" class="feature-tooltip" role="tooltip">
-                        <h3>Customizable map styles</h3>
-                        <p>Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone.</p>
-                    </article>
+                    <button
+                        type="button"
+                        class="feature-pin"
+                        data-feature-id="2"
+                        data-feature-title="Customizable map styles"
+                        data-feature-text="Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone."
+                    >2</button>
                 </div>
 
                 <div class="feature-hotspot feature-hotspot--timeline">
-                    <button type="button" class="feature-pin" aria-describedby="tip-timeline">3</button>
-                    <article id="tip-timeline" class="feature-tooltip" role="tooltip">
-                        <h3>Multi-track timeline</h3>
-                        <p>Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS.</p>
-                    </article>
+                    <button
+                        type="button"
+                        class="feature-pin"
+                        data-feature-id="3"
+                        data-feature-title="Multi-track timeline"
+                        data-feature-text="Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS."
+                    >3</button>
                 </div>
 
                 <div class="feature-hotspot feature-hotspot--menu">
-                    <button type="button" class="feature-pin" aria-describedby="tip-menu">4</button>
-                    <article id="tip-menu" class="feature-tooltip" role="tooltip">
-                        <h3>Menu & Export</h3>
-                        <p>Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs.</p>
-                    </article>
+                    <button
+                        type="button"
+                        class="feature-pin"
+                        data-feature-id="4"
+                        data-feature-title="Menu & Export"
+                        data-feature-text="Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs."
+                    >4</button>
                 </div>
             </div>
 
-            <div class="feature-mobile-list">
-                <article class="feature-mobile-item">
-                    <span class="feature-badge">1</span>
-                    <h3>Advanced keyframe editor</h3>
-                    <p>Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
-                </article>
-                <article class="feature-mobile-item">
-                    <span class="feature-badge">2</span>
-                    <h3>Customizable map styles</h3>
-                    <p>Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone.</p>
-                </article>
-                <article class="feature-mobile-item">
-                    <span class="feature-badge">3</span>
-                    <h3>Multi-track timeline</h3>
-                    <p>Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS.</p>
-                </article>
-                <article class="feature-mobile-item">
-                    <span class="feature-badge">4</span>
-                    <h3>Menu & Export</h3>
-                    <p>Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs.</p>
-                </article>
+            <div class="feature-info-panel" id="feature-info-panel" aria-live="polite">
+                <span class="feature-badge" id="feature-info-badge">1</span>
+                <h3 id="feature-info-title">Advanced keyframe editor</h3>
+                <p id="feature-info-text">Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
             </div>
         </div>
     </section>
@@ -280,139 +274,70 @@ document.addEventListener("DOMContentLoaded", () => {
         offset: 100
     });
 
-    const hotspots = [...document.querySelectorAll(".feature-hotspot")];
-    if (!hotspots.length) return;
-
-    const prefersCoarse = window.matchMedia("(hover: none), (pointer: coarse)");
-
-    const getPreferredPlacement = (hotspot) => {
-        if (hotspot.classList.contains("feature-hotspot--timeline")) return "top";
-        if (hotspot.classList.contains("feature-hotspot--style")) return "right";
-        return "left";
-    };
-
-    const setAriaState = (hotspot, expanded) => {
-        const pin = hotspot.querySelector(".feature-pin");
-        if (pin) pin.setAttribute("aria-expanded", expanded ? "true" : "false");
-    };
-
-    const placeTooltip = (hotspot) => {
-        const pin = hotspot.querySelector(".feature-pin");
-        const tip = hotspot.querySelector(".feature-tooltip");
-        if (!pin || !tip) return;
-
-        tip.style.maxWidth = `${Math.min(300, window.innerWidth - 24)}px`;
-
-        const pinRect = pin.getBoundingClientRect();
-        tip.style.left = "0px";
-        tip.style.top = "0px";
-        const tipRect = tip.getBoundingClientRect();
-        const margin = 12;
-        const gap = 12;
-
-        const coords = (placement) => {
-            if (placement === "right") {
-                return {
-                    x: pinRect.right + gap,
-                    y: pinRect.top + pinRect.height / 2 - tipRect.height / 2
-                };
-            }
-            if (placement === "top") {
-                return {
-                    x: pinRect.left + pinRect.width / 2 - tipRect.width / 2,
-                    y: pinRect.top - tipRect.height - gap
-                };
-            }
-            if (placement === "bottom") {
-                return {
-                    x: pinRect.left + pinRect.width / 2 - tipRect.width / 2,
-                    y: pinRect.bottom + gap
-                };
-            }
-            return {
-                x: pinRect.left - tipRect.width - gap,
-                y: pinRect.top + pinRect.height / 2 - tipRect.height / 2
-            };
+    const nav = document.querySelector(".nav");
+    const navToggle = document.querySelector(".nav-toggle");
+    if (nav && navToggle) {
+        const closeNav = () => {
+            nav.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
         };
 
-        let placement = getPreferredPlacement(hotspot);
-        let pos = coords(placement);
-
-        if (placement === "left" && pos.x < margin) {
-            placement = "right";
-            pos = coords(placement);
-        } else if (placement === "right" && pos.x + tipRect.width > window.innerWidth - margin) {
-            placement = "left";
-            pos = coords(placement);
-        }
-
-        if (placement === "top" && pos.y < margin) {
-            placement = "bottom";
-            pos = coords(placement);
-        } else if (placement === "bottom" && pos.y + tipRect.height > window.innerHeight - margin) {
-            placement = "top";
-            pos = coords(placement);
-        }
-
-        pos.x = Math.min(Math.max(pos.x, margin), window.innerWidth - tipRect.width - margin);
-        pos.y = Math.min(Math.max(pos.y, margin), window.innerHeight - tipRect.height - margin);
-
-        tip.style.left = `${pos.x}px`;
-        tip.style.top = `${pos.y}px`;
-    };
-
-    const closeAll = (except = null) => {
-        hotspots.forEach((hotspot) => {
-            if (hotspot !== except) {
-                hotspot.classList.remove("is-active");
-                setAriaState(hotspot, false);
-            }
-        });
-    };
-
-    const openHotspot = (hotspot) => {
-        closeAll(hotspot);
-        hotspot.classList.add("is-active");
-        setAriaState(hotspot, true);
-        placeTooltip(hotspot);
-    };
-
-    hotspots.forEach((hotspot) => {
-        const pin = hotspot.querySelector(".feature-pin");
-        if (!pin) return;
-
-        setAriaState(hotspot, false);
-
-        pin.addEventListener("click", (event) => {
+        navToggle.addEventListener("click", (event) => {
             event.stopPropagation();
-            if (hotspot.classList.contains("is-active")) {
-                hotspot.classList.remove("is-active");
-                setAriaState(hotspot, false);
-            } else {
-                openHotspot(hotspot);
+            const isOpen = nav.classList.toggle("nav-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".nav-inner")) closeNav();
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) closeNav();
+        });
+    }
+
+    const hotspots = [...document.querySelectorAll(".feature-hotspot")];
+    const infoPanel = document.querySelector("#feature-info-panel");
+    const infoBadge = document.querySelector("#feature-info-badge");
+    const infoTitle = document.querySelector("#feature-info-title");
+    const infoText = document.querySelector("#feature-info-text");
+
+    if (hotspots.length && infoPanel && infoBadge && infoTitle && infoText) {
+        const prefersCoarse = window.matchMedia("(hover: none), (pointer: coarse)");
+
+        const activateHotspot = (hotspot) => {
+            const pin = hotspot.querySelector(".feature-pin");
+            if (!pin) return;
+
+            hotspots.forEach((item) => {
+                item.classList.remove("is-active");
+                const itemPin = item.querySelector(".feature-pin");
+                if (itemPin) itemPin.setAttribute("aria-pressed", "false");
+            });
+
+            hotspot.classList.add("is-active");
+            pin.setAttribute("aria-pressed", "true");
+            infoBadge.textContent = pin.dataset.featureId || "";
+            infoTitle.textContent = pin.dataset.featureTitle || "";
+            infoText.textContent = pin.dataset.featureText || "";
+        };
+
+        hotspots.forEach((hotspot) => {
+            const pin = hotspot.querySelector(".feature-pin");
+            if (!pin) return;
+
+            pin.setAttribute("aria-pressed", "false");
+            pin.addEventListener("click", () => activateHotspot(hotspot));
+            pin.addEventListener("focus", () => activateHotspot(hotspot));
+
+            if (!prefersCoarse.matches) {
+                hotspot.addEventListener("mouseenter", () => activateHotspot(hotspot));
             }
         });
 
-        pin.addEventListener("focus", () => openHotspot(hotspot));
-
-        if (!prefersCoarse.matches) {
-            hotspot.addEventListener("mouseenter", () => openHotspot(hotspot));
-        }
-    });
-
-    document.addEventListener("click", (event) => {
-        if (!event.target.closest(".feature-hotspot")) closeAll();
-    });
-
-    window.addEventListener("resize", () => {
-        const active = hotspots.find((hotspot) => hotspot.classList.contains("is-active"));
-        if (active) placeTooltip(active);
-    });
-
-    window.addEventListener("scroll", () => {
-        const active = hotspots.find((hotspot) => hotspot.classList.contains("is-active"));
-        if (active) placeTooltip(active);
-    }, { passive: true });
+        activateHotspot(hotspots[0]);
+    }
 });
 </script>
 
