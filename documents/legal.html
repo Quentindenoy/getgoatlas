@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Legal | Go Atlas</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+
+<style>
+html { scroll-behavior: smooth; }
+
+.legal-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 160px 24px 80px;
+}
+
+/* SIDEBAR */
+.legal-sidebar {
+    position: sticky;
+    top: 120px;
+}
+
+.legal-sidebar a {
+    display: block;
+    padding: 10px 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: 0.2s;
+}
+
+.legal-sidebar a:hover {
+    color: var(--text);
+}
+
+/* CONTENT */
+.legal-content {
+    max-width: 800px;
+}
+
+.legal-content h1 {
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+}
+
+.legal-content h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+
+.legal-content h3 {
+    margin-top: 20px;
+}
+
+.legal-content p,
+.legal-content li {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+.legal-content ul {
+    padding-left: 18px;
+}
+
+.legal-section {
+    margin-bottom: 80px;
+}
+
+@media (max-width: 900px) {
+    .legal-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .legal-sidebar {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="../index.html" class="nav-logo">
+            <img src="../assets/loading.gif" class="logo-img">
+            <span>Go Atlas</span>
+        </a>
+    </div>
+</nav>
+
+<div class="legal-layout">
+
+    <!-- SIDEBAR -->
+    <div class="legal-sidebar">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="eula.html">EULA</a>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="legal-content">
+
+        <!-- ================= PRIVACY ================= -->
+        <section id="privacy" class="legal-section">
+            <h1>Privacy Policy</h1>
+            <p><strong>Effective Date:</strong> April 2026</p>
+
+            <p>
+            Neovi Media ("we", "our", "us") is committed to protecting your privacy.
+            </p>
+
+            <h2>Information We Collect</h2>
+
+            <h3>Payment Information</h3>
+            <p>
+            Payments are handled by Lemonsqueezy. We do not store billing data.
+            </p>
+
+            <h3>Support Data</h3>
+            <p>
+            We may collect feedback to improve the product.
+            </p>
+
+            <h2>Use of Data</h2>
+            <p>
+            Data is used only for support and improvement.
+            </p>
+
+            <h2>Contact</h2>
+            <p>contact@getgoatlas.com</p>
+        </section>
+
+        <!-- ================= TERMS ================= -->
+        <section id="terms" class="legal-section">
+            <h1>Terms & Conditions</h1>
+
+            <p>
+            By using Go Atlas, you agree to these terms.
+            </p>
+
+            <h2>License</h2>
+            <p>
+            Single-device, non-transferable license.
+            </p>
+
+            <h2>Restrictions</h2>
+            <ul>
+                <li>No reverse engineering</li>
+                <li>No redistribution</li>
+                <li>No illegal use</li>
+            </ul>
+
+            <h2>Liability</h2>
+            <p>
+            Software is provided "as is".
+            </p>
+        </section>
+
+        <!-- ================= EULA ================= -->
+        <section id="eula" class="legal-section">
+            <h1>EULA</h1>
+
+            <p>
+            This is a license agreement between you and Neovi Media.
+            </p>
+
+            <h2>Usage</h2>
+            <p>
+            Allowed for personal and commercial use.
+            </p>
+
+            <h2>Ownership</h2>
+            <p>
+            All rights remain with Neovi Media.
+            </p>
+
+            <h2>Third-party</h2>
+            <p>
+            Requires a valid Mapbox account.
+            </p>
+
+            <h2>Limitation</h2>
+            <p>
+            No liability for damages.
+            </p>
+        </section>
+
+        <p style="margin-top:40px; font-size:0.85rem; opacity:0.7;">
+            Neovi Media – Registered in France
+        </p>
+
+    </div>
+
+</div>
+
+</body>
+</html>
