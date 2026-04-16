@@ -540,7 +540,7 @@ section {
 }
 
 .feature-tooltip {
-    position: absolute;
+    position: fixed;
     width: 280px;
     padding: 11px 13px;
     border: 1px solid rgba(255, 255, 255, 0.08);
@@ -551,6 +551,8 @@ section {
     visibility: hidden;
     transform: translateY(6px);
     transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    pointer-events: none;
+    z-index: 1200;
 }
 
 .feature-tooltip h3 {
@@ -565,11 +567,11 @@ section {
     line-height: 1.45;
 }
 
-.feature-hotspot:hover .feature-tooltip,
-.feature-hotspot:focus-within .feature-tooltip {
+.feature-hotspot.is-active .feature-tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+    pointer-events: auto;
 }
 
 .feature-hotspot--keyframe {
@@ -577,19 +579,9 @@ section {
     left: 15.1%;
 }
 
-.feature-hotspot--keyframe .feature-tooltip {
-    right: calc(100% + 22px);
-    top: -110px;
-}
-
 .feature-hotspot--style {
     top: 31%;
     left: 50.9%;
-}
-
-.feature-hotspot--style .feature-tooltip {
-    left: calc(100% + 22px);
-    top: -96px;
 }
 
 .feature-hotspot--timeline {
@@ -597,25 +589,9 @@ section {
     left: 41%;
 }
 
-.feature-hotspot--timeline .feature-tooltip {
-    left: 50%;
-    top: calc(100% + 22px);
-    transform: translateX(-50%) translateY(6px);
-}
-
-.feature-hotspot--timeline:hover .feature-tooltip,
-.feature-hotspot--timeline:focus-within .feature-tooltip {
-    transform: translateX(-50%) translateY(0);
-}
-
 .feature-hotspot--menu {
     top: 53.1%;
     left: 86%;
-}
-
-.feature-hotspot--menu .feature-tooltip {
-    right: calc(100% + 22px);
-    top: -90px;
 }
 
 .feature-mobile-list {

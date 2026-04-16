@@ -279,6 +279,140 @@ document.addEventListener("DOMContentLoaded", () => {
         once: true,
         offset: 100
     });
+
+    const hotspots = [...document.querySelectorAll(".feature-hotspot")];
+    if (!hotspots.length) return;
+
+    const prefersCoarse = window.matchMedia("(hover: none), (pointer: coarse)");
+
+    const getPreferredPlacement = (hotspot) => {
+        if (hotspot.classList.contains("feature-hotspot--timeline")) return "top";
+        if (hotspot.classList.contains("feature-hotspot--style")) return "right";
+        return "left";
+    };
+
+    const setAriaState = (hotspot, expanded) => {
+        const pin = hotspot.querySelector(".feature-pin");
+        if (pin) pin.setAttribute("aria-expanded", expanded ? "true" : "false");
+    };
+
+    const placeTooltip = (hotspot) => {
+        const pin = hotspot.querySelector(".feature-pin");
+        const tip = hotspot.querySelector(".feature-tooltip");
+        if (!pin || !tip) return;
+
+        tip.style.maxWidth = `${Math.min(300, window.innerWidth - 24)}px`;
+
+        const pinRect = pin.getBoundingClientRect();
+        tip.style.left = "0px";
+        tip.style.top = "0px";
+        const tipRect = tip.getBoundingClientRect();
+        const margin = 12;
+        const gap = 12;
+
+        const coords = (placement) => {
+            if (placement === "right") {
+                return {
+                    x: pinRect.right + gap,
+                    y: pinRect.top + pinRect.height / 2 - tipRect.height / 2
+                };
+            }
+            if (placement === "top") {
+                return {
+                    x: pinRect.left + pinRect.width / 2 - tipRect.width / 2,
+                    y: pinRect.top - tipRect.height - gap
+                };
+            }
+            if (placement === "bottom") {
+                return {
+                    x: pinRect.left + pinRect.width / 2 - tipRect.width / 2,
+                    y: pinRect.bottom + gap
+                };
+            }
+            return {
+                x: pinRect.left - tipRect.width - gap,
+                y: pinRect.top + pinRect.height / 2 - tipRect.height / 2
+            };
+        };
+
+        let placement = getPreferredPlacement(hotspot);
+        let pos = coords(placement);
+
+        if (placement === "left" && pos.x < margin) {
+            placement = "right";
+            pos = coords(placement);
+        } else if (placement === "right" && pos.x + tipRect.width > window.innerWidth - margin) {
+            placement = "left";
+            pos = coords(placement);
+        }
+
+        if (placement === "top" && pos.y < margin) {
+            placement = "bottom";
+            pos = coords(placement);
+        } else if (placement === "bottom" && pos.y + tipRect.height > window.innerHeight - margin) {
+            placement = "top";
+            pos = coords(placement);
+        }
+
+        pos.x = Math.min(Math.max(pos.x, margin), window.innerWidth - tipRect.width - margin);
+        pos.y = Math.min(Math.max(pos.y, margin), window.innerHeight - tipRect.height - margin);
+
+        tip.style.left = `${pos.x}px`;
+        tip.style.top = `${pos.y}px`;
+    };
+
+    const closeAll = (except = null) => {
+        hotspots.forEach((hotspot) => {
+            if (hotspot !== except) {
+                hotspot.classList.remove("is-active");
+                setAriaState(hotspot, false);
+            }
+        });
+    };
+
+    const openHotspot = (hotspot) => {
+        closeAll(hotspot);
+        hotspot.classList.add("is-active");
+        setAriaState(hotspot, true);
+        placeTooltip(hotspot);
+    };
+
+    hotspots.forEach((hotspot) => {
+        const pin = hotspot.querySelector(".feature-pin");
+        if (!pin) return;
+
+        setAriaState(hotspot, false);
+
+        pin.addEventListener("click", (event) => {
+            event.stopPropagation();
+            if (hotspot.classList.contains("is-active")) {
+                hotspot.classList.remove("is-active");
+                setAriaState(hotspot, false);
+            } else {
+                openHotspot(hotspot);
+            }
+        });
+
+        pin.addEventListener("focus", () => openHotspot(hotspot));
+
+        if (!prefersCoarse.matches) {
+            hotspot.addEventListener("mouseenter", () => openHotspot(hotspot));
+        }
+    });
+
+    document.addEventListener("click", (event) => {
+        if (!event.target.closest(".feature-hotspot")) closeAll();
+    });
+
+    window.addEventListener("resize", () => {
+        const active = hotspots.find((hotspot) => hotspot.classList.contains("is-active"));
+        if (active) placeTooltip(active);
+    });
+
+    window.addEventListener("scroll", () => {
+        const active = hotspots.find((hotspot) => hotspot.classList.contains("is-active"));
+        if (active) placeTooltip(active);
+    }, { passive: true });
 });
 </script>
 
