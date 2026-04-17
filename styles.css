@@ -1181,6 +1181,12 @@ section {
         margin: 12px 0;
     }
 
+    .price-note {
+        margin: -6px 0 14px;
+        font-size: 0.7rem;
+        white-space: nowrap;
+    }
+
     .pricing-features li {
         font-size: 0.92rem;
         margin-bottom: 8px;
@@ -1364,6 +1370,15 @@ section {
     font-size: 1rem;
     color: var(--text-secondary);
     font-weight: 500;
+}
+
+.price-note {
+    margin: -10px 0 18px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #b8c7df;
+    opacity: 0.9;
+    white-space: nowrap;
 }
 
 .saving {
