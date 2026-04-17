@@ -1051,6 +1051,40 @@ section {
         font-size: 0.76rem;
     }
 
+    .feature-pin {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        border: 1px solid rgba(173, 205, 255, 0.78);
+        background: linear-gradient(145deg, rgba(56, 116, 222, 0.94), rgba(33, 80, 168, 0.94));
+        box-shadow:
+            0 6px 20px rgba(15, 35, 74, 0.45),
+            inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    }
+
+    .feature-hotspot:hover .feature-pin,
+    .feature-hotspot:focus-within .feature-pin,
+    .feature-hotspot.is-active .feature-pin {
+        transform: scale(1.04);
+        box-shadow:
+            0 8px 22px rgba(15, 35, 74, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.42);
+    }
+
+    .feature-badge {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 8px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        border: 1px solid rgba(173, 205, 255, 0.72);
+        background: linear-gradient(145deg, rgba(56, 116, 222, 0.94), rgba(33, 80, 168, 0.94));
+        box-shadow:
+            0 5px 16px rgba(15, 35, 74, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.32);
+    }
+
     .window-topbar {
         padding: 7px 12px;
         min-height: 28px;
@@ -1115,6 +1149,10 @@ section {
     .pricing-card {
         min-height: auto;
         padding: 22px 16px;
+    }
+
+    .badge {
+        display: none;
     }
 
     .pricing-card h3 {
