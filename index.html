@@ -75,12 +75,11 @@
     <section id="features" class="features">
         <div class="section-intro" data-aos="fade-up">
             <h2>
-                <span class="features-title-line">Built for cartographers</span>
-                <span class="features-title-line">designed for storytellers</span>
+                <span class="features-title-line">Built to animate.</span>
+                <span class="features-title-line">Designed to tell stories.</span>
             </h2>
             <p>
-                Everything you need to create cinematic map animations without forcing your workflow
-                into a generic video editor.
+An all-in-one solution for cinematic map animations, built around an intuitive workflow.
             </p>
         </div>
 
@@ -144,7 +143,6 @@
                 </div>
 
                 <article class="feature-flyout" id="feature-flyout" aria-hidden="true">
-                    <span class="feature-badge" id="feature-flyout-badge">1</span>
                     <h3 id="feature-flyout-title">Advanced keyframe editor</h3>
                     <p id="feature-flyout-text">Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
                 </article>
@@ -154,10 +152,10 @@
 
     <section id="usecases" class="usecases">
         <div class="section-intro" data-aos="fade-up">
-<h2>Used by creators, journalists and studios</h2>
+<h2>For editors who turn maps into stories</h2>
             <p>
-                From newsroom explainers to documentary sequences, Go Atlas gives teams a faster
-                way to build beautiful geographic storytelling.
+                Built for editors, studios, and media teams
+                <br>Go Atlas makes cinematic map animation fast and effortless.
             </p>
         </div>
 
@@ -244,7 +242,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2025 Neovi Media. All rights reserved.</p>
+            <p>&copy; 2026 Neovi Media. All rights reserved.</p>
         </div>
     </footer>
 
@@ -285,11 +283,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const hotspots = [...document.querySelectorAll(".feature-hotspot")];
     const featureWrap = document.querySelector(".feature-screen-wrap");
     const flyout = document.querySelector("#feature-flyout");
-    const flyoutBadge = document.querySelector("#feature-flyout-badge");
     const flyoutTitle = document.querySelector("#feature-flyout-title");
     const flyoutText = document.querySelector("#feature-flyout-text");
 
-    if (hotspots.length && featureWrap && flyout && flyoutBadge && flyoutTitle && flyoutText) {
+    if (hotspots.length && featureWrap && flyout && flyoutTitle && flyoutText) {
         let activeHotspot = null;
 
         const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
@@ -311,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const wrapRect = featureWrap.getBoundingClientRect();
             const pinRect = pin.getBoundingClientRect();
-            const gap = 12;
+            const gap = 20;
             const maxWidth = Math.min(300, wrapRect.width - 20);
 
             flyout.style.maxWidth = `${maxWidth}px`;
@@ -353,7 +350,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             hotspot.classList.add("is-active");
             pin.setAttribute("aria-pressed", "true");
-            flyoutBadge.textContent = pin.dataset.featureId || "";
             flyoutTitle.textContent = pin.dataset.featureTitle || "";
             flyoutText.textContent = pin.dataset.featureText || "";
 
