@@ -600,23 +600,37 @@ section {
     left: 86%;
 }
 
-.feature-info-panel {
-    width: min(760px, 100%);
-    margin: 18px auto 0;
-    padding: 14px 16px;
+.feature-flyout {
+    position: absolute;
+    z-index: 6;
+    width: 280px;
+    padding: 11px 13px;
     border: 1px solid rgba(255,255,255,0.08);
     border-radius: 12px;
-    background: rgba(12, 18, 29, 0.78);
-    box-shadow: 0 12px 36px rgba(0,0,0,0.22);
+    background: rgba(12, 18, 29, 0.93);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.30);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.92);
+    transform-origin: center;
+    transition: opacity 0.18s ease, transform 0.24s cubic-bezier(.22,1,.36,1), visibility 0.18s;
+    pointer-events: none;
 }
 
-.feature-info-panel h3 {
-    font-size: 0.92rem;
-    margin-bottom: 5px;
-    letter-spacing: -0.01em;
+.feature-flyout.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    pointer-events: auto;
 }
 
-.feature-info-panel p {
+.feature-flyout h3 {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    letter-spacing: -0.02em;
+}
+
+.feature-flyout p {
     color: var(--text-secondary);
     font-size: 0.82rem;
     line-height: 1.45;
@@ -1024,17 +1038,17 @@ section {
         transform: scale(1.12);
     }
 
-    .feature-info-panel {
-        margin-top: 14px;
-        padding: 12px 13px;
+    .feature-flyout {
+        width: min(250px, calc(100% - 20px));
+        padding: 10px 11px;
     }
 
-    .feature-info-panel h3 {
-        font-size: 0.88rem;
+    .feature-flyout h3 {
+        font-size: 0.84rem;
     }
 
-    .feature-info-panel p {
-        font-size: 0.78rem;
+    .feature-flyout p {
+        font-size: 0.76rem;
     }
 
     .window-topbar {
@@ -1063,41 +1077,43 @@ section {
         gap: 12px;
     }
 
-    .feature,
-    .usecase,
-    .pricing-card {
-        padding: 26px;
-    }
-
     .usecases-grid {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-        overflow: hidden;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(220px, 74vw);
+        gap: 12px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding-bottom: 8px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        grid-template-columns: none;
+    }
+
+    .usecases-grid::-webkit-scrollbar {
+        display: none;
     }
 
     .usecase {
-        min-width: 0;
+        scroll-snap-align: start;
         min-height: 100%;
         padding: 18px 14px;
     }
 
     .usecase h3 {
-        font-size: 1.02rem;
+        font-size: 1rem;
     }
 
     .usecase p {
-        font-size: 0.88rem;
+        font-size: 0.84rem;
         line-height: 1.45;
     }
 
     .pricing-grid {
         display: grid;
         grid-auto-flow: column;
-        grid-auto-columns: minmax(270px, 78vw);
-        gap: 14px;
+        grid-auto-columns: minmax(220px, 74vw);
+        gap: 12px;
         overflow-x: auto;
         overflow-y: hidden;
         padding-bottom: 8px;
@@ -1113,6 +1129,32 @@ section {
     .pricing-card {
         scroll-snap-align: start;
         min-height: 100%;
+        padding: 24px 18px;
+        min-height: 360px;
+    }
+
+    .pricing-card h3 {
+        font-size: clamp(1.2rem, 5vw, 1.8rem);
+    }
+
+    .price {
+        font-size: 2.1rem;
+        margin: 16px 0;
+    }
+
+    .pricing-features li {
+        font-size: 0.92rem;
+        margin-bottom: 8px;
+    }
+
+    .pricing-card:hover,
+    .usecase:hover {
+        transform: none;
+    }
+
+    .pricing-card.early-access:hover,
+    .pricing-card.disabled:hover {
+        transform: none;
     }
 
     .pricing {

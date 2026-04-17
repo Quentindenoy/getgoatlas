@@ -139,12 +139,12 @@
                         data-feature-text="Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs."
                     >4</button>
                 </div>
-            </div>
 
-            <div class="feature-info-panel" id="feature-info-panel" aria-live="polite">
-                <span class="feature-badge" id="feature-info-badge">1</span>
-                <h3 id="feature-info-title">Advanced keyframe editor</h3>
-                <p id="feature-info-text">Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
+                <article class="feature-flyout" id="feature-flyout" aria-hidden="true">
+                    <span class="feature-badge" id="feature-flyout-badge">1</span>
+                    <h3 id="feature-flyout-title">Advanced keyframe editor</h3>
+                    <p id="feature-flyout-text">Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
+                </article>
             </div>
         </div>
     </section>
@@ -298,18 +298,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const hotspots = [...document.querySelectorAll(".feature-hotspot")];
-    const infoPanel = document.querySelector("#feature-info-panel");
-    const infoBadge = document.querySelector("#feature-info-badge");
-    const infoTitle = document.querySelector("#feature-info-title");
-    const infoText = document.querySelector("#feature-info-text");
+    const featureWrap = document.querySelector(".feature-screen-wrap");
+    const flyout = document.querySelector("#feature-flyout");
+    const flyoutBadge = document.querySelector("#feature-flyout-badge");
+    const flyoutTitle = document.querySelector("#feature-flyout-title");
+    const flyoutText = document.querySelector("#feature-flyout-text");
 
-    if (hotspots.length && infoPanel && infoBadge && infoTitle && infoText) {
-        const prefersCoarse = window.matchMedia("(hover: none), (pointer: coarse)");
+    if (hotspots.length && featureWrap && flyout && flyoutBadge && flyoutTitle && flyoutText) {
+        let activeHotspot = null;
 
-        const activateHotspot = (hotspot) => {
+        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+        const closeHotspot = () => {
+            activeHotspot = null;
+            hotspots.forEach((hotspot) => {
+                hotspot.classList.remove("is-active");
+                const pin = hotspot.querySelector(".feature-pin");
+                if (pin) pin.setAttribute("aria-pressed", "false");
+            });
+            flyout.classList.remove("is-open");
+            flyout.setAttribute("aria-hidden", "true");
+        };
+
+        const positionFlyout = (hotspot) => {
             const pin = hotspot.querySelector(".feature-pin");
             if (!pin) return;
 
+            const wrapRect = featureWrap.getBoundingClientRect();
+            const pinRect = pin.getBoundingClientRect();
+            const gap = 12;
+            const maxWidth = Math.min(300, wrapRect.width - 20);
+
+            flyout.style.maxWidth = `${maxWidth}px`;
+            flyout.style.left = "0px";
+            flyout.style.top = "0px";
+
+            const flyoutRect = flyout.getBoundingClientRect();
+            const pinCenterX = pinRect.left - wrapRect.left + pinRect.width / 2;
+            const pinCenterY = pinRect.top - wrapRect.top + pinRect.height / 2;
+
+            let x = pinCenterX + gap;
+            let y = pinCenterY - flyoutRect.height / 2;
+
+            if (x + flyoutRect.width > wrapRect.width - 10) {
+                x = pinCenterX - flyoutRect.width - gap;
+            }
+
+            if (x < 10) {
+                x = pinCenterX - flyoutRect.width / 2;
+            }
+
+            x = clamp(x, 10, wrapRect.width - flyoutRect.width - 10);
+            y = clamp(y, 10, wrapRect.height - flyoutRect.height - 10);
+
+            flyout.style.left = `${x}px`;
+            flyout.style.top = `${y}px`;
+        };
+
+        const openHotspot = (hotspot) => {
+            const pin = hotspot.querySelector(".feature-pin");
+            if (!pin) return;
+
+            activeHotspot = hotspot;
             hotspots.forEach((item) => {
                 item.classList.remove("is-active");
                 const itemPin = item.querySelector(".feature-pin");
@@ -318,9 +368,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             hotspot.classList.add("is-active");
             pin.setAttribute("aria-pressed", "true");
-            infoBadge.textContent = pin.dataset.featureId || "";
-            infoTitle.textContent = pin.dataset.featureTitle || "";
-            infoText.textContent = pin.dataset.featureText || "";
+            flyoutBadge.textContent = pin.dataset.featureId || "";
+            flyoutTitle.textContent = pin.dataset.featureTitle || "";
+            flyoutText.textContent = pin.dataset.featureText || "";
+
+            flyout.setAttribute("aria-hidden", "false");
+            flyout.classList.add("is-open");
+            positionFlyout(hotspot);
         };
 
         hotspots.forEach((hotspot) => {
@@ -328,15 +382,37 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!pin) return;
 
             pin.setAttribute("aria-pressed", "false");
-            pin.addEventListener("click", () => activateHotspot(hotspot));
-            pin.addEventListener("focus", () => activateHotspot(hotspot));
+            pin.addEventListener("click", (event) => {
+                event.stopPropagation();
+                if (activeHotspot === hotspot) {
+                    closeHotspot();
+                    return;
+                }
+                openHotspot(hotspot);
+            });
 
-            if (!prefersCoarse.matches) {
-                hotspot.addEventListener("mouseenter", () => activateHotspot(hotspot));
+            pin.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    if (activeHotspot === hotspot) closeHotspot();
+                    else openHotspot(hotspot);
+                }
+            });
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".feature-hotspot") && !event.target.closest(".feature-flyout")) {
+                closeHotspot();
             }
         });
 
-        activateHotspot(hotspots[0]);
+        window.addEventListener("resize", () => {
+            if (activeHotspot) positionFlyout(activeHotspot);
+        });
+
+        window.addEventListener("scroll", () => {
+            if (activeHotspot) positionFlyout(activeHotspot);
+        }, { passive: true });
     }
 });
 </script>
