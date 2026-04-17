@@ -1071,6 +1071,7 @@ section {
 
     .usecases {
         min-height: auto;
+        overflow-x: visible;
     }
 
     .feature-spotlight {
@@ -1084,6 +1085,8 @@ section {
         gap: 12px;
         overflow-x: auto;
         overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
         padding-bottom: 8px;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
@@ -1116,6 +1119,8 @@ section {
         gap: 12px;
         overflow-x: auto;
         overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        touch-action: pan-x;
         padding-bottom: 8px;
         scroll-snap-type: x mandatory;
         scrollbar-width: none;
@@ -1185,6 +1190,41 @@ section {
     .footer-bottom {
         margin-top: 12px;
         padding-top: 10px;
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    .usecase:hover {
+        transform: none;
+        border-color: var(--border);
+        background: linear-gradient(180deg, rgba(22, 26, 37, 0.76), rgba(11, 13, 19, 0.88));
+    }
+
+    .pricing-card:hover,
+    .pricing-card.early-access:hover {
+        transform: none;
+        border-color: rgba(255,255,255,0.06);
+        box-shadow:
+            0 20px 60px rgba(0,0,0,0.35),
+            inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .pricing-card.disabled:hover {
+        transform: none;
+        border-color: rgba(88, 122, 188, 0.28);
+        box-shadow:
+            0 20px 60px rgba(0,0,0,0.35),
+            inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .pricing-card.disabled:hover::before,
+    .pricing-card.disabled:hover::after {
+        opacity: 0;
+    }
+
+    .pricing-card.disabled:hover > * {
+        opacity: 1;
+        filter: none;
     }
 }
 
