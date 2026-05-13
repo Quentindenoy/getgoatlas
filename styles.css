@@ -1804,16 +1804,23 @@ section {
     .legal-sidebar {
         position: static;
         display: grid;
-        grid-auto-flow: column;
-        grid-auto-columns: minmax(120px, 1fr);
-        gap: 10px;
-        overflow-x: auto;
-        padding: 10px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+        padding: 6px;
     }
 
     .legal-sidebar a {
+        padding: 10px 4px;
         text-align: center;
+        font-size: 0.85rem;
         white-space: nowrap;
+    }
+}
+
+@media (max-width: 380px) {
+    .legal-sidebar a {
+        font-size: 0.78rem;
+        padding: 10px 2px;
     }
 
     .legal-doc {
