@@ -90,51 +90,19 @@
                 <span class="gradient-text">Go Atlas<span class="brand-c">©</span> changes that.</span>
             </h2>
             <p class="section-lead">
-                Go Atlas<span class="brand-c">©</span> hands you the full cinematic toolkit in a single editor — the map and its countries, a 3D camera, routes, the pen tool for shapes, labels, effects, and a real timeline.
+                Go Atlas<span class="brand-c">©</span>hands you the full toolkit in a single editor.<br>
+Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K rendering, and much more...
             </p>
         </div>
 
-        <!-- 60-second demo -->
+        <!-- 60-second demo (coming soon) -->
         <div class="demo-stage">
-            <div class="video-placeholder video-placeholder--16x9 video-placeholder--xl" data-video-id="demo_60s">
-                <span class="vp-label">60-second product demo</span>
-                <button class="vp-play vp-play--lg" type="button" aria-label="Play 60-second demo">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <polygon points="6 4 20 12 6 20 6 4"/>
-                    </svg>
-                </button>
-                <div class="vp-chapters">
-                    <span>1. Route</span>
-                    <span>2. Camera</span>
-                    <span>3. Export</span>
+            <div class="video-placeholder video-placeholder--16x9 video-placeholder--xl video-placeholder--soon" data-video-id="demo_60s">
+                <div class="vp-soon">
+                    <span class="vp-soon-tag">Coming soon</span>
+                    <p>Full product walkthrough — in production.</p>
                 </div>
             </div>
-
-            <details class="recording-brief recording-brief--center">
-                <summary>Recording brief — read before filming</summary>
-                <div class="brief-block">
-                    <p><strong>File:</strong> <code>demo_60s.mp4</code> · 60s exact · 1920×1080 · 60fps · captioned, no voiceover.</p>
-                    <p><strong>Purpose:</strong> Replace the explainer paragraph nobody reads. This is the section that converts the curious into trial users.</p>
-                    <p><strong>What to record (60s, fast-cut):</strong></p>
-                    <ol>
-                        <li>Open Go Atlas to a blank map. (5s)</li>
-                        <li>Drop a route between two cities — show the line drawing live. (8s)</li>
-                        <li>Add a camera keyframe, drag the timeline, second keyframe at zoom-in. (12s)</li>
-                        <li>Add a label, drag it onto the map. (8s)</li>
-                        <li>Hit play, scrub timeline, show smoothness. (10s)</li>
-                        <li>Click Export → 4K → progress bar → finished video preview. (12s)</li>
-                        <li>End on the finished output filling the screen, fade to Go Atlas logo. (5s)</li>
-                    </ol>
-                    <p><strong>How to film:</strong></p>
-                    <ul>
-                        <li>OBS Studio, 1920×1080, 60fps, CBR 50000kbps. Hide or replace the system cursor with a clean large cursor.</li>
-                        <li>Practice the take 5+ times before recording. Every click deliberate, never searching.</li>
-                        <li>Edit in your video editor of choice. Speed clips 1.5-2× where you're typing or dragging long distances.</li>
-                        <li>Add captions in Go Atlas's UI font (Inter). No voiceover.</li>
-                        <li>Music: low-BPM cinematic synth. Avoid drums.</li>
-                    </ul>
-                </div>
-            </details>
         </div>
 
         <!-- 3 outputs with audience labels -->
@@ -150,7 +118,7 @@
                     ></video>
                 </div>
                 <h3>Travel films</h3>
-                <p>From one place to another. Drop labels, trim the path, animate the camera. Yours to direct.</p>
+                <p>From one place to another. Add labels, trim paths, add glow. Yours to direct.</p>
             </article>
 
             <article class="output-card">
@@ -164,7 +132,7 @@
                     ></video>
                 </div>
                 <h3>Documentary geography</h3>
-                <p>Draw shapes, regions, or arrows. Animate them with effects. Tell better stories.</p>
+                <p>Build animated maps with icons, effects, and cinematic storytelling.</p>
             </article>
 
             <article class="output-card">
@@ -178,7 +146,7 @@
                     ></video>
                 </div>
                 <h3>News &amp; explainers</h3>
-                <p>Regions highlight. Labels appear. Broadcast quality, no motion graphics team.</p>
+                <p>Draw regions.Broadcast quality, no motion graphics team required.</p>
             </article>
         </div>
     </section>
@@ -194,26 +162,36 @@
 
         <div class="bento-grid">
             <!-- Row 1: KF editor + Camera (top "editor area") -->
-            <article class="bento-tile bento-tile--half">
-                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_kf"></div>
-                <span class="output-audience">KF editor</span>
-                <div class="bento-text">
-                    <h3>Curve editor</h3>
-                    <p>Bezier handles on every keyframe. Ease, hold, bounce. Shape every move precisely.</p>
-                </div>
-            </article>
+            <article class="bento-tile bento-tile--full bento-tile--editor-suite">
+                <div class="bento-editor-row">
+                    <div class="video-placeholder video-placeholder--kfeditor has-video" data-video-id="feat_kf">
+                        <video
+                            src="assets/KFeditor.mp4"
+                            autoplay muted loop playsinline
+                            preload="metadata"
+                            aria-label="Keyframe editor timeline demo"
+                        ></video>
+                        <div class="vp-overlay-caption">
+                            <span class="output-audience">Keyframe Editor</span>
+                            <p>Manage your keyframe value. Bezier handles on every keyframe. Shape every move precisely.</p>
+                        </div>
+                    </div>
 
-            <article class="bento-tile bento-tile--half">
-                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_camera"></div>
-                <span class="output-audience">Camera</span>
-                <div class="bento-text">
-                    <h3>Cinematic 3D camera</h3>
-                    <p>Tilt, altitude, bearing. Frame the world like a DP.</p>
+                    <div class="video-placeholder video-placeholder--map has-video" data-video-id="feat_camera">
+                        <video
+                            src="assets/Map.mp4"
+                            autoplay muted loop playsinline
+                            preload="metadata"
+                            aria-label="Map camera editor demo"
+                        ></video>
+                        <div class="vp-overlay-caption">
+                            <span class="output-audience">Map</span>
+                            <p>Tilt, altitude, bearing. Frame the world like a DP.</p>
+                        </div>
+                    </div>
                 </div>
-            </article>
 
-            <!-- Row 2: Timeline (video full width, overlay caption from top on hover) -->
-            <article class="bento-tile bento-tile--full">
+                <!-- Row 2: Timeline (video full width, overlay caption from top on hover) -->
                 <div class="video-placeholder video-placeholder--wide has-video">
                     <video
                         src="assets/Timeline.mp4"
@@ -228,54 +206,62 @@
                 </div>
             </article>
 
-            <!-- Row 3: smaller feature tiles -->
-            <article class="bento-tile bento-tile--text bento-tile--third">
-                <span class="output-audience">Routes</span>
-                <div class="bento-text">
-                    <h3>Routes &amp; pen tool</h3>
-                    <p>Drop a route between cities. Draw freehand shapes with the pen tool. Animate everything.</p>
-                </div>
-            </article>
-
-            <article class="bento-tile bento-tile--text bento-tile--third">
-                <span class="output-audience">Regions</span>
-                <div class="bento-text">
-                    <h3>Countries &amp; labels</h3>
-                    <p>Highlight any region. Animate every label. Build broadcast-quality context in seconds.</p>
+            <!-- Row 3: content elements you can drop on the map -->
+            <article class="bento-tile bento-tile--third">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_route">
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Route</span>
+                        <p>Drop a route between any two places. Animate the path stroke. Add stops, labels, photos.</p>
+                    </div>
                 </div>
             </article>
 
             <article class="bento-tile bento-tile--third">
-                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_export"></div>
-                <span class="output-audience">Export</span>
-                <div class="bento-text">
-                    <h3>4K export</h3>
-                    <p>Broadcast-grade output, up to 60fps.</p>
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_regions">
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Regions &amp; countries</span>
+                        <p>Highlight any country or region. Style fills and borders. Animate label reveals.</p>
+                    </div>
                 </div>
             </article>
 
-            <!-- Row 4: Privacy as a full-width close -->
-            <article class="bento-tile bento-tile--text bento-tile--full">
-                <span class="output-audience">Privacy</span>
-                <div class="bento-text">
-                    <h3>Your projects, yours</h3>
-                    <p>Project files stay on your machine. We don&apos;t collect, upload or analyse anything.</p>
+            <article class="bento-tile bento-tile--third">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_pen">
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Pen tool</span>
+                        <p>Draw any line or shape freehand. Bezier control points. Animate the stroke or fill.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Row 4: more content + export -->
+            <article class="bento-tile bento-tile--third">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_icons">
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Icons</span>
+                        <p>Drop place icons, transport markers, or directional symbols. Scale and rotate freely.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="bento-tile bento-tile--third">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_image">
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Image</span>
+                        <p>Drop photos and overlays anywhere on the map. Animate their reveal and motion.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="bento-tile bento-tile--third">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_export">
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Export</span>
+                        <p>4K export, broadcast-grade output up to 60fps.</p>
+                    </div>
                 </div>
             </article>
         </div>
-
-        <details class="recording-brief recording-brief--center">
-            <summary>Recording brief — Feature bento clips</summary>
-            <div class="brief-block">
-                <p>Each <code>feat_*.mp4</code> = 3-5s silent loop. Record tight UI crops, no surrounding chrome. Same OBS settings as the demo.</p>
-                <ul>
-                    <li><code>feat_timeline.mp4</code> — keyframe easing adjustment on the curve editor.</li>
-                    <li><code>feat_camera.mp4</code> — tilt + altitude shift in the 3D viewport.</li>
-                    <li><code>feat_export.mp4</code> — export modal, 4K, render bar.</li>
-                </ul>
-                <p>The three icon tiles need no video. Static SVG is fine.</p>
-            </div>
-        </details>
     </section>
 
     <!-- ========================================================== -->
@@ -286,7 +272,7 @@
             <h2 class="section-headline">
                 Clear price.<br>
                 Cancel anytime.<br>
-                <span class="gradient-text">No Hidden Cost.</span>
+                <span class="gradient-text">No Hidden Costs.</span>
             </h2>
         </div>
 

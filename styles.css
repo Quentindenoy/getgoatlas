@@ -466,6 +466,56 @@ section {
     border: 1px solid #4a90e2;
 }
 
+.video-placeholder--kfeditor {
+    aspect-ratio: 882 / 744;
+    border: 1px solid #4a90e2;
+}
+
+.video-placeholder--map {
+    aspect-ratio: 882 / 744;
+    border: 1px solid #4a90e2;
+}
+
+/* Coming-soon placeholder — used when no video is wired yet */
+.video-placeholder--soon { cursor: default; }
+.video-placeholder--soon:hover {
+    transform: none;
+    border-color: var(--border);
+    box-shadow: var(--shadow-soft);
+}
+
+.vp-soon {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 24px;
+    text-align: center;
+}
+
+.vp-soon-tag {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.vp-soon p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 /* Higher-specificity overrides — needed because .bento-tile:hover and
    .video-placeholder:hover are declared later in this file. */
 .video-placeholder.video-placeholder--wide:hover {
@@ -477,11 +527,6 @@ section {
 .bento-tile.bento-tile--full:hover {
     transform: none;
     border-color: var(--border);
-}
-
-.bento-tile--full .vp-overlay-caption .output-audience {
-    margin: 0 0 10px;
-    pointer-events: auto;
 }
 
 /* When a real <video> is loaded inside a placeholder */
@@ -693,13 +738,31 @@ section {
 /* ==========================================================
    SECTION 3 — FEATURE BENTO
    ========================================================== */
+.bento {
+    padding-top: clamp(18px, 2.6vw, 32px);
+    padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+.bento .section-intro {
+    margin-bottom: clamp(12px, 1.5vw, 18px);
+}
+
+.bento .section-headline {
+    font-size: clamp(1.55rem, 3vw, 2.35rem);
+    margin-bottom: 10px;
+}
+
+.bento .section-lead {
+    font-size: clamp(0.9rem, 1.1vw, 1rem);
+}
+
 .bento-grid {
-    max-width: var(--max-width);
+    max-width: min(960px, 92vw, calc((100vh - 240px) / 0.96));
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: minmax(240px, auto);
-    gap: clamp(14px, 1.6vw, 20px);
+    gap: clamp(10px, 1vw, 14px);
 }
 
 /* Span modifiers — mirror the actual app's panel layout */
@@ -708,20 +771,22 @@ section {
 .bento-tile--half       { grid-column: span 3; }
 .bento-tile--third      { grid-column: span 2; }
 
-/* Caption overlay — drops down from the top on placeholder hover.
-   Uses the site's navy bg color (not pure black) for visual cohesion. */
+/* Caption overlay — full-frame veil on hover. */
 .vp-overlay-caption {
     position: absolute;
-    inset: 0 0 auto 0;
+    inset: 0;
     z-index: 2;
-    padding: clamp(22px, 2.6vw, 34px) clamp(22px, 3vw, 40px) clamp(36px, 4.5vw, 60px);
-    background: linear-gradient(180deg,
-        rgba(6, 13, 28, 0.82) 0%,
-        rgba(6, 13, 28, 0.60) 55%,
-        transparent 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 1.2vw, 16px);
+    padding: clamp(18px, 3vw, 42px);
+    background: rgba(6, 13, 28, 0.90);
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.25s ease;
+    text-align: center;
 }
 
 .video-placeholder:hover .vp-overlay-caption {
@@ -732,15 +797,28 @@ section {
 .vp-overlay-caption p {
     margin: 0;
     color: #ffffff;
-    font-size: clamp(0.82rem, 0.95vw, 0.92rem);
-    line-height: 1.5;
-    max-width: 720px;
+    font-size: clamp(0.76rem, 1vw, 0.92rem);
+    line-height: 1.45;
+    max-width: min(680px, 86%);
     text-wrap: pretty;
 }
 
+.vp-overlay-caption .output-audience {
+    position: absolute;
+    top: clamp(12px, 1.4vw, 18px);
+    left: clamp(12px, 1.4vw, 18px);
+    align-self: auto;
+    margin: 0;
+    padding: 3px 8px;
+    background: rgba(74, 144, 226, 0.18);
+    border-color: rgba(96, 165, 250, 0.38);
+    color: #ffd9a3;
+    font-size: clamp(0.56rem, 0.65vw, 0.66rem);
+}
+
 .bento-tile {
-    padding: 22px;
-    border-radius: 18px;
+    padding: clamp(12px, 1.4vw, 16px);
+    border-radius: 14px;
     background: #141a21;
     border: 1px solid var(--border);
     display: flex;
@@ -780,6 +858,16 @@ section {
     font-size: 0.94rem;
 }
 
+.bento-tile--editor-suite {
+    gap: clamp(10px, 1vw, 14px);
+}
+
+.bento-editor-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(10px, 1vw, 14px);
+}
+
 .bento-text { margin-top: auto; }
 /* In text-only tiles, the pill + text group sits naturally — don't push text to bottom. */
 .bento-tile--text .bento-text { margin-top: 0; }
@@ -789,6 +877,10 @@ section {
 /* ==========================================================
    SECTION 4 — PRICING
    ========================================================== */
+
+.pricing {
+    overflow-x: clip;
+}
 
 .pricing-grid {
     max-width: 880px;
@@ -1237,6 +1329,7 @@ section {
     :root { --page-pad: 20px; }
 
     .bento-grid {
+        max-width: min(560px, 92vw);
         grid-template-columns: repeat(2, 1fr);
         grid-auto-rows: auto;
     }
@@ -1244,6 +1337,8 @@ section {
     .bento-tile--two-thirds,
     .bento-tile--half  { grid-column: span 2; }
     .bento-tile--third { grid-column: span 1; }
+
+    .bento-editor-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1313,10 +1408,42 @@ section {
 }
 
 @media (max-width: 560px) {
+    .pricing {
+        padding-inline: 0;
+    }
+
+    .pricing .section-intro {
+        padding-inline: var(--page-pad);
+    }
+
     .pricing-grid,
     .pricing-grid--three {
-        grid-template-columns: 1fr;
-        max-width: 440px;
+        display: flex;
+        grid-template-columns: none;
+        gap: 12px;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 8px var(--page-pad) 14px;
+        overflow-x: auto;
+        scroll-padding-inline: var(--page-pad);
+        scroll-snap-type: x mandatory;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        mask-image: linear-gradient(90deg, transparent 0, #000 18px, #000 calc(100% - 18px), transparent 100%);
+    }
+
+    .pricing-grid::-webkit-scrollbar,
+    .pricing-grid--three::-webkit-scrollbar {
+        display: none;
+    }
+
+    .pricing-grid .pricing-card,
+    .pricing-grid--three .pricing-card {
+        flex: 0 0 min(84vw, 330px);
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
     }
 
     .hero-cta {
