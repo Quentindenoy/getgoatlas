@@ -61,7 +61,7 @@ html {
         radial-gradient(ellipse at top, rgba(232, 160, 78, 0.05), transparent 38%),
         linear-gradient(180deg, #060d1c 0%, #040912 50%, #02050c 100%);
     background-color: #02050c;
-    overflow-x: clip;
+    overflow-x: hidden;
 }
 
 body {
@@ -1358,13 +1358,9 @@ section {
 @media (max-width: 768px) {
     :root { --page-pad: 18px; }
 
-    html,
-    body {
-        overscroll-behavior-y: none;
-    }
-
     body {
         background-attachment: scroll;
+        overscroll-behavior-x: none;
     }
 
     .nav { padding: 10px 0; }
