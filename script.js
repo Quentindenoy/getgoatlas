@@ -1,62 +1,54 @@
-// ===== Smooth Scroll =====
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault()
-    const target = document.querySelector(this.getAttribute('href'))
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+document.addEventListener("DOMContentLoaded", () => {
+    if (window.AOS) {
+        AOS.init({ duration: 700, once: true, offset: 80 });
     }
-  })
-})
 
-// ===== Navbar Scroll Effect =====
-const nav = document.querySelector('.nav')
-window.addEventListener('scroll', () => {
-  if (nav) {
-    nav.style.background = window.pageYOffset > 50 ? 'rgba(9, 9, 11, 0.95)' : 'rgba(9, 9, 11, 0.8)'
-  }
-})
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (event) {
+            const href = this.getAttribute("href");
+            if (href.length <= 1) return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            event.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+    });
 
-// ===== Intersection Observer for Animations =====
-const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 }
-const animateOnScroll = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      entry.target.style.opacity = '1'
-      entry.target.style.transform = 'translateY(0)'
+    const nav = document.querySelector(".nav");
+    const navToggle = document.querySelector(".nav-toggle");
+
+    if (nav && navToggle) {
+        const closeNav = () => {
+            nav.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+        };
+
+        navToggle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            const isOpen = nav.classList.toggle("nav-open");
+            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!event.target.closest(".nav-inner")) closeNav();
+        });
+
+        nav.querySelectorAll(".nav-menu a").forEach((link) => {
+            link.addEventListener("click", closeNav);
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 768) closeNav();
+        });
     }
-  })
-}, observerOptions)
 
-document.querySelectorAll('.feature, .usecase, .section-intro').forEach((el, i) => {
-  el.style.opacity = '0'
-  el.style.transform = 'translateY(30px)'
-  el.style.transition = `opacity 0.6s ease ${i * 0.05}s, transform 0.6s ease ${i * 0.05}s`
-  animateOnScroll.observe(el)
-})
-
-// ===== Video Placeholder Click Handler =====
-document.querySelectorAll('.video-placeholder').forEach((placeholder) => {
-  placeholder.addEventListener('click', () => {
-    // Placeholder for video loading logic
-    // When you add actual video files, this can trigger video playback
-    console.log('Video placeholder clicked - add your video file')
-  })
-})
-
-// ===== Button Hover Effects =====
-document.querySelectorAll('.btn-primary, .btn-ghost').forEach((button) => {
-  button.addEventListener('mouseenter', () => {
-    button.style.transform = 'translateY(-1px)'
-  })
-  button.addEventListener('mouseleave', () => {
-    button.style.transform = 'translateY(0)'
-  })
-})
-
-// ===== Console Branding =====
-console.log(
-  '%c Go Atlas ',
-  'background: linear-gradient(135deg, #3b82f6, #60a5fa); color: white; font-size: 24px; padding: 10px 20px; border-radius: 8px; font-weight: bold;'
-)
-console.log('%c Animate Maps Like Never Before ', 'color: #a1a1aa; font-size: 14px;')
+    document.querySelectorAll(".video-placeholder").forEach((ph) => {
+        ph.addEventListener("click", (event) => {
+            if (event.target.closest(".recording-brief")) return;
+            const id = ph.dataset.videoId || "unknown";
+            const brief = ph.parentElement && ph.parentElement.querySelector(".recording-brief");
+            if (brief) brief.open = true;
+            console.info(`[Go Atlas] Placeholder clicked: ${id}. Edit this video and replace the .video-placeholder with a <video> tag.`);
+        });
+    });
+});

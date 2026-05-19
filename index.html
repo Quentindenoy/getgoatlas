@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Atlas - Professional Map Animation Software</title>
-    <meta name="description" content="Create stunning animated map videos with timeline-based editing, cinematic camera motion, and GPU-accelerated exports.">
+    <title>Go Atlas — The video editor for maps</title>
+    <meta name="description" content="Go Atlas is the video editor for maps. Build cinematic travel routes, documentary geography, and news explainers — with a classic editing workflow, a 3D cinematic camera, and effects and presets built in.">
+
+    <meta property="og:title" content="Go Atlas — The video editor for maps">
+    <meta property="og:description" content="Build cinematic travel routes, documentary geography, and news explainer animations on a real timeline.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://getgoatlas.com">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
@@ -22,13 +27,13 @@
     <nav class="nav" aria-label="Primary navigation">
         <div class="nav-inner">
             <a href="#home" class="nav-logo">
-                <img src="assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
-                <span>Go Atlas</span>
+                <img src="assets/loading.gif" alt="Go Atlas logo" class="logo-img">
+                <span>Go Atlas<span class="brand-c">©</span></span>
             </a>
 
             <div class="nav-menu">
+                <a href="#demo">Demo</a>
                 <a href="#features">Features</a>
-                <a href="#usecases">Use Cases</a>
                 <a href="#pricing">Pricing</a>
             </div>
             <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
@@ -38,367 +43,402 @@
     </nav>
 
     <main id="main-content">
+
+    <!-- ========================================================== -->
+    <!-- 1 — HERO                                                   -->
+    <!-- ========================================================== -->
     <section class="hero" id="home">
         <div class="hero-video-bg" aria-hidden="true">
             <video autoplay muted loop playsinline preload="metadata">
                 <source src="assets/startup-background.mp4" type="video/mp4">
             </video>
         </div>
+        <div class="hero-veil"></div>
         <div class="hero-glow"></div>
 
-        <div class="hero-content" data-aos="fade-up">
-            <h1>
-    <span class="hero-title-line">Create cinematic</span>
-    <span class="hero-title-line">map animations</span>
-    <span class="hero-title-line gradient-text">with precision</span>
-    <span class="hero-title-line gradient-text">and control</span>
-            </h1>
+        <div class="hero-content">
+            <h1 class="hero-title">The video editor<br>for maps.</h1>
 
-<div class="hero-cta">
-<a href="#pricing" class="btn-primary btn-lg">Get Go Atlas</a>
+            <p class="hero-lead">
+                Build cinematic travel routes, documentary geography, and news explainers. A classic editing workflow. A cinematic 3D camera. Effects and presets, built in.
+            </p>
 
-<a 
-    href="https://youtu.be/wWcW2JRzU9E" 
-    target="_blank" 
-    rel="noopener"
-    class="btn-ghost btn-lg demo-btn"
->
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-        <polygon points="5 3 19 12 5 21 5 3"/>
-    </svg>
-    Watch Demo
-</a>
-</div>
+            <div class="hero-cta">
+                <a href="#pricing" class="btn-primary btn-lg">Get Early Access</a>
+                <a href="#demo" class="btn-ghost btn-lg">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <polygon points="5 3 19 12 5 21 5 3"/>
+                    </svg>
+                    Watch demo
+                </a>
+            </div>
+
+            <p class="hero-trust">
+                Built for travel filmmakers, documentary editors, YouTube explainers, and journalists.
+            </p>
         </div>
     </section>
 
-    <section id="features" class="features">
-        <div class="section-intro" data-aos="fade-up">
-            <h2>
-                <span class="features-title-line">Built to animate.</span>
-                <span class="features-title-line">Designed to tell stories.</span>
+    <!-- ========================================================== -->
+    <!-- 2 — ESSENCE (problem + demo + outputs/audiences merged)     -->
+    <!-- ========================================================== -->
+    <section class="essence" id="demo">
+        <div class="section-intro">
+            <h2 class="section-headline">
+                Map sequences are still stitched<br>
+                together by hand.<br>
+                <span class="gradient-text">Go Atlas<span class="brand-c">©</span> changes that.</span>
             </h2>
-            <p>
-An all-in-one solution for cinematic map animations, built around an intuitive workflow.
+            <p class="section-lead">
+                Go Atlas<span class="brand-c">©</span> hands you the full cinematic toolkit in a single editor — the map and its countries, a 3D camera, routes, the pen tool for shapes, labels, effects, and a real timeline.
             </p>
         </div>
 
-        <div class="feature-spotlight" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-screen-wrap">
-                <div class="hero-window feature-screen">
-                    <div class="window-topbar">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="window-content">
-                        <img
-                            src="assets/UI.png"
-                            alt="Go Atlas interface showing timeline-based map animation editor"
-                            class="hero-ui-img"
-                            loading="lazy"
-                            decoding="async"
-                        >
-                    </div>
+        <!-- 60-second demo -->
+        <div class="demo-stage">
+            <div class="video-placeholder video-placeholder--16x9 video-placeholder--xl" data-video-id="demo_60s">
+                <span class="vp-label">60-second product demo</span>
+                <button class="vp-play vp-play--lg" type="button" aria-label="Play 60-second demo">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <polygon points="6 4 20 12 6 20 6 4"/>
+                    </svg>
+                </button>
+                <div class="vp-chapters">
+                    <span>1. Route</span>
+                    <span>2. Camera</span>
+                    <span>3. Export</span>
                 </div>
-
-                <div class="feature-hotspot feature-hotspot--keyframe">
-                    <button
-                        type="button"
-                        class="feature-pin"
-                        data-feature-id="1"
-                        data-feature-title="Advanced keyframe editor"
-                        data-feature-text="Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement."
-                    >1</button>
-                </div>
-
-                <div class="feature-hotspot feature-hotspot--style">
-                    <button
-                        type="button"
-                        class="feature-pin"
-                        data-feature-id="2"
-                        data-feature-title="Customizable map styles"
-                        data-feature-text="Switch between satellite, terrain, street, and stylized looks to match your project, your brand, or your narrative tone."
-                    >2</button>
-                </div>
-
-                <div class="feature-hotspot feature-hotspot--timeline">
-                    <button
-                        type="button"
-                        class="feature-pin"
-                        data-feature-id="3"
-                        data-feature-title="Multi-track timeline"
-                        data-feature-text="Professional timeline with dedicated tracks for camera, shapes, text, media, and overlays. Frame-accurate editing at 60 FPS."
-                    >3</button>
-                </div>
-
-                <div class="feature-hotspot feature-hotspot--menu">
-                    <button
-                        type="button"
-                        class="feature-pin"
-                        data-feature-id="4"
-                        data-feature-title="Menu & Export"
-                        data-feature-text="Draw custom elements, manage layered graphic objects, and export your final animation directly from the dedicated menu tabs."
-                    >4</button>
-                </div>
-
-                <article class="feature-flyout" id="feature-flyout" aria-hidden="true">
-                    <h3 id="feature-flyout-title">Advanced keyframe editor</h3>
-                    <p id="feature-flyout-text">Shape motion with Bezier handles and precise easing controls to create smooth, intentional, cinematic camera movement.</p>
-                </article>
             </div>
+
+            <details class="recording-brief recording-brief--center">
+                <summary>Recording brief — read before filming</summary>
+                <div class="brief-block">
+                    <p><strong>File:</strong> <code>demo_60s.mp4</code> · 60s exact · 1920×1080 · 60fps · captioned, no voiceover.</p>
+                    <p><strong>Purpose:</strong> Replace the explainer paragraph nobody reads. This is the section that converts the curious into trial users.</p>
+                    <p><strong>What to record (60s, fast-cut):</strong></p>
+                    <ol>
+                        <li>Open Go Atlas to a blank map. (5s)</li>
+                        <li>Drop a route between two cities — show the line drawing live. (8s)</li>
+                        <li>Add a camera keyframe, drag the timeline, second keyframe at zoom-in. (12s)</li>
+                        <li>Add a label, drag it onto the map. (8s)</li>
+                        <li>Hit play, scrub timeline, show smoothness. (10s)</li>
+                        <li>Click Export → 4K → progress bar → finished video preview. (12s)</li>
+                        <li>End on the finished output filling the screen, fade to Go Atlas logo. (5s)</li>
+                    </ol>
+                    <p><strong>How to film:</strong></p>
+                    <ul>
+                        <li>OBS Studio, 1920×1080, 60fps, CBR 50000kbps. Hide or replace the system cursor with a clean large cursor.</li>
+                        <li>Practice the take 5+ times before recording. Every click deliberate, never searching.</li>
+                        <li>Edit in your video editor of choice. Speed clips 1.5-2× where you're typing or dragging long distances.</li>
+                        <li>Add captions in Go Atlas's UI font (Inter). No voiceover.</li>
+                        <li>Music: low-BPM cinematic synth. Avoid drums.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <!-- 3 outputs with audience labels -->
+        <div class="outputs-grid">
+            <article class="output-card">
+                <span class="output-audience">For travel YouTubers</span>
+                <div class="video-placeholder video-placeholder--16x9 has-video">
+                    <video
+                        src="assets/Travel.mp4"
+                        autoplay muted loop playsinline
+                        preload="metadata"
+                        aria-label="Animated travel route from Rome to Pisa"
+                    ></video>
+                </div>
+                <h3>Travel films</h3>
+                <p>From one place to another. Drop labels, trim the path, animate the camera. Yours to direct.</p>
+            </article>
+
+            <article class="output-card">
+                <span class="output-audience">For documentary editors</span>
+                <div class="video-placeholder video-placeholder--16x9 has-video">
+                    <video
+                        src="assets/Documentary.mp4"
+                        autoplay muted loop playsinline
+                        preload="metadata"
+                        aria-label="Documentary geography animation"
+                    ></video>
+                </div>
+                <h3>Documentary geography</h3>
+                <p>Draw shapes, regions, or arrows. Animate them with effects. Tell better stories.</p>
+            </article>
+
+            <article class="output-card">
+                <span class="output-audience">For TV &amp; journalism</span>
+                <div class="video-placeholder video-placeholder--16x9 has-video">
+                    <video
+                        src="assets/News.mp4"
+                        autoplay muted loop playsinline
+                        preload="metadata"
+                        aria-label="News explainer animation"
+                    ></video>
+                </div>
+                <h3>News &amp; explainers</h3>
+                <p>Regions highlight. Labels appear. Broadcast quality, no motion graphics team.</p>
+            </article>
         </div>
     </section>
 
-    <section id="usecases" class="usecases">
-        <div class="section-intro" data-aos="fade-up">
-<h2>For editors who turn maps into stories</h2>
-            <p>
-                Built for editors, studios, and media teams
-                <br>Go Atlas makes cinematic map animation fast and effortless.
-            </p>
+    <!-- ========================================================== -->
+    <!-- 3 — FEATURE BENTO                                           -->
+    <!-- ========================================================== -->
+    <section class="bento" id="features">
+        <div class="section-intro">
+            <h2 class="section-headline">A real editor.<br>Not a slideshow tool.</h2>
+            <p class="section-lead">Six things Go Atlas<span class="brand-c">©</span> does that nothing else does together.</p>
         </div>
 
-        <div class="usecases-grid">
-            <div class="usecase" data-aos="zoom-in-up">
-                <h3>Broadcast & News</h3>
-                <p>Create map graphics for breaking stories, international coverage, and regional context in minutes.</p>
-            </div>
+        <div class="bento-grid">
+            <!-- Row 1: KF editor + Camera (top "editor area") -->
+            <article class="bento-tile bento-tile--half">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_kf"></div>
+                <span class="output-audience">KF editor</span>
+                <div class="bento-text">
+                    <h3>Curve editor</h3>
+                    <p>Bezier handles on every keyframe. Ease, hold, bounce. Shape every move precisely.</p>
+                </div>
+            </article>
 
-            <div class="usecase" data-aos="zoom-in-up" data-aos-delay="100">
-                <h3>Documentary</h3>
-                <p>Reconstruct journeys, migrations, historical events, or geopolitical shifts with cinematic motion.</p>
-            </div>
+            <article class="bento-tile bento-tile--half">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_camera"></div>
+                <span class="output-audience">Camera</span>
+                <div class="bento-text">
+                    <h3>Cinematic 3D camera</h3>
+                    <p>Tilt, altitude, bearing. Frame the world like a DP.</p>
+                </div>
+            </article>
 
-            <div class="usecase" data-aos="zoom-in-up" data-aos-delay="200">
-                <h3>Data Journalism</h3>
-                <p>Animate routes, territories, and geographic datasets to turn information into compelling visual stories.</p>
-            </div>
+            <!-- Row 2: Timeline (video full width, overlay caption from top on hover) -->
+            <article class="bento-tile bento-tile--full">
+                <div class="video-placeholder video-placeholder--wide has-video">
+                    <video
+                        src="assets/Timeline.mp4"
+                        autoplay muted loop playsinline
+                        preload="metadata"
+                        aria-label="Timeline with keyframes demo"
+                    ></video>
+                    <div class="vp-overlay-caption">
+                        <span class="output-audience">Timeline</span>
+                        <p>Frame-accurate scrubbing. Multi-track editing with solo, hide, lock. Clip split, and trim. A dedicated camera track to direct every scene.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Row 3: smaller feature tiles -->
+            <article class="bento-tile bento-tile--text bento-tile--third">
+                <span class="output-audience">Routes</span>
+                <div class="bento-text">
+                    <h3>Routes &amp; pen tool</h3>
+                    <p>Drop a route between cities. Draw freehand shapes with the pen tool. Animate everything.</p>
+                </div>
+            </article>
+
+            <article class="bento-tile bento-tile--text bento-tile--third">
+                <span class="output-audience">Regions</span>
+                <div class="bento-text">
+                    <h3>Countries &amp; labels</h3>
+                    <p>Highlight any region. Animate every label. Build broadcast-quality context in seconds.</p>
+                </div>
+            </article>
+
+            <article class="bento-tile bento-tile--third">
+                <div class="video-placeholder video-placeholder--16x9 video-placeholder--bento" data-video-id="feat_export"></div>
+                <span class="output-audience">Export</span>
+                <div class="bento-text">
+                    <h3>4K export</h3>
+                    <p>Broadcast-grade output, up to 60fps.</p>
+                </div>
+            </article>
+
+            <!-- Row 4: Privacy as a full-width close -->
+            <article class="bento-tile bento-tile--text bento-tile--full">
+                <span class="output-audience">Privacy</span>
+                <div class="bento-text">
+                    <h3>Your projects, yours</h3>
+                    <p>Project files stay on your machine. We don&apos;t collect, upload or analyse anything.</p>
+                </div>
+            </article>
         </div>
+
+        <details class="recording-brief recording-brief--center">
+            <summary>Recording brief — Feature bento clips</summary>
+            <div class="brief-block">
+                <p>Each <code>feat_*.mp4</code> = 3-5s silent loop. Record tight UI crops, no surrounding chrome. Same OBS settings as the demo.</p>
+                <ul>
+                    <li><code>feat_timeline.mp4</code> — keyframe easing adjustment on the curve editor.</li>
+                    <li><code>feat_camera.mp4</code> — tilt + altitude shift in the 3D viewport.</li>
+                    <li><code>feat_export.mp4</code> — export modal, 4K, render bar.</li>
+                </ul>
+                <p>The three icon tiles need no video. Static SVG is fine.</p>
+            </div>
+        </details>
     </section>
 
-<section id="pricing" class="pricing">
-<div class="section-intro">
-    <h2>Pricing</h2>
-</div>
+    <!-- ========================================================== -->
+    <!-- 4 — PRICING                                                 -->
+    <!-- ========================================================== -->
+    <section id="pricing" class="pricing">
+        <div class="section-intro">
+            <h2 class="section-headline">
+                Clear price.<br>
+                Cancel anytime.<br>
+                <span class="gradient-text">No Hidden Cost.</span>
+            </h2>
+        </div>
 
-<div class="pricing-grid">
-    <!-- EARLY ACCESS -->
-    <a
-        href="https://goatlas.lemonsqueezy.com/checkout/buy/c0f20cf7-044c-4f1c-9889-9268b13cd6ce"
-        class="pricing-card early-access pricing-link"
-        target="_blank"
-        rel="noopener noreferrer"
-    >
-        <h3>Early Access</h3>
+        <div class="pricing-grid pricing-grid--three">
+            <a
+                href="https://goatlas.lemonsqueezy.com/checkout/buy/c0f20cf7-044c-4f1c-9889-9268b13cd6ce"
+                class="pricing-card early-access pricing-link"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-checkout="early-access"
+            >
+                <span class="pricing-badge">Limited · Save 79%</span>
+                <h3>Early Access</h3>
+                <div class="price">€10<span>/month</span></div>
+                <p class="price-note">€120 billed annually</p>
+                <p class="price-context">Beta price. New features ship monthly. Rate locked for the year.</p>
+                <ul class="pricing-features">
+                    <li>Full editor, all current features</li>
+                    <li>4K export, unlimited projects</li>
+                    <li>Every new feature as it ships</li>
+                    <li>Direct line to the founder</li>
+                </ul>
+            </a>
 
-        <div class="price">€10<span>/month</span></div>
-        <p class="price-note">€120 billed annually</p>
+            <div class="pricing-card disabled">
+                <h3>Monthly</h3>
+                <div class="price">€49<span>/month</span></div>
+                <p class="price-note">No commitment</p>
+                <ul class="pricing-features">
+                    <li>Full editor, all features</li>
+                    <li>4K export, unlimited projects</li>
+                    <li>Cancel anytime</li>
+                </ul>
+                <span class="pricing-cta-disabled">Available at public launch</span>
+            </div>
 
-        <ul class="pricing-features">
-            <li>Access before public launch</li>
-            <li>feedback with developer</li>
-            <li>Help shape Go Atlas</li>
-        </ul>
-    </a>
-    <!-- MONTHLY (DISABLED) -->
-    <div class="pricing-card disabled">
-        <h3>Monthly</h3>
-        <div class="price">€49<span>/month</span></div>
-        <p class="price-note">€49 billed monthly</p>
+            <div class="pricing-card disabled">
+                <h3>Yearly</h3>
+                <div class="price">€30<span>/month</span></div>
+                <p class="price-note">€360 billed annually · save 38%</p>
+                <ul class="pricing-features">
+                    <li>Full editor, all features</li>
+                    <li>4K export, unlimited projects</li>
+                    <li>Two months free vs monthly</li>
+                </ul>
+                <span class="pricing-cta-disabled">Available at public launch</span>
+            </div>
+        </div>
 
+    </section>
 
-    </div>
+    <!-- ========================================================== -->
+    <!-- 5 — CLOSE (FAQ + Final CTA merged)                          -->
+    <!-- ========================================================== -->
+    <section class="close" id="faq">
+        <div class="section-intro">
+            <h2 class="section-headline">Still curious?</h2>
+        </div>
 
-    <!-- YEARLY (DISABLED) -->
-    <div class="pricing-card disabled">
-        <h3>Yearly</h3>
-        <div class="price">€24<span>/month</span></div>
-        <p class="price-note">€360 billed annually</p>
+        <div class="faq-list">
+            <details class="faq-item">
+                <summary>Do I need design or video skills?</summary>
+                <p>If you've used any modern video editor — timeline, keyframes, export — you already know enough. Go Atlas<span class="brand-c">©</span> uses the same model, applied to maps.</p>
+            </details>
 
+            <details class="faq-item">
+                <summary>Can I use the exported videos commercially?</summary>
+                <p>Yes. You own your videos. The map background is rendered with Mapbox, so the small Mapbox attribution stays visible in the corner of every export — that's required by their license. Same rule as Google Maps. Everything else is yours.</p>
+            </details>
 
-    </div>
+            <details class="faq-item">
+                <summary>Do you collect my project data?</summary>
+                <p>No. Your projects stay on your machine. We don't upload, store, or analyse the content of your scenes. Go Atlas<span class="brand-c">©</span> is GDPR-compliant; the only data we process is licensing (your key status) and support emails when you reach out. Full details in our <a href="documents/legal.html#privacy" style="color: var(--accent-2);">Privacy Policy</a>.</p>
+            </details>
 
+            <details class="faq-item">
+                <summary>What machine do I need?</summary>
+                <p>Go Atlas<span class="brand-c">©</span> is a real-time GPU-accelerated editor. It runs Mapbox, Three.js, and a 4K export pipeline in parallel — so it needs a creator-grade machine, not a budget office laptop.</p>
 
+                <div class="specs-table-wrap">
+                    <table class="specs-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th><span class="spec-tier spec-tier--min">Minimum</span></th>
+                                <th><span class="spec-tier spec-tier--rec">Recommended</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">OS</th>
+                                <td>Windows 10 64-bit</td>
+                                <td>Windows 11 64-bit</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CPU</th>
+                                <td>Intel i7-10700 / Ryzen 7 5700X</td>
+                                <td>Intel i7-13700+ / Ryzen 7 7700X</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">RAM</th>
+                                <td>16 GB</td>
+                                <td>32 GB</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">GPU</th>
+                                <td>NVIDIA RTX 3050 / AMD RX 6600</td>
+                                <td>NVIDIA RTX 4060+ / AMD RX 7600 XT</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Storage</th>
+                                <td>SSD, 5 GB free</td>
+                                <td>NVMe SSD, 10 GB free</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Network</th>
+                                <td colspan="2">Stable internet connection (Mapbox tiles)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-</div>
-</section>
+                <p class="specs-unsupported">
+                    <span class="spec-tier spec-tier--no">Not supported</span>
+                    Windows&nbsp;7/8, macOS, Linux, HDDs, integrated graphics, GTX&nbsp;16xx&nbsp;or&nbsp;older.
+                </p>
+            </details>
+
+            <details class="faq-item">
+                <summary>How often is Go Atlas<span class="brand-c">©</span> updated?</summary>
+                <p>Frequently. Early access users get every release as soon as it's out, with a direct line to me for bugs and feedback.</p>
+            </details>
+        </div>
+
+    </section>
+
     </main>
 
     <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-brand">
-                <div class="nav-logo">
-                    <img src="assets/loading.gif" alt="Go Atlas Logo" class="logo-img">
-                </div>
-                <p>contact@getgoatlas.com</p>
-            </div>
-
-            <div class="footer-links">
-<div class="footer-col">
-    <a href="documents/legal.html">Legal Mentions</a>
-</div>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 Neovi Media. All rights reserved.</p>
+        <div class="footer-row">
+            <a href="#home" class="footer-brand">
+                <img src="assets/loading.gif" alt="Go Atlas logo" class="logo-img">
+                <span>Go Atlas<span class="brand-c">©</span></span>
+            </a>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <a href="mailto:contact@getgoatlas.com" class="footer-link">contact@getgoatlas.com</a>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <a href="documents/legal.html" class="footer-link">Legal</a>
         </div>
     </footer>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
-
-    const nav = document.querySelector(".nav");
-    const navToggle = document.querySelector(".nav-toggle");
-    if (nav && navToggle) {
-        const closeNav = () => {
-            nav.classList.remove("nav-open");
-            navToggle.setAttribute("aria-expanded", "false");
-        };
-
-        navToggle.addEventListener("click", (event) => {
-            event.stopPropagation();
-            const isOpen = nav.classList.toggle("nav-open");
-            navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-        });
-
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".nav-inner")) closeNav();
-        });
-
-        window.addEventListener("resize", () => {
-            if (window.innerWidth > 768) closeNav();
-        });
-    }
-
-    const hotspots = [...document.querySelectorAll(".feature-hotspot")];
-    const featureWrap = document.querySelector(".feature-screen-wrap");
-    const flyout = document.querySelector("#feature-flyout");
-    const flyoutTitle = document.querySelector("#feature-flyout-title");
-    const flyoutText = document.querySelector("#feature-flyout-text");
-
-    if (hotspots.length && featureWrap && flyout && flyoutTitle && flyoutText) {
-        let activeHotspot = null;
-
-        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
-        const closeHotspot = () => {
-            activeHotspot = null;
-            hotspots.forEach((hotspot) => {
-                hotspot.classList.remove("is-active");
-                const pin = hotspot.querySelector(".feature-pin");
-                if (pin) pin.setAttribute("aria-pressed", "false");
-            });
-            flyout.classList.remove("is-open");
-            flyout.setAttribute("aria-hidden", "true");
-        };
-
-        const positionFlyout = (hotspot) => {
-            const pin = hotspot.querySelector(".feature-pin");
-            if (!pin) return;
-
-            const wrapRect = featureWrap.getBoundingClientRect();
-            const pinRect = pin.getBoundingClientRect();
-            const gap = 20;
-            const maxWidth = Math.min(300, wrapRect.width - 20);
-
-            flyout.style.maxWidth = `${maxWidth}px`;
-            flyout.style.left = "0px";
-            flyout.style.top = "0px";
-
-            const flyoutRect = flyout.getBoundingClientRect();
-            const pinCenterX = pinRect.left - wrapRect.left + pinRect.width / 2;
-            const pinCenterY = pinRect.top - wrapRect.top + pinRect.height / 2;
-
-            let x = pinCenterX + gap;
-            let y = pinCenterY - flyoutRect.height / 2;
-
-            if (x + flyoutRect.width > wrapRect.width - 10) {
-                x = pinCenterX - flyoutRect.width - gap;
-            }
-
-            if (x < 10) {
-                x = pinCenterX - flyoutRect.width / 2;
-            }
-
-            x = clamp(x, 10, wrapRect.width - flyoutRect.width - 10);
-            y = clamp(y, 10, wrapRect.height - flyoutRect.height - 10);
-
-            flyout.style.left = `${x}px`;
-            flyout.style.top = `${y}px`;
-        };
-
-        const openHotspot = (hotspot) => {
-            const pin = hotspot.querySelector(".feature-pin");
-            if (!pin) return;
-
-            activeHotspot = hotspot;
-            hotspots.forEach((item) => {
-                item.classList.remove("is-active");
-                const itemPin = item.querySelector(".feature-pin");
-                if (itemPin) itemPin.setAttribute("aria-pressed", "false");
-            });
-
-            hotspot.classList.add("is-active");
-            pin.setAttribute("aria-pressed", "true");
-            flyoutTitle.textContent = pin.dataset.featureTitle || "";
-            flyoutText.textContent = pin.dataset.featureText || "";
-
-            flyout.setAttribute("aria-hidden", "false");
-            flyout.classList.add("is-open");
-            positionFlyout(hotspot);
-        };
-
-        hotspots.forEach((hotspot) => {
-            const pin = hotspot.querySelector(".feature-pin");
-            if (!pin) return;
-
-            pin.setAttribute("aria-pressed", "false");
-            pin.addEventListener("click", (event) => {
-                event.stopPropagation();
-                if (activeHotspot === hotspot) {
-                    closeHotspot();
-                    return;
-                }
-                openHotspot(hotspot);
-            });
-
-            pin.addEventListener("keydown", (event) => {
-                if (event.key === "Enter" || event.key === " ") {
-                    event.preventDefault();
-                    if (activeHotspot === hotspot) closeHotspot();
-                    else openHotspot(hotspot);
-                }
-            });
-        });
-
-        document.addEventListener("click", (event) => {
-            if (!event.target.closest(".feature-hotspot") && !event.target.closest(".feature-flyout")) {
-                closeHotspot();
-            }
-        });
-
-        window.addEventListener("resize", () => {
-            if (activeHotspot) positionFlyout(activeHotspot);
-        });
-
-        window.addEventListener("scroll", () => {
-            if (activeHotspot) positionFlyout(activeHotspot);
-        }, { passive: true });
-    }
-});
-</script>
-
-
-
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
