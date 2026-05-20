@@ -1407,7 +1407,7 @@ section {
 
     .output-card {
         display: grid;
-        grid-template-rows: 22px auto 18px;
+        grid-template-rows: 22px auto;
         gap: 6px;
         min-width: 0;
         align-content: start;
@@ -1429,13 +1429,7 @@ section {
     }
 
     .output-card h3 {
-        font-size: clamp(0.6rem, 2vw, 0.74rem);
-        line-height: 1.1;
-        margin: 0;
-        min-width: 0;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        display: none;
     }
 
     .output-card p {
@@ -1452,8 +1446,7 @@ section {
         display: none;
     }
 
-    .output-label-mobile,
-    .output-title-mobile {
+    .output-label-mobile {
         display: inline;
     }
 
@@ -1493,10 +1486,6 @@ section {
         padding: 2px 5px;
         font-size: 0.42rem;
         letter-spacing: 0.02em;
-    }
-
-    .output-card h3 {
-        font-size: 0.58rem;
     }
 
     .output-card p {
