@@ -896,6 +896,10 @@ section {
     overflow-x: clip;
 }
 
+.pricing::after {
+    display: none;
+}
+
 .pricing-grid {
     max-width: 880px;
     margin: 0 auto;
@@ -1065,6 +1069,11 @@ section {
     margin-top: 28px;
     font-size: 0.86rem;
     color: var(--text-muted);
+}
+
+@keyframes pricing-swipe-cue {
+    0%, 100% { background-position: 10px 50%, 0 0; }
+    50% { background-position: 58px 50%, 0 0; }
 }
 
 /* ==========================================================
@@ -1351,8 +1360,6 @@ section {
     .bento-tile--two-thirds,
     .bento-tile--half  { grid-column: span 2; }
     .bento-tile--third { grid-column: span 1; }
-
-    .bento-editor-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
@@ -1450,7 +1457,46 @@ section {
         display: inline;
     }
 
-    .bento-grid { grid-template-columns: 1fr; max-width: 560px; }
+    .bento {
+        padding-top: 18px;
+        padding-bottom: 28px;
+    }
+
+    .bento .section-intro {
+        margin-bottom: 12px;
+    }
+
+    .bento .section-headline {
+        font-size: clamp(1.35rem, 6vw, 1.8rem);
+        margin-bottom: 6px;
+    }
+
+    .bento .section-lead {
+        font-size: 0.8rem;
+        line-height: 1.35;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        max-width: min(460px, 96vw);
+        gap: 10px;
+    }
+
+    .bento-tile--editor-suite {
+        padding: 8px;
+        gap: 7px;
+        border-radius: 12px;
+    }
+
+    .bento-editor-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 7px;
+    }
+
+    .bento-tile--editor-suite .video-placeholder {
+        border-radius: 6px;
+    }
+
     .bento-tile--full,
     .bento-tile--two-thirds,
     .bento-tile--half,
@@ -1494,6 +1540,21 @@ section {
 
     .pricing {
         padding-inline: 0;
+    }
+
+    .pricing::after {
+        content: "";
+        display: block;
+        width: 76px;
+        height: 8px;
+        margin: 8px auto 0;
+        border-radius: 999px;
+        background:
+            radial-gradient(circle, var(--accent-2) 0 4px, transparent 4.5px) 10px 50% / 8px 8px no-repeat,
+            linear-gradient(90deg, rgba(244, 186, 110, 0.16), rgba(96, 165, 250, 0.18));
+        box-shadow: inset 0 0 0 1px rgba(244, 186, 110, 0.16);
+        opacity: 0.9;
+        animation: pricing-swipe-cue 1.45s ease-in-out infinite;
     }
 
     .pricing .section-intro {
