@@ -552,6 +552,10 @@ section {
 .video-placeholder.has-video::before,
 .video-placeholder.has-video::after { display: none; }
 
+.video-placeholder[data-lightbox-video] {
+    cursor: zoom-in;
+}
+
 .vp-label {
     position: absolute;
     top: 14px;
@@ -747,6 +751,47 @@ section {
 .output-label-mobile,
 .output-title-mobile {
     display: none;
+}
+
+.video-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(14px, 3vw, 34px);
+    background: rgba(2, 5, 12, 0.94);
+    backdrop-filter: blur(10px);
+}
+
+.video-lightbox.is-open {
+    display: flex;
+}
+
+.video-lightbox video {
+    width: min(100%, 1280px);
+    max-height: min(86vh, 760px);
+    border-radius: 10px;
+    border: 1px solid rgba(96, 165, 250, 0.42);
+    background: #000;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.72);
+}
+
+.video-lightbox-close {
+    position: fixed;
+    top: max(14px, env(safe-area-inset-top));
+    right: max(14px, env(safe-area-inset-right));
+    z-index: 1;
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(244, 186, 110, 0.24);
+    border-radius: 999px;
+    background: rgba(12, 18, 24, 0.9);
+    color: #fff;
+    font-size: 1.7rem;
+    line-height: 1;
+    cursor: pointer;
 }
 
 /* ==========================================================
@@ -1495,6 +1540,23 @@ section {
 
     .bento-tile--editor-suite .video-placeholder {
         border-radius: 6px;
+    }
+
+    .bento-tile--editor-suite .vp-overlay-caption {
+        padding: 8px;
+    }
+
+    .bento-tile--editor-suite .vp-overlay-caption p {
+        display: none;
+    }
+
+    .bento-tile--editor-suite .vp-overlay-caption .output-audience {
+        position: static;
+        align-self: center;
+        padding: 4px 8px;
+        font-size: clamp(0.5rem, 1.8vw, 0.62rem);
+        text-align: center;
+        white-space: nowrap;
     }
 
     .bento-tile--full,
