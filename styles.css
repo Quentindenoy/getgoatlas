@@ -1181,6 +1181,10 @@ section {
 .specs-table thead th:nth-child(2)::before { background: rgba(232, 160, 78, 0.7); }
 .specs-table thead th:nth-child(3)::before { background: rgba(110, 190, 130, 0.7); }
 
+/* In table-layout:fixed the header row sets the column widths. Pin the label
+   column narrow so the two data columns get the room instead. */
+.specs-table thead th:first-child { width: 88px; }
+
 .specs-table tbody th {
     font-weight: 600;
     color: var(--text);
