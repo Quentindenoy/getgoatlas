@@ -1,0 +1,28 @@
+# Go Atlas
+
+> Go Atlas is the video editor for maps. It brings a classic video-editing workflow — timeline, keyframes, 3D camera, effects, 4K export — to animated maps, for travel films, documentary geography, and news explainers.
+
+Go Atlas is a Windows desktop application (Windows 10/11, real-time, GPU-accelerated). Projects stay local on the user's machine and are GDPR-compliant. Maps are rendered with Mapbox.
+
+## Product
+- [Home](https://getgoatlas.com): Overview, demo, features, and pricing.
+
+## What it does
+- Cinematic 3D map camera (tilt, altitude, bearing)
+- Timeline with a bezier keyframe / curve editor
+- Routes, animated labels, icons, and custom shapes
+- Built-in effects and presets (glow, blur, shadow, extrusion)
+- 4K export — videos you own (commercial use allowed; small Mapbox attribution required)
+
+## Pricing
+- Monthly — €49 / month
+- Annual — €360 / year (€30 / month, save 38%)
+
+## Who it's for
+Travel filmmakers, documentary editors, YouTube explainer creators, and journalists.
+
+## Legal
+- [Privacy & legal](https://getgoatlas.com/documents/legal.html)
+
+## Contact
+- contact@getgoatlas.com

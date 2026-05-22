@@ -11,6 +11,109 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getgoatlas.com">
 
+    <link rel="canonical" href="https://getgoatlas.com">
+
+    <!-- Structured data (JSON-LD) — helps Google + AI engines (Gemini / AI Overviews)
+         understand and cite Go Atlas. Keep the FAQ answers in sync with the visible FAQ. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://getgoatlas.com/#organization",
+          "name": "Go Atlas",
+          "url": "https://getgoatlas.com",
+          "logo": "https://getgoatlas.com/assets/icone.png",
+          "email": "contact@getgoatlas.com"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://getgoatlas.com/#website",
+          "url": "https://getgoatlas.com",
+          "name": "Go Atlas",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://getgoatlas.com/#organization" }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://getgoatlas.com/#app",
+          "name": "Go Atlas",
+          "url": "https://getgoatlas.com",
+          "applicationCategory": "MultimediaApplication",
+          "applicationSubCategory": "Video Editor",
+          "operatingSystem": "Windows 10, Windows 11",
+          "description": "Go Atlas is the video editor for maps. Build cinematic travel routes, documentary geography, and news explainers — with a classic editing workflow, a 3D cinematic camera, and effects and presets built in.",
+          "publisher": { "@id": "https://getgoatlas.com/#organization" },
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Monthly",
+              "category": "subscription",
+              "price": "49",
+              "priceCurrency": "EUR",
+              "url": "https://getgoatlas.com/#pricing"
+            },
+            {
+              "@type": "Offer",
+              "name": "Annual",
+              "category": "subscription",
+              "price": "360",
+              "priceCurrency": "EUR",
+              "url": "https://getgoatlas.com/#pricing"
+            }
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://getgoatlas.com/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Do I need design or video skills?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "If you've used any modern video editor — timeline, keyframes, export — you already know enough. Go Atlas© uses the same model, applied to maps."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use the exported videos commercially?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You own your videos. The map background is rendered with Mapbox, so the small Mapbox attribution stays visible in the corner of every export — required by their license. Everything else is yours."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you collect my project data?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Your projects stay on your machine. We don't upload, store, or analyse the content of your scenes. Go Atlas© is GDPR-compliant; the only data we process is licensing (your key status) and support emails when you reach out."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What machine do I need?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Go Atlas© is a real-time GPU-accelerated editor, so it needs a creator-grade machine. Minimum: Windows 10 64-bit, Intel i7-10700 / Ryzen 7 5700X, 16 GB RAM, NVIDIA RTX 3050 / AMD RX 6600, SSD with 5 GB free, and a stable internet connection for Mapbox tiles. Recommended: Windows 11 64-bit, Intel i7-13700+ / Ryzen 7 7700X, 32 GB RAM, NVIDIA RTX 4060+ / AMD RX 7600 XT, NVMe SSD with 10 GB free. Not supported: Windows 7/8, macOS, Linux, HDDs, integrated graphics, GTX 16xx or older."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How often is Go Atlas updated?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Frequently. Every release ships to all subscribers as soon as it's out."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
     <link rel="icon" type="image/x-icon" href="assets/icon.ico">
     <link rel="icon" type="image/png" sizes="512x512" href="assets/icone.png">
     <link rel="apple-touch-icon" href="assets/icone.png">
