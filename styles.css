@@ -6,38 +6,42 @@
 /* ===== Variables ===== */
 /* Editorial cartography palette: charcoal ink, aged paper, one amber accent. */
 :root {
-    --bg: #0b0d0d;
-    --bg-elevated: #151412;
-    --bg-elevated-strong: #11100e;
-    --bg-subtle: #1d1b17;
+    --bg: #1a1a18;
+    --bg-elevated: #2b2a28;
+    --bg-elevated-strong: #222220;
+    --bg-subtle: #35342f;
 
-    --paper: #e9ddc8;
-    --paper-bright: #f1e7d4;
-    --paper-dim: #b9aa91;
-    --charcoal: #161513;
-    --section-ink: #171513;
-    --section-copy: #514837;
-    --section-muted: #7d705d;
+    --paper: #eee7d5;
+    --paper-bright: #f5efe1;
+    --paper-dim: #b2ada0;
+    --charcoal: #272725;
+    --section-ink: #272725;
+    --section-copy: #53514c;
+    --section-muted: #7b786f;
 
     --border: rgba(233, 221, 200, 0.10);
     --border-strong: rgba(233, 221, 200, 0.22);
     --rule: rgba(233, 221, 200, 0.14);
 
-    /* Warm off-white instead of cool blue-white */
-    --text: #efe7da;
-    --text-secondary: #b8ac98;
-    --text-muted: #7a705f;
+    /* Warm neutrals derived from the raisin↔eggshell axis (on-palette) */
+    --text: #eee7d5;
+    --text-secondary: #c2bdae;
+    --text-muted: #949186;
 
-    /* Amber ink accent */
-    --accent: #d48a3f;
-    --accent-2: #e9ac60;
-    --accent-bright: #f1c891;
-    --accent-glow: rgba(212, 138, 63, 0.16);
+    /* Pale-copper accent + Skobeloff teal (editorial palette) */
+    --accent: #e1926a;
+    --accent-2: #e4ac8b;
+    --accent-bright: #e9c9b4;
+    --accent-glow: rgba(225, 146, 106, 0.16);
+    --teal: #007074;
+    --teal-bright: #1a9094;
     --ink: #c6a678;
     --evidence-border: rgba(198, 166, 120, 0.34);
 
     /* Smooth gradients — 2 stops, no rainbow */
-    --grad-warm: linear-gradient(140deg, #c77d34 0%, #e9ac60 100%);
+    --grad-warm: linear-gradient(140deg, #d27d56 0%, #e5a380 100%);
+    /* Deeper copper for accent text on LIGHT (eggshell) backgrounds — more punch. */
+    --grad-warm-deep: linear-gradient(140deg, #b5572c 0%, #d2794e 100%);
     --grad-headline: linear-gradient(95deg, #e8dac3 0%, #e0a35b 100%);
 
     --radius: 8px;
@@ -68,18 +72,18 @@ html {
     -webkit-font-smoothing: antialiased;
     min-height: 100%;
     background:
-        radial-gradient(ellipse at top, rgba(212, 138, 63, 0.08), transparent 36%),
-        linear-gradient(180deg, #171511 0%, #11100e 34%, #e8dcc8 34%, #d8c8ad 100%);
-    background-color: #e8dcc8;
+        radial-gradient(ellipse at top, rgba(225, 146, 106, 0.08), transparent 36%),
+        linear-gradient(180deg, #272725 0%, #1c1c1a 34%, #eee7d5 34%, #e3dcc8 100%);
+    background-color: #eee7d5;
     overflow-x: hidden;
 }
 
 body {
     font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background:
-        radial-gradient(ellipse at top, rgba(212, 138, 63, 0.08), transparent 36%),
-        linear-gradient(180deg, #171511 0%, #11100e 34%, #e8dcc8 34%, #d8c8ad 100%);
-    background-color: #e8dcc8;
+        radial-gradient(ellipse at top, rgba(225, 146, 106, 0.08), transparent 36%),
+        linear-gradient(180deg, #272725 0%, #1c1c1a 34%, #eee7d5 34%, #e3dcc8 100%);
+    background-color: #eee7d5;
     background-attachment: fixed;
     color: var(--text);
     line-height: 1.55;
@@ -128,7 +132,7 @@ main > section:not(.hero) {
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'><filter id='grain'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' seed='19' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.22'/></feComponentTransfer></filter><rect width='360' height='360' filter='url(%23grain)' opacity='0.50'/></svg>"),
         linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, var(--paper-bright) 0%, #e5d7bf 100%);
+        linear-gradient(180deg, var(--paper-bright) 0%, #e7dfcc 100%);
     background-size: min(1800px, 165vw) auto, 360px 360px, 96px 96px, 96px 96px, auto;
     background-position: 50% 8%, 0 0, 0 0, 0 0, 0 0;
     background-repeat: no-repeat, repeat, repeat, repeat, no-repeat;
@@ -168,7 +172,7 @@ main > section:not(.hero) {
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1260' height='1540' viewBox='0 0 1260 1540'><defs><filter id='v'><feTurbulence type='fractalNoise' baseFrequency='0.03' numOctaves='3' seed='151'/><feDisplacementMap in='SourceGraphic' scale='24'/><feGaussianBlur stdDeviation='3.5'/></filter><linearGradient id='a' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23fff7e8' stop-opacity='0'/><stop offset='0.48' stop-color='%23fff7e8' stop-opacity='0.16'/><stop offset='0.56' stop-color='%235c472d' stop-opacity='0.13'/><stop offset='1' stop-color='%235c472d' stop-opacity='0'/></linearGradient><linearGradient id='b' x1='1' y1='0' x2='0' y2='0'><stop offset='0' stop-color='%235c472d' stop-opacity='0'/><stop offset='0.46' stop-color='%235c472d' stop-opacity='0.12'/><stop offset='0.58' stop-color='%23fff7e8' stop-opacity='0.14'/><stop offset='1' stop-color='%23fff7e8' stop-opacity='0'/></linearGradient></defs><g filter='url(%23v)' fill='none' stroke-linecap='round'><path d='M242 -120 C334 170 222 338 322 610 C416 864 350 1034 262 1660' stroke='url(%23a)' stroke-width='23' opacity='0.28'/><path d='M702 -160 C580 150 744 360 650 664 C574 910 650 1118 876 1700' stroke='url(%23b)' stroke-width='17' opacity='0.20'/><path d='M1054 -100 C990 120 1050 254 1012 462 C970 700 1018 830 1140 1180' stroke='url(%23a)' stroke-width='10' opacity='0.15'/><path d='M110 520 C210 590 320 642 438 724 C540 796 664 842 796 980' stroke='url(%23b)' stroke-width='13' opacity='0.15'/></g></svg>"),
         linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, var(--paper-bright) 0%, #e5d7bf 100%);
+        linear-gradient(180deg, var(--paper-bright) 0%, #e7dfcc 100%);
     background-size: 360px 360px, 900px 900px, 1560px 1040px, 1260px 1540px, 96px 96px, 96px 96px, auto;
     background-position: 0 0, 0 0, 9% 120px, 96% 360px, 0 0, 0 0, 0 0;
     background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
@@ -233,9 +237,9 @@ main > section:not(.hero)::before {
     z-index: 0;
     background:
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.18'/></feComponentTransfer></filter><rect width='180' height='180' filter='url(%23n)' opacity='0.42'/></svg>"),
-        radial-gradient(ellipse 720px 500px at 18% 12%, rgba(212, 138, 63, 0.10), transparent 58%),
+        radial-gradient(ellipse 720px 500px at 18% 12%, rgba(225, 146, 106, 0.10), transparent 58%),
         radial-gradient(ellipse 920px 620px at 84% 10%, rgba(233, 221, 200, 0.045), transparent 54%),
-        linear-gradient(180deg, #171511 0%, #0f1110 50%, #080909 100%);
+        linear-gradient(180deg, #272725 0%, #1f1f1d 50%, #141413 100%);
     background-blend-mode: soft-light, normal, normal, normal;
 }
 
@@ -257,14 +261,21 @@ main > section:not(.hero)::before {
 }
 
 .gradient-text {
-    /* Both usages (essence + pricing headlines) sit on light/cream/white
-       backgrounds, so this must be the saturated amber buy-CTA tone. The old
-       light --grad-headline (near-cream → tan) was illegible on light. */
-    background: var(--grad-warm);
+    /* Default = deeper copper for accent text on LIGHT (eggshell) sections,
+       where the lighter copper washed out. The dark hero overrides back to the
+       lighter --grad-warm below (see .hero-title .gradient-text). */
+    background: var(--grad-warm-deep);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
+}
+
+/* Hero sits on the dark video → keep the lighter copper there. */
+.hero-title .gradient-text {
+    background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 /* Brand copyright mark — small, raised, subtle. Uses position:relative
@@ -427,13 +438,13 @@ main > section:not(.hero)::before {
     color: #17120c;
     padding: 12px 22px;
     border: 1px solid rgba(244, 186, 110, 0.55);
-    box-shadow: 0 10px 24px rgba(212, 138, 63, 0.20);
+    box-shadow: 0 10px 24px rgba(225, 146, 106, 0.20);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
     background: var(--accent-2);
-    box-shadow: 0 14px 30px rgba(212, 138, 63, 0.28);
+    box-shadow: 0 14px 30px rgba(225, 146, 106, 0.28);
 }
 
 .btn-ghost {
@@ -503,7 +514,7 @@ main > section:not(.hero)::before {
     width: 900px;
     height: 900px;
     transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(212, 138, 63, 0.10) 0%, rgba(233, 221, 200, 0.035) 35%, transparent 70%);
+    background: radial-gradient(circle, rgba(225, 146, 106, 0.10) 0%, rgba(233, 221, 200, 0.035) 35%, transparent 70%);
     pointer-events: none;
     z-index: 1;
 }
@@ -514,6 +525,13 @@ main > section:not(.hero)::before {
     max-width: min(920px, 94vw);
     margin: 0 auto;
     padding: 0 var(--page-pad);
+}
+
+.hero-logo {
+    display: block;
+    width: clamp(80px, 9vw, 120px);
+    height: auto;
+    margin: 0 auto clamp(16px, 2.2vw, 26px);
 }
 
 .hero-title {
@@ -533,9 +551,9 @@ main > section:not(.hero)::before {
 }
 
 .hero-lead {
-    max-width: 640px;
+    max-width: 600px;
     margin: 0 auto clamp(28px, 3.6vw, 40px);
-    font-size: clamp(1rem, 1.4vw, 1.18rem);
+    font-size: clamp(0.9rem, 1.2vw, 1.04rem);
     color: var(--text-secondary);
     line-height: 1.55;
     text-wrap: pretty;
@@ -874,7 +892,7 @@ main > section:not(.hero)::before {
     font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--paper-dim);
+    color: var(--teal);
     align-self: flex-start;
 }
 
@@ -882,10 +900,11 @@ main > section:not(.hero)::before {
     font-size: 1.2rem;
     letter-spacing: 0;
     margin: 16px 0 8px;
+    color: var(--teal);
 }
 
 .output-card p {
-    color: var(--text-secondary);
+    color: var(--teal);
     font-size: 0.96rem;
 }
 
@@ -1073,9 +1092,9 @@ main > section.bento .section-lead {
 }
 
 .bento-tile {
-    --text: #efe7da;
-    --text-secondary: #b8ac98;
-    --text-muted: #7a705f;
+    --text: #eee7d5;
+    --text-secondary: #c2bdae;
+    --text-muted: #949186;
     padding: clamp(12px, 1.4vw, 16px);
     border-radius: 10px;
     background:
@@ -1158,7 +1177,7 @@ main > section:not(.hero).pricing {
    eye to the value line). Scoped to pricing: the hero keeps the light gradient
    on its dark background. */
 .pricing .gradient-text {
-    background: var(--grad-warm);
+    background: var(--grad-warm-deep);
     -webkit-background-clip: text;
     background-clip: text;
 }
@@ -1207,9 +1226,9 @@ main > section:not(.hero).pricing {
 /* Both plans share one premium editorial card design.
    Annual is set apart only by its "Save" badge and savings line — same card otherwise. */
 .pricing-card {
-    --text: #efe7da;
-    --text-secondary: #b8ac98;
-    --text-muted: #8b806f;
+    --text: #eee7d5;
+    --text-secondary: #c2bdae;
+    --text-muted: #949186;
     position: relative;
     padding: 38px 32px;
     border-radius: 10px;
@@ -1429,9 +1448,9 @@ main > section:not(.hero).pricing {
 }
 
 .faq-item {
-    --text: #efe7da;
-    --text-secondary: #b8ac98;
-    --text-muted: #8b806f;
+    --text: #eee7d5;
+    --text-secondary: #dcd6c6;
+    --text-muted: #cdd8d6;
     /* Apply the local light --text on the container (like `section.bento` does)
        so the question <summary> is legible on the dark bar. Without this it
        inherits the section's dark --section-ink → dark-on-dark. The <p> answer
@@ -1439,14 +1458,14 @@ main > section:not(.hero).pricing {
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: #13110f;
+    background: var(--teal);
     overflow: hidden;
     transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .faq-item[open] {
     border-color: rgba(233, 221, 200, 0.24);
-    background: #181612;
+    background: #00595d;
 }
 
 .faq-item summary {
@@ -1474,7 +1493,7 @@ main > section:not(.hero).pricing {
 
 .faq-item[open] summary::after {
     transform: translateY(-50%) rotate(45deg);
-    color: var(--accent-2);
+    color: var(--text);
 }
 
 .faq-item p {
@@ -1497,7 +1516,7 @@ main > section:not(.hero).pricing {
     font-weight: 800;
     letter-spacing: 0;
     margin-bottom: 18px;
-    background: linear-gradient(180deg, #efe7da 0%, #d48a3f 100%);
+    background: linear-gradient(180deg, #efe7da 0%, #e1926a 100%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1820,7 +1839,7 @@ main > section:not(.hero).pricing {
         border-radius: 999px;
         background:
             radial-gradient(circle, var(--accent-2) 0 4px, transparent 4.5px) 10px 50% / 8px 8px no-repeat,
-            linear-gradient(90deg, rgba(233, 221, 200, 0.12), rgba(212, 138, 63, 0.14));
+            linear-gradient(90deg, rgba(233, 221, 200, 0.12), rgba(225, 146, 106, 0.14));
         box-shadow: inset 0 0 0 1px rgba(233, 221, 200, 0.14);
         opacity: 0.9;
         animation: pricing-swipe-cue 1.45s ease-in-out infinite;
@@ -1907,7 +1926,7 @@ main > section:not(.hero).pricing {
     padding: 16px;
     border: 1px solid var(--border);
     border-radius: 10px;
-    background: #13110f;
+    background: #222220;
     backdrop-filter: blur(8px);
 }
 
@@ -1929,8 +1948,8 @@ main > section:not(.hero).pricing {
 
 .legal-sidebar a.active {
     color: #fff;
-    background: rgba(212, 138, 63, 0.14);
-    border: 1px solid rgba(212, 138, 63, 0.36);
+    background: rgba(225, 146, 106, 0.14);
+    border: 1px solid rgba(225, 146, 106, 0.36);
 }
 
 .legal-content { min-width: 0; }
@@ -2018,7 +2037,7 @@ main > section:not(.hero).pricing {
         background:
             linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
             linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
-            linear-gradient(180deg, var(--paper-bright) 0%, #e5d7bf 100%);
+            linear-gradient(180deg, var(--paper-bright) 0%, #e7dfcc 100%);
         background-size: 96px 96px, 96px 96px, auto;
         background-repeat: repeat, repeat, no-repeat;
         background-blend-mode: normal;
@@ -2027,9 +2046,9 @@ main > section:not(.hero).pricing {
     /* Fixed dark backdrop: keep the warm glows + gradient, drop the grain. */
     .site-bg {
         background:
-            radial-gradient(ellipse 720px 500px at 18% 12%, rgba(212, 138, 63, 0.10), transparent 58%),
+            radial-gradient(ellipse 720px 500px at 18% 12%, rgba(225, 146, 106, 0.10), transparent 58%),
             radial-gradient(ellipse 920px 620px at 84% 10%, rgba(233, 221, 200, 0.045), transparent 54%),
-            linear-gradient(180deg, #171511 0%, #0f1110 50%, #080909 100%);
+            linear-gradient(180deg, #272725 0%, #1f1f1d 50%, #141413 100%);
         background-blend-mode: normal;
     }
 }
