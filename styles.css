@@ -1986,3 +1986,43 @@ main > section:not(.hero).pricing {
 
 .legal-single .legal-doc { display: block; }
 .legal-single .legal-content { max-width: 860px; }
+
+/* ==========================================================
+   MOBILE PERF — drop procedural SVG paper textures on phones
+   ----------------------------------------------------------
+   The kraft-paper look is built from stacked SVG data-URIs using
+   feTurbulence + feDisplacementMap + feGaussianBlur, tiled across every
+   section and two full-viewport fixed layers. Those filters get rasterised
+   (often on the CPU) as content scrolls in — the main cause of mobile scroll
+   jank. On phones we keep the flat paper tone + the document grid (cheap
+   gradients) and remove every turbulence/displacement/blur layer.
+   ========================================================== */
+@media (max-width: 768px) {
+    /* Decorative grain / damage overlays — pure cost on a small screen. */
+    main::before,
+    main > section:not(.hero)::after,
+    main > section.bento::after,
+    .site-grid {
+        display: none !important;
+    }
+
+    /* Sections: keep only the document grid + paper gradient base. */
+    main > section:not(.hero) {
+        background:
+            linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
+            linear-gradient(180deg, var(--paper-bright) 0%, #e5d7bf 100%);
+        background-size: 96px 96px, 96px 96px, auto;
+        background-repeat: repeat, repeat, no-repeat;
+        background-blend-mode: normal;
+    }
+
+    /* Fixed dark backdrop: keep the warm glows + gradient, drop the grain. */
+    .site-bg {
+        background:
+            radial-gradient(ellipse 720px 500px at 18% 12%, rgba(212, 138, 63, 0.10), transparent 58%),
+            radial-gradient(ellipse 920px 620px at 84% 10%, rgba(233, 221, 200, 0.045), transparent 54%),
+            linear-gradient(180deg, #171511 0%, #0f1110 50%, #080909 100%);
+        background-blend-mode: normal;
+    }
+}
