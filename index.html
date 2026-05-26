@@ -122,7 +122,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -156,7 +155,7 @@
     <!-- ========================================================== -->
     <section class="hero" id="home">
         <div class="hero-video-bg" aria-hidden="true">
-            <video autoplay muted loop playsinline preload="auto" poster="assets/startup-background-poster.jpg">
+            <video autoplay muted loop playsinline preload="auto" data-lazy poster="assets/startup-background-poster.jpg">
                 <source src="assets/startup-background.mp4" type="video/mp4">
             </video>
         </div>
@@ -222,6 +221,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
                     <video
                         src="assets/Travel.mp4"
+                        data-src-mobile="assets/Travel-mobile.mp4"
                         data-lazy muted loop playsinline
                         preload="none"
                         poster="assets/Travel-poster.jpg"
@@ -243,6 +243,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
                     <video
                         src="assets/Documentary.mp4"
+                        data-src-mobile="assets/Documentary-mobile.mp4"
                         data-lazy muted loop playsinline
                         preload="none"
                         poster="assets/Documentary-poster.jpg"
@@ -264,6 +265,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
                     <video
                         src="assets/News.mp4"
+                        data-src-mobile="assets/News-mobile.mp4"
                         data-lazy muted loop playsinline
                         preload="none"
                         poster="assets/News-poster.jpg"
@@ -295,6 +297,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                     <div class="video-placeholder video-placeholder--kfeditor has-video" data-video-id="feat_kf">
                         <video
                             src="assets/KFeditor.mp4"
+                            data-src-mobile="assets/KFeditor-mobile.mp4"
                             data-lazy muted loop playsinline
                             preload="none"
                             poster="assets/KFeditor-poster.jpg"
@@ -309,6 +312,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                     <div class="video-placeholder video-placeholder--map has-video" data-video-id="feat_camera">
                         <video
                             src="assets/Map.mp4"
+                            data-src-mobile="assets/Map-mobile.mp4"
                             data-lazy muted loop playsinline
                             preload="none"
                             poster="assets/Map-poster.jpg"
@@ -325,6 +329,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--wide has-video">
                     <video
                         src="assets/Timeline.mp4"
+                        data-src-mobile="assets/Timeline-mobile.mp4"
                         data-lazy muted loop playsinline
                         preload="none"
                         poster="assets/Timeline-poster.jpg"
@@ -494,7 +499,6 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
         </div>
     </footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,8 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-    if (window.AOS) {
-        AOS.init({ duration: 700, once: true, offset: 80 });
-    }
-
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (event) {
             const href = this.getAttribute("href");
@@ -75,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const openLightbox = () => {
                 const sourceVideo = trigger.querySelector("video");
                 if (!sourceVideo) return;
-                lightboxVideo.src = sourceVideo.currentSrc || sourceVideo.getAttribute("src");
+                lightboxVideo.src = sourceVideo.dataset.srcDesktop || sourceVideo.currentSrc || sourceVideo.getAttribute("src");
                 lightbox.classList.add("is-open");
                 document.body.style.overflow = "hidden";
                 lightboxVideo.play().catch(() => {});
@@ -97,6 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
                 closeLightbox();
             }
+        });
+    }
+
+    // On phones, swap demo videos to lightweight low-res variants before they
+    // load — three 1080p loops decoding at once is what makes mobile stutter.
+    // The lightbox still pulls the full-res desktop file (one stream, fine).
+    if (window.matchMedia("(max-width: 768px)").matches) {
+        document.querySelectorAll("video[data-src-mobile]").forEach((video) => {
+            const desktop = video.getAttribute("src");
+            if (desktop) video.dataset.srcDesktop = desktop;
+            video.src = video.dataset.srcMobile;
         });
     }
 
