@@ -134,7 +134,7 @@
     <nav class="nav" aria-label="Primary navigation">
         <div class="nav-inner">
             <a href="#home" class="nav-logo">
-                <img src="assets/loading.gif" alt="Go Atlas logo" class="logo-img">
+                <img src="assets/icone.png" alt="Go Atlas logo" class="logo-img" width="32" height="32" decoding="async">
                 <span>Go Atlas<span class="brand-c">©</span></span>
             </a>
 
@@ -156,7 +156,7 @@
     <!-- ========================================================== -->
     <section class="hero" id="home">
         <div class="hero-video-bg" aria-hidden="true">
-            <video autoplay muted loop playsinline preload="metadata">
+            <video autoplay muted loop playsinline preload="auto" poster="assets/startup-background-poster.jpg">
                 <source src="assets/startup-background.mp4" type="video/mp4">
             </video>
         </div>
@@ -222,8 +222,9 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
                     <video
                         src="assets/Travel.mp4"
-                        autoplay muted loop playsinline
-                        preload="metadata"
+                        data-lazy muted loop playsinline
+                        preload="none"
+                        poster="assets/Travel-poster.jpg"
                         aria-label="Animated travel route from Rome to Pisa"
                     ></video>
                 </div>
@@ -242,8 +243,9 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
                     <video
                         src="assets/Documentary.mp4"
-                        autoplay muted loop playsinline
-                        preload="metadata"
+                        data-lazy muted loop playsinline
+                        preload="none"
+                        poster="assets/Documentary-poster.jpg"
                         aria-label="Documentary geography animation"
                     ></video>
                 </div>
@@ -262,8 +264,9 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
                     <video
                         src="assets/News.mp4"
-                        autoplay muted loop playsinline
-                        preload="metadata"
+                        data-lazy muted loop playsinline
+                        preload="none"
+                        poster="assets/News-poster.jpg"
                         aria-label="News explainer animation"
                     ></video>
                 </div>
@@ -292,8 +295,9 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                     <div class="video-placeholder video-placeholder--kfeditor has-video" data-video-id="feat_kf">
                         <video
                             src="assets/KFeditor.mp4"
-                            autoplay muted loop playsinline
-                            preload="metadata"
+                            data-lazy muted loop playsinline
+                            preload="none"
+                            poster="assets/KFeditor-poster.jpg"
                             aria-label="Keyframe editor timeline demo"
                         ></video>
                         <div class="vp-overlay-caption">
@@ -305,8 +309,9 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                     <div class="video-placeholder video-placeholder--map has-video" data-video-id="feat_camera">
                         <video
                             src="assets/Map.mp4"
-                            autoplay muted loop playsinline
-                            preload="metadata"
+                            data-lazy muted loop playsinline
+                            preload="none"
+                            poster="assets/Map-poster.jpg"
                             aria-label="Map camera editor demo"
                         ></video>
                         <div class="vp-overlay-caption">
@@ -320,8 +325,9 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 <div class="video-placeholder video-placeholder--wide has-video">
                     <video
                         src="assets/Timeline.mp4"
-                        autoplay muted loop playsinline
-                        preload="metadata"
+                        data-lazy muted loop playsinline
+                        preload="none"
+                        poster="assets/Timeline-poster.jpg"
                         aria-label="Timeline with keyframes demo"
                     ></video>
                     <div class="vp-overlay-caption">
@@ -478,7 +484,7 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
     <footer class="footer">
         <div class="footer-row">
             <a href="#home" class="footer-brand">
-                <img src="assets/loading.gif" alt="Go Atlas logo" class="logo-img">
+                <img src="assets/icone.png" alt="Go Atlas logo" class="logo-img" width="32" height="32" decoding="async">
                 <span>Go Atlas<span class="brand-c">©</span></span>
             </a>
             <span class="footer-sep" aria-hidden="true">·</span>

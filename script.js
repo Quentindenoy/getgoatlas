@@ -100,6 +100,39 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Lazy-load gallery videos: fetch + play only when scrolled into view,
+    // pause when off-screen. Keeps initial mobile load tiny and saves battery.
+    const lazyVideos = document.querySelectorAll("video[data-lazy]");
+
+    if (lazyVideos.length) {
+        const playWhenVisible = (video) => {
+            if (video.preload !== "auto") video.preload = "auto";
+            const attempt = video.play();
+            if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
+        };
+
+        if ("IntersectionObserver" in window) {
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        const video = entry.target;
+                        if (entry.isIntersecting) {
+                            playWhenVisible(video);
+                        } else {
+                            video.pause();
+                        }
+                    });
+                },
+                { rootMargin: "200px 0px", threshold: 0.1 }
+            );
+
+            lazyVideos.forEach((video) => observer.observe(video));
+        } else {
+            // No IO support: just load + play everything (legacy fallback).
+            lazyVideos.forEach(playWhenVisible);
+        }
+    }
+
     document.querySelectorAll(".video-placeholder").forEach((ph) => {
         ph.addEventListener("click", (event) => {
             if (ph.matches("[data-lightbox-video]")) return;
