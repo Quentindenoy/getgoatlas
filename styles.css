@@ -517,12 +517,19 @@ main > section:not(.hero)::before {
 }
 
 .hero-title {
-    font-size: clamp(2.4rem, 7vw, 5.4rem);
-    line-height: 1;
+    font-size: clamp(2rem, 7vw, 5.4rem);
+    line-height: 1.02;
     font-weight: 800;
     letter-spacing: 0;
     margin-bottom: clamp(20px, 3vw, 32px);
-    text-wrap: balance;
+}
+
+/* Two explicit lines: "The video editor" stays on one line, "for maps." below.
+   nowrap prevents the first line from breaking; the clamp min keeps it fitting
+   small phones without horizontal overflow. */
+.hero-title-line {
+    display: block;
+    white-space: nowrap;
 }
 
 .hero-lead {
