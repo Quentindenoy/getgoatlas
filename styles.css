@@ -1948,13 +1948,20 @@ main > section:not(.hero).pricing {
     }
 
     .hero-cta {
-        /* side by side (like desktop), not stacked */
+        /* side by side, forced on a single row (never stack) */
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: center;
+        width: 100%;
+        max-width: 420px;
+        margin-inline: auto;
     }
     .hero-cta .btn-primary,
-    .hero-cta .btn-ghost { width: auto; }
+    .hero-cta .btn-ghost {
+        flex: 1 1 0;   /* share the row 50/50, shrink to fit instead of wrapping */
+        min-width: 0;
+        width: auto;
+    }
 
     .vp-chapters { display: none; } /* hide chapter pills on small phones */
 }
