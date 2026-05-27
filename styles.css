@@ -1163,9 +1163,10 @@ main > section.bento .section-lead {
 
 .bento-tile--editor-suite {
     display: grid;
-    /* Menu column = auto: its width is derived from the row height × the menu's
-       aspect-ratio (see --menu), so it always matches the video exactly. */
-    grid-template-columns: minmax(0, 1fr) auto;
+    /* Menu column = 30%, NO max cap: at this width the full-height menu box lands
+       on the video's 350:744 ratio, so object-fit: cover neither crops nor gaps.
+       (A px cap here used to crush it on wide screens → the cropped tabs.) */
+    grid-template-columns: minmax(0, 1fr) 30%;
     gap: clamp(10px, 1vw, 14px);
     align-items: stretch;
 }
@@ -1182,13 +1183,13 @@ main > section.bento .section-lead {
 /* Menu = vertical side panel (350×744) spanning the full height of the suite,
    mirroring the app's right-hand panel. The video fills via object-fit: cover;
    ~30% width keeps the crop near-zero at the resulting height. */
-/* Menu = vertical side panel. height:100% (stretched to the suite's height) +
-   aspect-ratio makes the `auto` column derive its WIDTH from that height at the
-   video's exact 350:744 ratio → the box matches the video: no crop, no empty gap,
-   full height. object-fit: cover (global) then fits perfectly. */
+/* Menu = vertical side panel, stretched to the full suite height so the KF-editor,
+   Map, Timeline and Menu together form one clean rectangle (left = KF/Map stacked
+   on the Timeline; right = Menu, same top & bottom edges). At the 30% column width
+   its box ≈ the video's 350:744 ratio, so object-fit: cover fills it with no
+   visible crop. */
 .video-placeholder--menu {
     height: 100%;
-    aspect-ratio: 350 / 744;
 }
 
 .bento-editor-row {
@@ -1811,9 +1812,8 @@ main > section:not(.hero).pricing {
     }
 
     .bento-tile--editor-suite {
-        /* keep the Menu on the right (like desktop); auto width from its
-           aspect-ratio keeps it matching the video — no crop, no gap. */
-        grid-template-columns: minmax(0, 1fr) auto;
+        /* keep the Menu on the right (like desktop), 30% column → clean rectangle */
+        grid-template-columns: minmax(0, 1fr) 30%;
         padding: 8px;
         gap: 7px;
         border-radius: 12px;
@@ -1948,14 +1948,13 @@ main > section:not(.hero).pricing {
     }
 
     .hero-cta {
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        max-width: 320px;
-        margin-inline: auto;
+        /* side by side (like desktop), not stacked */
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
     }
     .hero-cta .btn-primary,
-    .hero-cta .btn-ghost { width: 100%; }
+    .hero-cta .btn-ghost { width: auto; }
 
     .vp-chapters { display: none; } /* hide chapter pills on small phones */
 }
