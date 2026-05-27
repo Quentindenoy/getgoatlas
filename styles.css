@@ -257,10 +257,9 @@ main > section:not(.hero)::before {
     opacity: 0.42;
     background-image:
         linear-gradient(rgba(233, 221, 200, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(233, 221, 200, 0.035) 1px, transparent 1px),
-        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200' viewBox='0 0 1200 1200'><g fill='none' stroke='%23c6a678' stroke-width='0.7' opacity='0.16'><path d='M -50 180 Q 200 110 400 180 T 800 230 T 1250 180'/><path d='M -50 220 Q 220 150 420 220 T 820 270 T 1250 220'/><path d='M -50 260 Q 240 190 440 260 T 840 310 T 1250 260'/><path d='M -50 300 Q 260 230 460 300 T 860 350 T 1250 300'/><path d='M -50 700 Q 220 630 420 700 T 820 750 T 1250 700'/><path d='M -50 740 Q 240 670 440 740 T 840 790 T 1250 740'/><path d='M -50 780 Q 260 710 460 780 T 860 830 T 1250 780'/><path d='M -50 820 Q 280 750 480 820 T 880 870 T 1250 820'/><path d='M -50 1080 Q 200 1010 400 1080 T 800 1130 T 1250 1080'/><path d='M -50 1120 Q 220 1050 420 1120 T 820 1170 T 1250 1120'/></g></svg>");
-    background-size: 72px 72px, 72px 72px, 1200px 1200px;
-    background-repeat: repeat, repeat, repeat;
+        linear-gradient(90deg, rgba(233, 221, 200, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px, 72px 72px;
+    background-repeat: repeat, repeat;
     mask-image: radial-gradient(ellipse 110% 90% at center, black 40%, transparent 95%);
     -webkit-mask-image: radial-gradient(ellipse 110% 90% at center, black 40%, transparent 95%);
 }
@@ -539,12 +538,16 @@ main > section:not(.hero)::before {
     inset: 0;
     z-index: 1;
     pointer-events: none;
+    /* Tilt the grid for a map-projection feel; scale up so the rotation
+       still covers the hero (the .hero overflow:hidden clips the spill). */
+    transform: scale(1.15) rotate(-22deg);
+    transform-origin: center;
     background-image:
         linear-gradient(rgba(238, 231, 213, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(238, 231, 213, 0.04) 1px, transparent 1px);
     background-size: 120px 120px, 120px 120px;
-    mask-image: radial-gradient(ellipse 100% 85% at center, black 35%, transparent 92%);
-    -webkit-mask-image: radial-gradient(ellipse 100% 85% at center, black 35%, transparent 92%);
+    mask-image: radial-gradient(ellipse 100% 15% at center, black 35%, transparent 12%);
+    -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, black 85%, transparent 100%);
 }
 
 /* Rhumb lines (loxodromes) radiating from the compass — antique portolan-chart look.
