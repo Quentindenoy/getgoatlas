@@ -532,6 +532,69 @@ main > section:not(.hero)::before {
     z-index: 1;
 }
 
+/* Faint eggshell map grid over the hero (above the veil, under the content),
+   masked so it fades out toward the edges instead of forming a hard rectangle. */
+.hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(238, 231, 213, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(238, 231, 213, 0.04) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px;
+    mask-image: radial-gradient(ellipse 100% 85% at center, black 35%, transparent 92%);
+    -webkit-mask-image: radial-gradient(ellipse 100% 85% at center, black 35%, transparent 92%);
+}
+
+/* Rhumb lines (loxodromes) radiating from the compass — antique portolan-chart look.
+   Conic-gradients = true straight lines from a point; thin wedges stay near-hairline. */
+.hero-rhumb {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        /* one rose per corner — angles & spacings differ so the web looks irregular */
+        repeating-conic-gradient(from 0deg  at 9% 13%,  rgba(238, 231, 213, 0.05) 0 0.1deg, transparent 0.1deg 22.5deg),
+        repeating-conic-gradient(from 6deg  at 90% 7%,  rgba(238, 231, 213, 0.04) 0 0.1deg, transparent 0.1deg 30deg),
+        repeating-conic-gradient(from 11deg at 93% 85%, rgba(238, 231, 213, 0.03) 0 0.1deg, transparent 0.1deg 36deg),
+        repeating-conic-gradient(from 3deg  at 6% 90%,  rgba(238, 231, 213, 0.03) 0 0.1deg, transparent 0.1deg 30deg);
+    mask-image: radial-gradient(ellipse 125% 118% at 50% 45%, #000 55%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 125% 118% at 50% 45%, #000 55%, transparent 100%);
+}
+
+/* Compass rose (rose des vents) watermark — signals "this is a map" at low opacity. */
+.hero-compass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: min(820px, 96vh);
+    height: min(820px, 96vh);
+    transform: translate(-34%, -36%); /* anchored top-left, ~1/3 off-screen — the hero clips it */
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.035;
+    filter: blur(0.8px); /* soften the lines — less digital/crisp, more like a printed chart */
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240' fill='none' stroke='%23eee7d5' stroke-linejoin='round'><circle cx='120' cy='120' r='112' stroke-width='0.8'/><circle cx='120' cy='120' r='106' stroke-width='0.45'/><circle cx='120' cy='120' r='99' stroke-width='3.2' stroke-dasharray='1 9'/><circle cx='120' cy='120' r='78' stroke-width='0.45'/><circle cx='120' cy='120' r='52' stroke-width='0.55'/><path d='M120 16 L130 120 L120 224 L110 120 Z' stroke-width='0.7'/><path d='M16 120 L120 130 L224 120 L120 110 Z' stroke-width='0.7'/><g transform='rotate(45 120 120)'><path d='M120 48 L127 120 L120 192 L113 120 Z' stroke-width='0.6'/><path d='M48 120 L120 127 L192 120 L120 113 Z' stroke-width='0.6'/></g><circle cx='120' cy='120' r='7' stroke-width='0.7'/><circle cx='120' cy='120' r='2.2' fill='%23eee7d5' stroke='none'/><path d='M120 8 L128 30 L120 23 L112 30 Z' stroke-width='0.7'/></svg>") no-repeat center / contain;
+}
+
+/* Second compass rose — bottom-right, smaller, different design (filled cardinal
+   points + fine graduated bezel) so it doesn't read as a copy of the top-left one. */
+.hero-compass-2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: min(520px, 58vh);
+    height: min(520px, 58vh);
+    transform: translate(32%, 34%); /* anchored bottom-right, ~1/3 off-screen */
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.038;
+    filter: blur(0.8px);
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' fill='none' stroke='%23eee7d5' stroke-linejoin='round'><circle cx='100' cy='100' r='90' stroke-width='0.6'/><circle cx='100' cy='100' r='80' stroke-width='3' stroke-dasharray='0.6 13.4'/><circle cx='100' cy='100' r='34' stroke-width='0.45'/><path d='M100 18 L107 100 L100 182 L93 100 Z' stroke-width='0.6' fill='%23eee7d5' fill-opacity='0.22'/><path d='M18 100 L100 107 L182 100 L100 93 Z' stroke-width='0.6' fill='%23eee7d5' fill-opacity='0.22'/><g transform='rotate(45 100 100)'><path d='M100 44 L105 100 L100 156 L95 100 Z' stroke-width='0.6'/><path d='M44 100 L100 105 L156 100 L100 95 Z' stroke-width='0.6'/></g><circle cx='100' cy='100' r='6' stroke-width='0.6'/><circle cx='100' cy='100' r='1.8' fill='%23eee7d5' stroke='none'/></svg>") no-repeat center / contain;
+}
+
 .hero-content {
     position: relative;
     z-index: 2;
@@ -872,6 +935,12 @@ main > section:not(.hero)::before {
 /* ==========================================================
    SECTION 2 — ESSENCE (problem + demo + outputs/audiences)
    ========================================================== */
+/* Tighter top padding than the default section — pulls the headline up
+   closer to the hero (was clamp(56px, 7vw, 96px)). */
+.essence {
+    padding-top: clamp(28px, 3.5vw, 52px);
+}
+
 .essence .section-intro {
     /* Wider so 1st sentence wraps to 2 long lines, 2nd to 1 short → funnel shape */
     max-width: min(1080px, 94vw);
