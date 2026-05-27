@@ -300,8 +300,7 @@ main > section:not(.hero)::before {
     top: -0.55em;
     margin-left: 0.04em;
     margin-right: 0.04em;
-    opacity: 0.55;
-    color: inherit;
+    color: inherit; /* © matches the adjacent "Go Atlas" text color exactly — no fade */
     line-height: 0;
     letter-spacing: 0;
 }
@@ -444,10 +443,10 @@ main > section:not(.hero)::before {
     font-family: inherit;
 }
 
-/* Both hero CTAs: outline only (no fill), copper/orange border + teal-bright text on the dark hero. */
+/* Both hero CTAs: outline only (no fill), copper/orange border + matching copper text on the dark hero. */
 .btn-primary {
     background: transparent;
-    color: var(--teal-bright);
+    color: var(--accent);
     padding: 12px 22px;
     border: 1px solid rgba(225, 146, 106, 0.7);
 }
@@ -461,7 +460,7 @@ main > section:not(.hero)::before {
 .btn-ghost {
     border: 1px solid rgba(225, 146, 106, 0.7);
     padding: 12px 22px;
-    color: var(--teal-bright);
+    color: var(--accent);
     background: transparent;
 }
 
@@ -513,8 +512,10 @@ main > section:not(.hero)::before {
     inset: 0;
     z-index: 1;
     background:
-        radial-gradient(ellipse at center, transparent 0%, rgba(18, 17, 14, 0.58) 70%),
-        linear-gradient(180deg, rgba(8, 9, 9, 0.18) 0%, transparent 30%, rgba(8, 9, 9, 0.94) 100%);
+        /* teal vignette: clear center, teal-tinted darkening toward the edges */
+        radial-gradient(ellipse at center, transparent 0%, transparent 52%, rgba(0, 32, 34, 0.5) 84%, rgba(0, 13, 15, 0.92) 100%),
+        /* bottom darkening kept for CTA/text legibility */
+        linear-gradient(180deg, rgba(4, 16, 18, 0.16) 0%, transparent 30%, rgba(3, 13, 14, 0.94) 100%);
     pointer-events: none;
 }
 
@@ -986,8 +987,8 @@ main > section.bento {
     z-index: 30;
     color: var(--text);
     background:
-        linear-gradient(rgba(88, 164, 232, 0.13) 0 1px, rgba(88, 164, 232, 0.055) 1px 3px, rgba(88, 164, 232, 0.022) 3px 7px, transparent 7px 100%),
-        linear-gradient(90deg, rgba(88, 164, 232, 0.125) 0 1px, rgba(88, 164, 232, 0.052) 1px 3px, rgba(88, 164, 232, 0.020) 3px 7px, transparent 7px 100%),
+        linear-gradient(rgba(26, 144, 148, 0.13) 0 1px, rgba(26, 144, 148, 0.055) 1px 3px, rgba(26, 144, 148, 0.022) 3px 7px, transparent 7px 100%),
+        linear-gradient(90deg, rgba(26, 144, 148, 0.125) 0 1px, rgba(26, 144, 148, 0.052) 1px 3px, rgba(26, 144, 148, 0.020) 3px 7px, transparent 7px 100%),
         linear-gradient(180deg, #070808 0%, #050606 48%, #020202 100%);
     background-size: 220px 220px, 220px 220px, auto;
     background-repeat: repeat, repeat, no-repeat;
@@ -1157,7 +1158,26 @@ main > section.bento .section-lead {
 }
 
 .bento-tile--editor-suite {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) clamp(150px, 30%, 290px);
     gap: clamp(10px, 1vw, 14px);
+    align-items: stretch;
+}
+
+/* Left side of the interface suite: the KF-editor/Map row + the Timeline,
+   stacked. The Menu lives in the right column (see --menu below). */
+.bento-editor-main {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 1vw, 14px);
+    min-width: 0;
+}
+
+/* Menu = vertical side panel (350×744) spanning the full height of the suite,
+   mirroring the app's right-hand panel. The video fills via object-fit: cover;
+   ~30% width keeps the crop near-zero at the resulting height. */
+.video-placeholder--menu {
+    height: 100%;
 }
 
 .bento-editor-row {
@@ -1780,9 +1800,19 @@ main > section:not(.hero).pricing {
     }
 
     .bento-tile--editor-suite {
+        grid-template-columns: 1fr; /* stack: editor-main, then the menu panel */
         padding: 8px;
         gap: 7px;
         border-radius: 12px;
+    }
+
+    /* Menu: centered narrow vertical panel below the timeline, true 350×744 ratio. */
+    .video-placeholder--menu {
+        height: auto;
+        aspect-ratio: 350 / 744;
+        width: 100%;
+        max-width: 190px;
+        margin: 0 auto;
     }
 
     .bento-editor-row {
