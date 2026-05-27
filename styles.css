@@ -1163,7 +1163,9 @@ main > section.bento .section-lead {
 
 .bento-tile--editor-suite {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) clamp(150px, 30%, 290px);
+    /* Menu column = auto: its width is derived from the row height × the menu's
+       aspect-ratio (see --menu), so it always matches the video exactly. */
+    grid-template-columns: minmax(0, 1fr) auto;
     gap: clamp(10px, 1vw, 14px);
     align-items: stretch;
 }
@@ -1180,8 +1182,13 @@ main > section.bento .section-lead {
 /* Menu = vertical side panel (350×744) spanning the full height of the suite,
    mirroring the app's right-hand panel. The video fills via object-fit: cover;
    ~30% width keeps the crop near-zero at the resulting height. */
+/* Menu = vertical side panel. height:100% (stretched to the suite's height) +
+   aspect-ratio makes the `auto` column derive its WIDTH from that height at the
+   video's exact 350:744 ratio → the box matches the video: no crop, no empty gap,
+   full height. object-fit: cover (global) then fits perfectly. */
 .video-placeholder--menu {
     height: 100%;
+    aspect-ratio: 350 / 744;
 }
 
 .bento-editor-row {
@@ -1804,9 +1811,9 @@ main > section:not(.hero).pricing {
     }
 
     .bento-tile--editor-suite {
-        /* keep the Menu on the right (like desktop), just a narrower column —
-           plain 30% with no px floor so it doesn't get too wide on small phones */
-        grid-template-columns: minmax(0, 1fr) 30%;
+        /* keep the Menu on the right (like desktop); auto width from its
+           aspect-ratio keeps it matching the video — no crop, no gap. */
+        grid-template-columns: minmax(0, 1fr) auto;
         padding: 8px;
         gap: 7px;
         border-radius: 12px;
