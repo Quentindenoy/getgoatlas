@@ -1035,7 +1035,7 @@ main > section.bento .section-intro {
 main > section.bento .section-headline {
     font-size: clamp(1.55rem, 3vw, 2.35rem);
     margin-bottom: 10px;
-    color: var(--text);
+    color: var(--paper); /* eggshell #eee7d5 (bento --text is #f0e8da, slightly off) */
 }
 
 main > section.bento .section-lead {
@@ -2050,8 +2050,10 @@ main > section:not(.hero).pricing {
         display: none !important;
     }
 
-    /* Sections: keep only the document grid + paper gradient base. */
-    main > section:not(.hero) {
+    /* Light paper sections: keep only the document grid + paper gradient base.
+       .bento is excluded: it stays dark with its blue grid (cheap CSS gradients).
+       The only laggy part was its ::after grain texture, already dropped above. */
+    main > section:not(.hero):not(.bento) {
         background:
             linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
             linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
