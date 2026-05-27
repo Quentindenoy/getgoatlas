@@ -2104,9 +2104,9 @@ main > section:not(.hero).pricing {
     }
 
     /* Light paper sections: keep only the document grid + paper gradient base.
-       .bento is excluded: it stays dark with its blue grid (cheap CSS gradients).
-       The only laggy part was its ::after grain texture, already dropped above. */
-    main > section:not(.hero):not(.bento) {
+       .bento is excluded (stays dark with its blue grid). .pricing is excluded too
+       so it keeps its plain #ffffff band — no paper texture or tint on mobile. */
+    main > section:not(.hero):not(.bento):not(.pricing) {
         background:
             linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
             linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
