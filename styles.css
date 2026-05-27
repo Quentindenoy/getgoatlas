@@ -1045,7 +1045,11 @@ main > section.bento .section-lead {
 }
 
 .bento-grid {
-    max-width: min(960px, 92vw, calc((100vh - 240px) / 0.96));
+    /* Width = as large as the screen allows. The calc() keeps the suite fitting
+       in the viewport height (no scroll): divisor = the suite's height/width
+       ratio (~0.64 now that the vertical Menu panel widened the block; was 0.96
+       before). 0.68 is slightly conservative so it never overflows vertically. */
+    max-width: min(1800px, 94vw, calc((100vh - 240px) / 0.68));
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -1800,19 +1804,12 @@ main > section:not(.hero).pricing {
     }
 
     .bento-tile--editor-suite {
-        grid-template-columns: 1fr; /* stack: editor-main, then the menu panel */
+        /* keep the Menu on the right (like desktop), just a narrower column —
+           plain 30% with no px floor so it doesn't get too wide on small phones */
+        grid-template-columns: minmax(0, 1fr) 30%;
         padding: 8px;
         gap: 7px;
         border-radius: 12px;
-    }
-
-    /* Menu: centered narrow vertical panel below the timeline, true 350×744 ratio. */
-    .video-placeholder--menu {
-        height: auto;
-        aspect-ratio: 350 / 744;
-        width: 100%;
-        max-width: 190px;
-        margin: 0 auto;
     }
 
     .bento-editor-row {
