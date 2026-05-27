@@ -73,6 +73,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-height) + 8px); /* anchor jumps clear the fixed nav */
     -webkit-font-smoothing: antialiased;
     min-height: 100%;
     background:
@@ -1871,6 +1872,14 @@ main > section:not(.hero).pricing {
 }
 
 @media (max-width: 560px) {
+    /* Footer: put the brand on its own line so "contact · Legal" stay together
+       on the next line instead of each wrapping to a separate line. */
+    .footer-brand {
+        flex-basis: 100%;
+        justify-content: center;
+    }
+    .footer-brand + .footer-sep { display: none; }
+
     .outputs-grid {
         gap: 7px;
     }
