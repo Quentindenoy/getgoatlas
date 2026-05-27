@@ -1200,6 +1200,14 @@ main > section:not(.hero).pricing {
     background-clip: text;
 }
 
+/* Uniform dark ink (#222220) on the essence + pricing + FAQ headlines, matching
+   the pricing-card base. Gradient/teal accent spans inside keep their own fill. */
+.essence .section-headline,
+.pricing .section-headline,
+.close .section-headline {
+    color: #222220;
+}
+
 .pricing::after {
     display: none;
 }
@@ -1252,7 +1260,7 @@ main > section:not(.hero).pricing {
     border-radius: 10px;
     background:
         linear-gradient(180deg, rgba(233, 221, 200, 0.045), rgba(233, 221, 200, 0.012) 42%, transparent 100%),
-        #15130f;
+        #222220;
     border: 1px solid rgba(233, 221, 200, 0.18);
     text-align: left;
     display: flex;
