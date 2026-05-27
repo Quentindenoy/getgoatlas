@@ -30,6 +30,8 @@
 
     /* Pale-copper accent + Skobeloff teal (editorial palette) */
     --accent: #e1926a;
+    /* Warm sepia-brown — muted orange for text on LIGHT (eggshell), matches the paper. */
+    --accent-deep: #855e42;
     --accent-2: #e4ac8b;
     --accent-bright: #e9c9b4;
     --accent-glow: rgba(225, 146, 106, 0.16);
@@ -42,6 +44,8 @@
     --grad-warm: linear-gradient(140deg, #d27d56 0%, #e5a380 100%);
     /* Deeper copper for accent text on LIGHT (eggshell) backgrounds — more punch. */
     --grad-warm-deep: linear-gradient(140deg, #b5572c 0%, #d2794e 100%);
+    /* Teal accent text — alternates with copper on light sections. */
+    --grad-teal: linear-gradient(140deg, #007074 0%, #1a9094 100%);
     --grad-headline: linear-gradient(95deg, #e8dac3 0%, #e0a35b 100%);
 
     --radius: 8px;
@@ -132,7 +136,7 @@ main > section:not(.hero) {
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='360' height='360' viewBox='0 0 360 360'><filter id='grain'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='3' seed='19' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/><feComponentTransfer><feFuncA type='table' tableValues='0 0.22'/></feComponentTransfer></filter><rect width='360' height='360' filter='url(%23grain)' opacity='0.50'/></svg>"),
         linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, var(--paper-bright) 0%, #e7dfcc 100%);
+        linear-gradient(180deg, var(--paper-bright) 0%, var(--paper) 100%);
     background-size: min(1800px, 165vw) auto, 360px 360px, 96px 96px, 96px 96px, auto;
     background-position: 50% 8%, 0 0, 0 0, 0 0, 0 0;
     background-repeat: no-repeat, repeat, repeat, repeat, no-repeat;
@@ -172,7 +176,7 @@ main > section:not(.hero) {
         url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1260' height='1540' viewBox='0 0 1260 1540'><defs><filter id='v'><feTurbulence type='fractalNoise' baseFrequency='0.03' numOctaves='3' seed='151'/><feDisplacementMap in='SourceGraphic' scale='24'/><feGaussianBlur stdDeviation='3.5'/></filter><linearGradient id='a' x1='0' y1='0' x2='1' y2='0'><stop offset='0' stop-color='%23fff7e8' stop-opacity='0'/><stop offset='0.48' stop-color='%23fff7e8' stop-opacity='0.16'/><stop offset='0.56' stop-color='%235c472d' stop-opacity='0.13'/><stop offset='1' stop-color='%235c472d' stop-opacity='0'/></linearGradient><linearGradient id='b' x1='1' y1='0' x2='0' y2='0'><stop offset='0' stop-color='%235c472d' stop-opacity='0'/><stop offset='0.46' stop-color='%235c472d' stop-opacity='0.12'/><stop offset='0.58' stop-color='%23fff7e8' stop-opacity='0.14'/><stop offset='1' stop-color='%23fff7e8' stop-opacity='0'/></linearGradient></defs><g filter='url(%23v)' fill='none' stroke-linecap='round'><path d='M242 -120 C334 170 222 338 322 610 C416 864 350 1034 262 1660' stroke='url(%23a)' stroke-width='23' opacity='0.28'/><path d='M702 -160 C580 150 744 360 650 664 C574 910 650 1118 876 1700' stroke='url(%23b)' stroke-width='17' opacity='0.20'/><path d='M1054 -100 C990 120 1050 254 1012 462 C970 700 1018 830 1140 1180' stroke='url(%23a)' stroke-width='10' opacity='0.15'/><path d='M110 520 C210 590 320 642 438 724 C540 796 664 842 796 980' stroke='url(%23b)' stroke-width='13' opacity='0.15'/></g></svg>"),
         linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
-        linear-gradient(180deg, var(--paper-bright) 0%, #e7dfcc 100%);
+        linear-gradient(180deg, var(--paper-bright) 0%, var(--paper) 100%);
     background-size: 360px 360px, 900px 900px, 1560px 1040px, 1260px 1540px, 96px 96px, 96px 96px, auto;
     background-position: 0 0, 0 0, 9% 120px, 96% 360px, 0 0, 0 0, 0 0;
     background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, no-repeat;
@@ -271,9 +275,16 @@ main > section:not(.hero)::before {
     color: transparent;
 }
 
-/* Hero sits on the dark video → keep the lighter copper there. */
+/* Hero accent "for maps." in bright teal — brightened to stay legible on the dark video. */
 .hero-title .gradient-text {
     background: var(--grad-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Teal accent variant — alternates with copper on light sections. */
+.gradient-text--teal {
+    background: var(--grad-teal);
     -webkit-background-clip: text;
     background-clip: text;
 }
@@ -433,30 +444,30 @@ main > section:not(.hero)::before {
     font-family: inherit;
 }
 
+/* Both hero CTAs: outline only (no fill), copper/orange border + teal-bright text on the dark hero. */
 .btn-primary {
-    background: var(--accent);
-    color: #17120c;
+    background: transparent;
+    color: var(--teal-bright);
     padding: 12px 22px;
-    border: 1px solid rgba(244, 186, 110, 0.55);
-    box-shadow: 0 10px 24px rgba(225, 146, 106, 0.20);
+    border: 1px solid rgba(225, 146, 106, 0.7);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    background: var(--accent-2);
-    box-shadow: 0 14px 30px rgba(225, 146, 106, 0.28);
+    background: rgba(225, 146, 106, 0.12);
+    border-color: rgba(225, 146, 106, 0.95);
 }
 
 .btn-ghost {
-    border: 1px solid var(--border-strong);
+    border: 1px solid rgba(225, 146, 106, 0.7);
     padding: 12px 22px;
-    color: var(--text);
-    background: rgba(233, 221, 200, 0.035);
+    color: var(--teal-bright);
+    background: transparent;
 }
 
 .btn-ghost:hover {
-    background: rgba(233, 221, 200, 0.075);
-    border-color: rgba(233, 221, 200, 0.28);
+    background: rgba(225, 146, 106, 0.12);
+    border-color: rgba(225, 146, 106, 0.95);
     transform: translateY(-2px);
 }
 
@@ -529,17 +540,19 @@ main > section:not(.hero)::before {
 
 .hero-logo {
     display: block;
-    width: clamp(80px, 9vw, 120px);
+    width: clamp(104px, 11vw, 140px);
     height: auto;
-    margin: 0 auto clamp(16px, 2.2vw, 26px);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto clamp(18px, 2.4vw, 30px);
 }
 
 .hero-title {
-    font-size: clamp(2rem, 7vw, 5.4rem);
-    line-height: 1.02;
+    font-size: clamp(2.1rem, 5vw, 3.9rem);
+    line-height: 1.05;
     font-weight: 800;
     letter-spacing: 0;
-    margin-bottom: clamp(20px, 3vw, 32px);
+    margin-bottom: clamp(16px, 2.2vw, 24px);
+    color: var(--text); /* "The video editor" line in eggshell on the dark hero */
 }
 
 /* Two explicit lines: "The video editor" stays on one line, "for maps." below.
@@ -551,11 +564,11 @@ main > section:not(.hero)::before {
 }
 
 .hero-lead {
-    max-width: 600px;
-    margin: 0 auto clamp(28px, 3.6vw, 40px);
-    font-size: clamp(0.9rem, 1.2vw, 1.04rem);
-    color: var(--text-secondary);
-    line-height: 1.55;
+    max-width: 520px;
+    margin: 0 auto clamp(26px, 3.2vw, 36px);
+    font-size: clamp(0.92rem, 1.05vw, 1rem);
+    color: var(--text); /* eggshell on the dark hero */
+    line-height: 1.5;
     text-wrap: pretty;
 }
 
@@ -863,6 +876,11 @@ main > section:not(.hero)::before {
     margin-bottom: var(--space-block-y);
 }
 
+/* "Maps, countries, 3D cameras…" lead in deep copper (readable orange on eggshell). */
+.essence .section-lead {
+    color: var(--accent-deep);
+}
+
 .demo-stage {
     max-width: min(1100px, 100%);
     margin: 0 auto var(--space-block-y);
@@ -904,7 +922,7 @@ main > section:not(.hero)::before {
 }
 
 .output-card p {
-    color: var(--teal);
+    color: var(--accent-deep);
     font-size: 0.96rem;
 }
 
@@ -1449,8 +1467,8 @@ main > section:not(.hero).pricing {
 
 .faq-item {
     --text: #eee7d5;
-    --text-secondary: #dcd6c6;
-    --text-muted: #cdd8d6;
+    --text-secondary: #c2bdae;
+    --text-muted: #949186;
     /* Apply the local light --text on the container (like `section.bento` does)
        so the question <summary> is legible on the dark bar. Without this it
        inherits the section's dark --section-ink → dark-on-dark. The <p> answer
@@ -1458,14 +1476,14 @@ main > section:not(.hero).pricing {
     color: var(--text);
     border: 1px solid var(--border);
     border-radius: 8px;
-    background: var(--teal);
+    background: #222220;
     overflow: hidden;
     transition: border-color 0.2s ease, background 0.2s ease;
 }
 
 .faq-item[open] {
     border-color: rgba(233, 221, 200, 0.24);
-    background: #00595d;
+    background: #2f2e2b;
 }
 
 .faq-item summary {
@@ -2037,7 +2055,7 @@ main > section:not(.hero).pricing {
         background:
             linear-gradient(rgba(40, 35, 27, 0.035) 1px, transparent 1px),
             linear-gradient(90deg, rgba(40, 35, 27, 0.03) 1px, transparent 1px),
-            linear-gradient(180deg, var(--paper-bright) 0%, #e7dfcc 100%);
+            linear-gradient(180deg, var(--paper-bright) 0%, var(--paper) 100%);
         background-size: 96px 96px, 96px 96px, auto;
         background-repeat: repeat, repeat, no-repeat;
         background-blend-mode: normal;
