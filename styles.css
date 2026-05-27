@@ -540,14 +540,14 @@ main > section:not(.hero)::before {
     pointer-events: none;
     /* Tilt the grid for a map-projection feel; scale up so the rotation
        still covers the hero (the .hero overflow:hidden clips the spill). */
-    transform: scale(1.15) rotate(-22deg);
+    transform: scale(1.7) rotate(-22deg);
     transform-origin: center;
     background-image:
         linear-gradient(rgba(238, 231, 213, 0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(238, 231, 213, 0.04) 1px, transparent 1px);
     background-size: 120px 120px, 120px 120px;
-    mask-image: radial-gradient(ellipse 100% 15% at center, black 35%, transparent 12%);
-    -webkit-mask-image: radial-gradient(ellipse 50% 50% at center, black 85%, transparent 100%);
+    mask-image: radial-gradient(circle at 50% 48%, transparent 15%, black 60%);
+    -webkit-mask-image: radial-gradient(circle at 50% 48%, transparent 15%, black 60%);
 }
 
 /* Rhumb lines (loxodromes) radiating from the compass — antique portolan-chart look.
