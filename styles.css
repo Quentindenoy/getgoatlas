@@ -601,7 +601,12 @@ main > section:not(.hero)::before {
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: min(920px, 94vw);
+    /* 100%, not 94vw: the parent .hero already pads with --page-pad, and vw
+       ignores that padding — on narrow phones (~360px) 94vw is wider than the
+       parent's content box, so the box overflows and the excess lands on the
+       right, breaking the centring (.hero is flex-column, margin:auto can't
+       recover an overflowing child). 100% respects the padded content box. */
+    max-width: min(920px, 100%);
     margin: 0 auto;
     padding: 0 var(--page-pad);
 }
