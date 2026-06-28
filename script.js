@@ -140,6 +140,186 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Full product walkthrough: user-initiated playback (no autoplay) with a
+    // custom YouTube-style control bar — play/pause, scrubbable progress,
+    // timer, volume, fullscreen. A replay button surfaces when it ends.
+    document.querySelectorAll("[data-walkthrough]").forEach((stage) => {
+        const video = stage.querySelector("video");
+        const playOverlay = stage.querySelector(".walkthrough-overlay--play");
+        const replayOverlay = stage.querySelector(".walkthrough-replay-btn");
+        if (!video || !playOverlay) return;
+
+        video.controls = false;
+
+        const playBtn = stage.querySelector(".wt-play");
+        const muteBtn = stage.querySelector(".wt-mute");
+        const fsBtn = stage.querySelector(".wt-fullscreen");
+        const volSlider = stage.querySelector(".wt-volume-slider");
+        const progress = stage.querySelector(".wt-progress");
+        const played = stage.querySelector(".wt-progress-played");
+        const buffered = stage.querySelector(".wt-progress-buffered");
+        const thumb = stage.querySelector(".wt-progress-thumb");
+        const curEl = stage.querySelector(".wt-time-current");
+        const durEl = stage.querySelector(".wt-time-duration");
+
+        const fmt = (t) => {
+            if (!isFinite(t) || t < 0) t = 0;
+            const m = Math.floor(t / 60);
+            const s = Math.floor(t % 60);
+            return m + ":" + String(s).padStart(2, "0");
+        };
+
+        // --- Auto-hide controls after inactivity while playing ---
+        let idleTimer = null;
+        const resetIdle = () => {
+            stage.classList.remove("is-idle");
+            if (idleTimer) clearTimeout(idleTimer);
+            if (!video.paused && !video.ended) {
+                idleTimer = setTimeout(() => {
+                    if (!video.paused && !video.ended) stage.classList.add("is-idle");
+                }, 2600);
+            }
+        };
+
+        const start = () => {
+            if (video.preload !== "auto") video.preload = "auto";
+            stage.classList.add("is-started");
+            stage.classList.remove("is-ended");
+            const attempt = video.play();
+            if (attempt && typeof attempt.catch === "function") attempt.catch(() => {});
+        };
+        const togglePlay = () => {
+            if (video.paused || video.ended) start();
+            else video.pause();
+        };
+
+        playOverlay.addEventListener("click", start);
+        if (replayOverlay) {
+            replayOverlay.addEventListener("click", () => {
+                video.currentTime = 0;
+                start();
+            });
+        }
+        if (playBtn) playBtn.addEventListener("click", (e) => { e.stopPropagation(); togglePlay(); });
+        video.addEventListener("click", () => { if (stage.classList.contains("is-started")) togglePlay(); });
+
+        video.addEventListener("play", () => {
+            stage.classList.add("is-playing", "is-started");
+            stage.classList.remove("is-ended");
+            resetIdle();
+        });
+        video.addEventListener("pause", () => {
+            stage.classList.remove("is-playing", "is-idle");
+        });
+        video.addEventListener("ended", () => {
+            stage.classList.add("is-ended");
+            stage.classList.remove("is-playing", "is-idle");
+        });
+
+        // --- Time + progress ---
+        video.addEventListener("loadedmetadata", () => {
+            if (durEl) durEl.textContent = fmt(video.duration);
+        });
+        const renderProgress = () => {
+            const d = video.duration || 0;
+            const frac = d ? video.currentTime / d : 0;
+            const pct = (frac * 100) + "%";
+            if (played) played.style.width = pct;
+            if (thumb) thumb.style.left = pct;
+            if (curEl) curEl.textContent = fmt(video.currentTime);
+            if (progress) progress.setAttribute("aria-valuenow", String(Math.round(frac * 100)));
+        };
+        video.addEventListener("timeupdate", renderProgress);
+        video.addEventListener("progress", () => {
+            if (!buffered || !video.buffered.length) return;
+            const end = video.buffered.end(video.buffered.length - 1);
+            const d = video.duration || 0;
+            buffered.style.width = (d ? (end / d) * 100 : 0) + "%";
+        });
+
+        // --- Seek (click + drag) ---
+        let scrubbing = false;
+        const seekToClientX = (clientX) => {
+            if (!progress) return;
+            const rect = progress.getBoundingClientRect();
+            let frac = (clientX - rect.left) / rect.width;
+            frac = Math.min(1, Math.max(0, frac));
+            if (video.duration) video.currentTime = frac * video.duration;
+            const pct = (frac * 100) + "%";
+            if (played) played.style.width = pct;
+            if (thumb) thumb.style.left = pct;
+        };
+        if (progress) {
+            progress.addEventListener("pointerdown", (e) => {
+                e.stopPropagation();
+                scrubbing = true;
+                stage.classList.add("is-scrubbing");
+                try { progress.setPointerCapture(e.pointerId); } catch (_) {}
+                seekToClientX(e.clientX);
+            });
+            progress.addEventListener("pointermove", (e) => { if (scrubbing) seekToClientX(e.clientX); });
+            const endScrub = (e) => {
+                if (!scrubbing) return;
+                scrubbing = false;
+                stage.classList.remove("is-scrubbing");
+                try { progress.releasePointerCapture(e.pointerId); } catch (_) {}
+            };
+            progress.addEventListener("pointerup", endScrub);
+            progress.addEventListener("pointercancel", endScrub);
+            progress.addEventListener("keydown", (e) => {
+                if (!video.duration) return;
+                if (e.key === "ArrowRight") { video.currentTime = Math.min(video.duration, video.currentTime + 5); e.preventDefault(); }
+                else if (e.key === "ArrowLeft") { video.currentTime = Math.max(0, video.currentTime - 5); e.preventDefault(); }
+            });
+        }
+
+        // --- Volume ---
+        const updateVolUI = () => {
+            const v = video.muted ? 0 : video.volume;
+            stage.classList.toggle("is-muted", video.muted || video.volume === 0);
+            if (volSlider) {
+                volSlider.value = String(Math.round(v * 100));
+                volSlider.style.setProperty("--vol", (v * 100) + "%");
+            }
+        };
+        if (muteBtn) muteBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            video.muted = !video.muted;
+            updateVolUI();
+        });
+        if (volSlider) volSlider.addEventListener("input", (e) => {
+            e.stopPropagation();
+            const val = Number(volSlider.value) / 100;
+            video.volume = val;
+            video.muted = val === 0;
+            updateVolUI();
+        });
+        video.addEventListener("volumechange", updateVolUI);
+
+        // --- Fullscreen ---
+        const fsElement = () => document.fullscreenElement || document.webkitFullscreenElement;
+        const toggleFs = () => {
+            if (fsElement() === stage) {
+                (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+            } else if (stage.requestFullscreen || stage.webkitRequestFullscreen) {
+                (stage.requestFullscreen || stage.webkitRequestFullscreen).call(stage);
+            }
+        };
+        if (fsBtn) fsBtn.addEventListener("click", (e) => { e.stopPropagation(); toggleFs(); });
+        video.addEventListener("dblclick", toggleFs);
+        const onFsChange = () => stage.classList.toggle("is-fullscreen", fsElement() === stage);
+        document.addEventListener("fullscreenchange", onFsChange);
+        document.addEventListener("webkitfullscreenchange", onFsChange);
+
+        // --- Idle / cursor reveal ---
+        stage.addEventListener("pointermove", resetIdle);
+        stage.addEventListener("pointerleave", () => {
+            if (!video.paused && !video.ended) stage.classList.add("is-idle");
+        });
+
+        updateVolUI();
+    });
+
     document.querySelectorAll(".video-placeholder").forEach((ph) => {
         ph.addEventListener("click", (event) => {
             if (ph.matches("[data-lightbox-video]")) return;
