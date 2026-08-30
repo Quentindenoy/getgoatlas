@@ -2597,6 +2597,13 @@ main > section:not(.hero).pricing {
     outline: 1px solid rgba(214, 122, 74, 0.55);
     box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
     transition: transform 0.18s ease, box-shadow 0.18s ease;
+    /* LA SEULE CARTE CLIQUABLE, DONC LA SEULE AVEC UNE MAIN.
+       `.pricing-card { cursor: default }` plus haut date du jour ou les TROIS cartes avaient
+       cesse d'etre des liens de paiement. L'acces anticipe en est redevenu un — un vrai <a>
+       vers LemonSqueezy — et la regle generale continuait de lui retirer le curseur. Une carte
+       qui se souleve au survol sans changer le curseur se lit comme une decoration, pas comme
+       le bouton d'achat : c'est le seul chemin vers le paiement de la page. */
+    cursor: pointer;
 }
 
 .pricing-card--early:hover {
