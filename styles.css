@@ -1663,10 +1663,10 @@ main > section:not(.hero).pricing {
 }
 
 .pricing-grid {
-    max-width: 880px;
+    max-width: 1180px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 22px;
     align-items: stretch;
 }
@@ -2541,4 +2541,120 @@ main > section:not(.hero).pricing {
             linear-gradient(180deg, #272725 0%, #1f1f1d 50%, #141413 100%);
         background-blend-mode: normal;
     }
+}
+
+/* LE MESSAGE QUI REMPLACE L'ACHAT.
+   Ajoute le 2026-08-31 : les deux cartes de prix ne sont plus des liens de paiement, et une
+   grille de prix sans explication se lit comme un bug. */
+.pricing-notice {
+    max-width: 46rem;
+    margin: 0 auto 2rem;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.55);
+}
+.pricing-card { cursor: default; }
+
+/* ==========================================================================
+   LES DEUX ABONNEMENTS SONT FERMES, L'ACCES ANTICIPE EST LA SEULE PORTE.
+   Ajoute le 2026-08-31.
+
+   GRISER PLUTOT QUE SUPPRIMER : les deux offres ont ete vendues, elles sont
+   dans des historiques et des captures. Les faire disparaitre laisserait un
+   client se demander s'il s'est trompe de site ; les montrer fermees repond
+   a la question avant qu'il la pose.
+   ========================================================================== */
+
+.pricing-card--closed {
+    position: relative;
+    opacity: 0.42;
+    filter: saturate(0.25);
+    cursor: default;
+}
+
+.pricing-card--closed .price,
+.pricing-card--closed h3 {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.pricing-closed-tag {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    padding: 3px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* La carte qui reste vivante doit se voir la premiere : c'est la seule sur
+   laquelle on peut cliquer. */
+.pricing-card--early {
+    outline: 1px solid rgba(214, 122, 74, 0.55);
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.pricing-card--early:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.pricing-badge--early {
+    background: linear-gradient(135deg, #d67a4a, #c2643a);
+    color: #fff;
+}
+
+@media (max-width: 1080px) {
+    .pricing-grid { grid-template-columns: 1fr; max-width: 520px; }
+}
+
+
+
+
+
+/* Le compteur de places, dans le titre de la carte. Plus petit et en retrait : c'est une
+   precision sur l'offre, pas l'offre. */
+.seats-left {
+    font-size: 0.62em;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.55);
+    margin-left: 6px;
+    white-space: nowrap;
+}
+
+/* LE LOGO DANS LE TITRE — « [logo] inside DaVinci Resolve. »
+   Ajoute le 2026-08-31.
+
+   inline-flex plutot que deux blocs cote a cote : c'est ce qui met le logo sur la MEME ligne de
+   base que le texte au lieu de le poser au-dessus. La taille est en `em`, donc elle suit le titre
+   fluide (clamp 2,1 -> 3,9 rem) ; en pixels fixes le logo serait enorme sur telephone.
+
+   Le leger decalage vertical corrige ce que l'oeil voit : un carre centre sur la hauteur de ligne
+   parait toujours trop haut a cote de lettres, qui n'occupent que leur hauteur d'x. */
+.hero-title-line--logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.34em;
+    white-space: nowrap;
+}
+
+.hero-title-logo {
+    height: 0.92em;
+    width: auto;
+    flex: 0 0 auto;
+    transform: translateY(-0.04em);
+    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.45));
+}
+
+@media (max-width: 560px) {
+    /* Sur telephone le titre descend a 2,1 rem : le logo suivrait jusqu'a devenir illisible.
+       On le remonte un peu en proportion pour qu'il reste reconnaissable. */
+    .hero-title-logo { height: 1.02em; }
+    .hero-title-line--logo { gap: 0.28em; }
 }

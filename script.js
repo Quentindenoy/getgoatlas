@@ -331,3 +331,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* ==========================================================================
+   COMBIEN DE PLACES D'ACCES ANTICIPE RESTENT.
+   Ajoute le 2026-08-31.
+
+   Le nombre vient de Plugin-Seats-v1, une fonction cloud qui interroge Lemon
+   Squeezy avec la cle API. CETTE CLE NE PEUT PAS DESCENDRE ICI : dans le
+   JavaScript d'un site public, elle donnerait le controle de la boutique a
+   quiconque ouvre l'inspecteur. Le navigateur ne recoit qu'un nombre.
+
+   RIEN NE S'AFFICHE TANT QUE LE NOMBRE N'EST PAS SUR. Si la fonction est
+   injoignable, ou repond `remaining: null`, l'emplacement reste cache et la
+   carte lit simplement « Lifetime ». Un compteur invente pousse a l'achat sur
+   une information fausse - pire que pas de compteur du tout.
+   ========================================================================== */
+(function () {
+    var slot = document.querySelector("[data-seats]");
+    if (!slot || !window.fetch) return;
+
+    var ENDPOINT = "https://us-central1-go-atlas-441715.cloudfunctions.net/Plugin-Seats-v1";
+
+    fetch(ENDPOINT, { mode: "cors", cache: "no-store" })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+            if (!data || typeof data.remaining !== "number") return;
+            if (data.remaining <= 0) {
+                slot.textContent = " (sold out)";
+                slot.hidden = false;
+                return;
+            }
+            slot.textContent = " (" + data.remaining + " remaining)";
+            slot.hidden = false;
+        })
+        .catch(function () { /* silence voulu : la carte reste lisible sans le nombre */ });
+})();

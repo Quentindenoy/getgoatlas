@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Go Atlas — The video editor for maps</title>
-    <meta name="description" content="Go Atlas is the video editor for maps. Build cinematic travel routes, documentary geography, and news explainers — with a classic editing workflow, a 3D cinematic camera, and effects and presets built in.">
+    <title>Go Atlas — Animated maps, inside DaVinci Resolve</title>
+    <meta name="description" content="Go Atlas is a native OpenFX plugin for DaVinci Resolve. Build animated maps inside your own timeline — cinematic 3D map camera, keyframes, routes and labels, 4K rendering.">
 
     <meta property="og:title" content="Go Atlas — The video editor for maps">
-    <meta property="og:description" content="Build cinematic travel routes, documentary geography, and news explainer animations on a real timeline.">
+    <meta property="og:description" content="A native plugin for DaVinci Resolve. Animated maps on your own timeline — 3D camera, keyframes, routes, 4K.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://getgoatlas.com">
 
@@ -43,7 +43,7 @@
           "applicationCategory": "MultimediaApplication",
           "applicationSubCategory": "Video Editor",
           "operatingSystem": "Windows 10, Windows 11",
-          "description": "Go Atlas is the video editor for maps. Build cinematic travel routes, documentary geography, and news explainers — with a classic editing workflow, a 3D cinematic camera, and effects and presets built in.",
+          "description": "Go Atlas is a native OpenFX plugin for DaVinci Resolve. Build animated maps inside your own timeline - cinematic 3D map camera, keyframes, routes and labels, 4K rendering - without leaving your project.",
           "publisher": { "@id": "https://getgoatlas.com/#organization" },
           "offers": [
             {
@@ -52,6 +52,7 @@
               "category": "subscription",
               "price": "49",
               "priceCurrency": "EUR",
+              "availability": "https://schema.org/OutOfStock",
               "url": "https://getgoatlas.com/#pricing"
             },
             {
@@ -60,6 +61,7 @@
               "category": "subscription",
               "price": "360",
               "priceCurrency": "EUR",
+              "availability": "https://schema.org/OutOfStock",
               "url": "https://getgoatlas.com/#pricing"
             }
           ]
@@ -118,9 +120,8 @@
     <link rel="icon" type="image/png" sizes="512x512" href="assets/icone.png">
     <link rel="apple-touch-icon" href="assets/icone.png">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="fonts.css">
 
     <link rel="stylesheet" href="styles.css?v=20260629-player7">
 </head>
@@ -169,12 +170,15 @@
         <div class="hero-content">
             <img src="assets/loading.gif" alt="Go Atlas animated logo" class="hero-logo" width="120" height="120">
             <h1 class="hero-title">
-                <span class="hero-title-line">The video editor</span>
-                <span class="hero-title-line gradient-text">for maps.</span>
+                <span class="hero-title-line">Animated maps for</span>
+                <span class="hero-title-line hero-title-line--logo">
+                    <span class="gradient-text">Davinci Resolve</span>
+					<img src="assets/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve" class="hero-title-logo" width="128" height="128" loading="eager" decoding="async">
+                </span>
             </h1>
 
             <p class="hero-lead">
-                Build cinematic travel routes, documentary geography, and news explainers. A classic editing workflow. A cinematic 3D camera. Effects and presets, built in.
+                Go Atlas installs as a native plugin in DaVinci Resolve. Cinematic 3D map camera, GPU accelerated &mdash; without ever leaving your project.
             </p>
 
             <div class="hero-cta">
@@ -351,30 +355,22 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
             <article class="bento-tile bento-tile--full bento-tile--editor-suite">
                 <div class="bento-editor-main">
                 <div class="bento-editor-row">
-                    <div class="video-placeholder video-placeholder--kfeditor has-video" data-video-id="feat_kf">
-                        <video
-                            src="assets/KFeditor.mp4"
-                            data-src-mobile="assets/KFeditor-mobile.mp4"
-                            data-lazy muted loop playsinline
-                            preload="none"
-                            poster="assets/KFeditor-poster.jpg"
-                            aria-label="Keyframe editor timeline demo"
-                        ></video>
+                    <div class="video-placeholder video-placeholder--soon video-placeholder--kfeditor">
+                        <div class="vp-soon">
+                            <span class="vp-soon-tag">Coming</span>
+                            <p>New captures, inside DaVinci Resolve.</p>
+                        </div>
                         <div class="vp-overlay-caption">
                             <span class="output-audience">Keyframe Editor</span>
                             <p>keyframes. Bezier handles. full control.</p>
                         </div>
                     </div>
 
-                    <div class="video-placeholder video-placeholder--map has-video" data-video-id="feat_camera">
-                        <video
-                            src="assets/Map.mp4"
-                            data-src-mobile="assets/Map-mobile.mp4"
-                            data-lazy muted loop playsinline
-                            preload="none"
-                            poster="assets/Map-poster.jpg"
-                            aria-label="Map camera editor demo"
-                        ></video>
+                    <div class="video-placeholder video-placeholder--soon video-placeholder--map">
+                        <div class="vp-soon">
+                            <span class="vp-soon-tag">Coming</span>
+                            <p>New captures, inside DaVinci Resolve.</p>
+                        </div>
                         <div class="vp-overlay-caption">
                             <span class="output-audience">Map</span>
                             <p>Position. Zoom. Tilt. Rotation. Style</p>
@@ -383,15 +379,11 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 </div>
 
                 <!-- Row 2: Timeline (video full width, overlay caption from top on hover) -->
-                <div class="video-placeholder video-placeholder--wide has-video">
-                    <video
-                        src="assets/Timeline.mp4"
-                        data-src-mobile="assets/Timeline-mobile.mp4"
-                        data-lazy muted loop playsinline
-                        preload="none"
-                        poster="assets/Timeline-poster.jpg"
-                        aria-label="Timeline with keyframes demo"
-                    ></video>
+                <div class="video-placeholder video-placeholder--soon video-placeholder--wide">
+                    <div class="vp-soon">
+                            <span class="vp-soon-tag">Coming</span>
+                            <p>New captures, inside DaVinci Resolve.</p>
+                        </div>
                     <div class="vp-overlay-caption">
                         <span class="output-audience">Timeline</span>
                         <p>Frame-accurate scrubbing. Multi-track editing with solo, hide, lock. Clip split, and trim. A dedicated camera track to direct every scene.</p>
@@ -400,13 +392,11 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                 </div>
 
                 <!-- Right panel: Menu (vertical, mirrors the app's right-hand panel) -->
-                <div class="video-placeholder video-placeholder--menu has-video" data-video-id="feat_menu">
-                    <video
-                        src="assets/Menu.mp4"
-                        data-lazy muted loop playsinline
-                        preload="none"
-                        aria-label="Editor menu panel demo"
-                    ></video>
+                <div class="video-placeholder video-placeholder--soon video-placeholder--menu">
+                    <div class="vp-soon">
+                            <span class="vp-soon-tag">Coming</span>
+                            <p>New captures, inside DaVinci Resolve.</p>
+                        </div>
                     <div class="vp-overlay-caption">
                         <span class="output-audience">Menu</span>
                         <p>Tools, layers, and effects — one click away.</p>
@@ -428,14 +418,30 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
             </h2>
         </div>
 
+        <p class="pricing-notice">Go Atlas is being rebuilt as a DaVinci Resolve plugin.
+           The subscriptions below are closed &mdash; early access is the way in.</p>
+
         <div class="pricing-grid">
             <a
-                href="https://goatlas.lemonsqueezy.com/checkout/buy/7cded7fb-9756-4bd1-9ed1-154babdea178"
-                class="pricing-card pricing-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-checkout="monthly"
+                href="#REMPLACER-PAR-LE-LIEN-LEMONSQUEEZY-EARLY-ACCESS"
+                class="pricing-card pricing-card--early"
+                data-checkout="early"
             >
+                <span class="pricing-badge pricing-badge--early">Early access</span>
+                <h3>Lifetime<span class="seats-left" data-seats hidden></span></h3>
+                <div class="price">&euro;199<span> once</span></div>
+                <p class="price-note">One payment &middot; no subscription</p>
+                <ul class="pricing-features">
+                    <li>The DaVinci Resolve plugin, for good</li>
+                    <li>Every update as it ships</li>
+                    <li>Cinematic 3D map camera</li>
+                    <li>Timeline &amp; bezier keyframe editor</li>
+                    <li>4K export &mdash; videos you own</li>
+                </ul>
+            </a>
+
+            <div class="pricing-card pricing-card--closed" data-checkout="monthly">
+                <span class="pricing-closed-tag">Closed</span>
                 <h3>Monthly</h3>
                 <div class="price">€49<span>/month</span></div>
                 <p class="price-note">Billed monthly · cancel anytime</p>
@@ -446,15 +452,10 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                     <li>Built-in effects &amp; presets</li>
                     <li>4K export — videos you own</li>
                 </ul>
-            </a>
+            </div>
 
-            <a
-                href="https://goatlas.lemonsqueezy.com/checkout/buy/677fcaf0-d342-42a9-a50f-8f00a24090be"
-                class="pricing-card pricing-card--featured pricing-link"
-                target="_blank"
-                rel="noopener noreferrer"
-                data-checkout="annual"
-            >
+            <div class="pricing-card pricing-card--featured pricing-card--closed" data-checkout="annual">
+                <span class="pricing-closed-tag">Closed</span>
                 <span class="pricing-badge">Save 38%</span>
                 <h3>Annual</h3>
                 <div class="price">€30<span>/month</span></div>
@@ -466,7 +467,8 @@ Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K renderin
                     <li>Built-in effects &amp; presets</li>
                     <li>4K export — videos you own</li>
                 </ul>
-            </a>
+            </div>
+
         </div>
 
     </section>

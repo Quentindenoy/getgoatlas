@@ -1,0 +1,12 @@
+# LES MEDIAS DU SITE NE SONT PAS VERSIONNES ICI.
+#
+# 82 Mo de video pour huit fichiers, mesures le 2026-08-31. Git n'oublie jamais : les commiter
+# une fois les impose a chaque clone du depot, pour toujours, alors qu'ils ne sont pas le produit.
+#
+# ILS NE SONT PAS PERDUS POUR AUTANT : leur maison est le depot getgoatlas, ou la publication du
+# site les pousse. Et « Publier le site » miroite depuis le DISQUE, pas depuis git - ce qui est
+# ignore ici part quand meme en ligne.
+#
+# Le code du site, lui, reste versionne : index.html, styles.css, script.js se relisent et se
+# comparent, eux.
+assets/
