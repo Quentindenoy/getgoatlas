@@ -120,9 +120,10 @@
                 <h3>2.4 Map, Search and Routing Requests</h3>
                 <p>
                     Rendering a map sends map coordinates, a zoom level and a style identifier to <strong>MapTiler AG</strong>
-                    (Switzerland), which returns map tiles, fonts and sprites. Searching for a place sends the text you typed to
-                    the same provider. Tracing a route sends the coordinates of the stops you placed to
-                    <strong>openrouteservice</strong>, operated by HeiGIT gGmbH (Germany).
+                    (Switzerland), which returns map tiles, fonts and sprites. Searching for a place is answered from a place
+                    index bundled with the Software; the text you typed is never sent anywhere. Tracing a route sends the
+                    coordinates of the stops you placed to <strong>openrouteservice</strong>, operated by HeiGIT gGmbH
+                    (Germany).
                 </p>
                 <p>
                     These requests carry your IP address to those providers, as any network request does. They are handled
@@ -193,7 +194,8 @@
                         system itself. Merchant of Record.</li>
                     <li><strong>Google LLC / Google Cloud</strong> (United States) &mdash; hosting of the license service, its
                         rate-limit store and its logs, and of the seat counter the pricing page calls.</li>
-                    <li><strong>MapTiler AG</strong> (Switzerland) &mdash; map tiles, fonts, sprites and place search.</li>
+                    <li><strong>MapTiler AG</strong> (Switzerland) &mdash; map tiles, fonts and sprites. Place search runs from
+                        a bundled index and reaches no third party.</li>
                     <li><strong>HeiGIT gGmbH</strong> (Germany) &mdash; route calculation, when you trace a route.</li>
                     <li><strong>Vercel Inc.</strong> (United States) &mdash; hosting of getgoatlas.com.</li>
                 </ul>
@@ -460,15 +462,17 @@
                 <h2>13. Third-Party Services and Attribution</h2>
                 <p>The Software relies on third-party services:</p>
                 <ul>
-                    <li><strong>MapTiler AG</strong> for map tiles, fonts and place search, built from OpenStreetMap data.</li>
+                    <li><strong>MapTiler AG</strong> for map tiles and fonts, built from OpenStreetMap data. Place search runs
+                        from an index bundled with the Software and reaches no third party.</li>
                     <li><strong>openrouteservice</strong> (HeiGIT gGmbH) for route calculation, also from OpenStreetMap data.</li>
                 </ul>
                 <p>
-                    Map data is licensed under the Open Database License. The credit
-                    "&copy; MapTiler &copy; OpenStreetMap contributors" is composited into every frame the Software renders.
-                    <strong>You agree not to remove, crop out, obscure or otherwise defeat that credit</strong>, in the Software
-                    or in any work exported from it. Doing so breaches both the MapTiler terms of service and the Open Database
-                    License, and terminates your license under the EULA.
+                    Map data is licensed under the Open Database License. The credit "&copy; OpenStreetMap contributors" is
+                    composited into every frame the Software renders. <strong>You agree not to remove, crop out, obscure or
+                    otherwise defeat that credit</strong>, in the Software or in any work exported from it. Doing so breaches
+                    the Open Database License and terminates your license under the EULA. Whichever map provider is active
+                    behind the Software may additionally require its own credit under its own terms; that provider's terms
+                    apply on top of this one, not instead of it.
                 </p>
                 <p>We are not responsible for:</p>
                 <ul>
@@ -691,15 +695,16 @@
 
                 <h2>8. Third-Party Services and Open-Source Software</h2>
                 <p>
-                    The Software relies on third-party map services: <strong>MapTiler AG</strong> for map tiles, fonts and place
-                    search, and <strong>openrouteservice</strong> (HeiGIT gGmbH) for route calculation. Both are built from
-                    OpenStreetMap data, licensed under the Open Database License.
+                    The Software relies on third-party map services: <strong>MapTiler AG</strong> for map tiles and fonts, and
+                    <strong>openrouteservice</strong> (HeiGIT gGmbH) for route calculation. Both are built from OpenStreetMap
+                    data, licensed under the Open Database License. Place search runs from an index bundled with the Software
+                    and reaches no third party.
                 </p>
                 <p>
-                    The credit "&copy; MapTiler &copy; OpenStreetMap contributors" is composited into every frame the Software
-                    renders. It is drawn into the image rather than served from a file you could delete. Removing, cropping out
-                    or obscuring it breaches the MapTiler terms of service and the Open Database License, and terminates this
-                    license.
+                    The credit "&copy; OpenStreetMap contributors" is composited into every frame the Software renders. It is
+                    drawn into the image rather than served from a file you could delete. Removing, cropping out or obscuring
+                    it breaches the Open Database License and terminates this license. Whichever map provider is active behind
+                    the Software may additionally require its own credit under its own terms, on top of this one.
                 </p>
                 <p>
                     The Software also incorporates third-party open-source components, each licensed under its own terms. A complete list of these components and their licenses is provided on the <a href="#opensource">Open Source Licenses</a> tab. These components remain governed by their respective licenses, and nothing in this Agreement limits any rights granted to you under those licenses.
@@ -817,8 +822,8 @@
 
                 <p><strong>Map Data</strong></p>
                 <p>
-                    Maps rendered by Go Atlas contain data &copy; OpenStreetMap contributors, served by MapTiler AG and
-                    available under the <a href="https://opendatacommons.org/licenses/odbl/" rel="noopener noreferrer" target="_blank">Open Database License</a>.
+                    Maps rendered by Go Atlas contain data &copy; OpenStreetMap contributors, currently served through
+                    MapTiler AG's infrastructure and available under the <a href="https://opendatacommons.org/licenses/odbl/" rel="noopener noreferrer" target="_blank">Open Database License</a>.
                     Bundled country and region outlines are derived from
                     <a href="https://www.naturalearthdata.com/" rel="noopener noreferrer" target="_blank">Natural Earth</a>, which is in the public domain.
                 </p>
