@@ -379,9 +379,9 @@ document.addEventListener("DOMContentLoaded", () => {
    suivre a la main.
    ========================================================================== */
 (function () {
-    var fullEl = document.querySelector("[data-price-full]");
+    var fullEls = document.querySelectorAll("[data-price-full]"); // one plain, one struck through
     var earlyEl = document.querySelector("[data-price-early]");
-    if (!fullEl || !earlyEl || !window.fetch) return;
+    if (!fullEls.length || !earlyEl || !window.fetch) return;
 
     var FOUNDER_DISCOUNT_EUR = 100;
     var ENDPOINT = "https://license.getgoatlas.com";
@@ -399,7 +399,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!early) return; // pas de prix sur : la carte garde le texte ecrit dans le HTML
             var full = Number(String(early).replace(/[^\d.]/g, ""));
             if (!full) return;
-            fullEl.textContent = "€" + full;
+            fullEls.forEach(function (el) { el.textContent = "€" + full; });
             earlyEl.textContent = "€" + Math.max(0, full - FOUNDER_DISCOUNT_EUR);
         })
         .catch(function () { /* silence voulu : la carte garde le prix ecrit dans le HTML */ });
