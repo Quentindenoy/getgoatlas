@@ -609,6 +609,8 @@ main > section:not(.hero)::before {
     max-width: min(920px, 100%);
     margin: 0 auto;
     padding: 0 var(--page-pad);
+    display: grid;
+    justify-items: center;
 }
 
 .hero-logo {
@@ -617,9 +619,12 @@ main > section:not(.hero)::before {
     height: auto;
     aspect-ratio: 1 / 1;
     margin: 0 auto clamp(18px, 2.4vw, 30px);
+    /* The pin puts more visual weight on the right side of the bitmap. */
+    transform: translateX(-0.12rem);
 }
 
 .hero-title {
+    width: fit-content;
     font-size: clamp(2.1rem, 5vw, 3.9rem);
     line-height: 1.05;
     font-weight: 800;
@@ -636,7 +641,14 @@ main > section:not(.hero)::before {
     white-space: nowrap;
 }
 
+/* Optical centring: the unequal letter shapes make the two mathematically centred lines look
+   offset. Tiny opposite corrections align their visible mass with the rest of the hero. */
+.hero-title-line:first-child {
+    transform: translateX(-0.1em);
+}
+
 .hero-lead {
+    width: min(520px, 100%);
     max-width: 520px;
     margin: 0 auto clamp(26px, 3.2vw, 36px);
     font-size: clamp(0.92rem, 1.05vw, 1rem);
@@ -650,7 +662,14 @@ main > section:not(.hero)::before {
     justify-content: center;
     gap: clamp(10px, 1.4vw, 16px);
     flex-wrap: wrap;
+    width: min(390px, 100%);
     margin-bottom: clamp(20px, 2.6vw, 30px);
+}
+
+.hero-cta .btn-primary,
+.hero-cta .btn-ghost {
+    flex: 1 1 0;
+    min-width: 0;
 }
 
 .hero-trust {
@@ -1640,6 +1659,10 @@ main > section:not(.hero).pricing {
     background: #ffffff;
 }
 
+.pricing .section-intro {
+    margin-bottom: clamp(14px, 1.5vw, 22px);
+}
+
 /* "No Hidden Costs." — the light headline gradient is illegible on white, so
    switch this one to the saturated amber buy-CTA gradient (on-brand, draws the
    eye to the value line). Scoped to pricing: the hero keeps the light gradient
@@ -1755,6 +1778,14 @@ main > section:not(.hero).pricing {
     font-weight: 500;
 }
 
+.price-was {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    margin-right: 6px;
+}
+
 .price-note {
     font-size: 0.82rem;
     color: var(--text-muted);
@@ -1807,6 +1838,15 @@ main > section:not(.hero).pricing {
 /* ==========================================================
    SECTION 5 — CLOSE (FAQ + Final CTA)
    ========================================================== */
+.close {
+    padding-top: clamp(52px, 5vw, 72px);
+    padding-bottom: clamp(52px, 5vw, 72px);
+}
+
+.close .section-intro {
+    margin-bottom: clamp(20px, 2vw, 28px);
+}
+
 .close .final-cta-inner { margin-top: var(--space-block-y); text-align: center; }
 
 /* Specs compatibility table — refined Apple/Linear-style */
@@ -2548,11 +2588,11 @@ main > section:not(.hero).pricing {
    grille de prix sans explication se lit comme un bug. */
 .pricing-notice {
     max-width: 46rem;
-    margin: 0 auto 2rem;
+    margin: 0 auto clamp(22px, 2.4vw, 34px);
     text-align: center;
     font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.45;
+    color: rgba(39, 39, 37, 0.62);
 }
 .pricing-card { cursor: default; }
 
@@ -2635,33 +2675,28 @@ main > section:not(.hero).pricing {
     white-space: nowrap;
 }
 
-/* LE LOGO DANS LE TITRE — « [logo] inside DaVinci Resolve. »
-   Ajoute le 2026-08-31.
-
-   inline-flex plutot que deux blocs cote a cote : c'est ce qui met le logo sur la MEME ligne de
-   base que le texte au lieu de le poser au-dessus. La taille est en `em`, donc elle suit le titre
-   fluide (clamp 2,1 -> 3,9 rem) ; en pixels fixes le logo serait enorme sur telephone.
-
-   Le leger decalage vertical corrige ce que l'oeil voit : un carre centre sur la hauteur de ligne
-   parait toujours trop haut a cote de lettres, qui n'occupent que leur hauteur d'x. */
+/* Le logo DaVinci est positionne hors du flux : il ne compte donc pas dans la largeur utilisee
+   pour centrer « Davinci Resolve ». Les deux lignes de texte partagent exactement le meme axe. */
 .hero-title-line--logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.34em;
+    display: inline-block;
+    position: relative;
+    transform: translateX(-0.32em);
     white-space: nowrap;
 }
 
 .hero-title-logo {
-    height: 0.92em;
+    position: absolute;
+    left: calc(100% + 0.09em);
+    top: 50%;
+    height: 0.42em;
     width: auto;
-    flex: 0 0 auto;
-    transform: translateY(-0.04em);
-    filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.45));
+    max-width: none;
+    transform: translateY(-44%);
+    filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.45));
 }
 
 @media (max-width: 560px) {
-    /* Sur telephone le titre descend a 2,1 rem : le logo suivrait jusqu'a devenir illisible.
-       On le remonte un peu en proportion pour qu'il reste reconnaissable. */
-    .hero-title-logo { height: 1.02em; }
-    .hero-title-line--logo { gap: 0.28em; }
+    .hero-title-logo { height: 0.46em; }
+    .hero-title-line:first-child { transform: translateX(-0.06em); }
+    .hero-title-line--logo { transform: translateX(-0.18em); }
 }

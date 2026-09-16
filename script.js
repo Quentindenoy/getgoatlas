@@ -366,3 +366,41 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(function () { /* silence voulu : la carte reste lisible sans le nombre */ });
 })();
+
+/* ==========================================================================
+   LE PRIX PLEIN VIENT DE LEMON SQUEEZY, PAS D'UN CHIFFRE ECRIT ICI.
+   Ajoute le 2026-09-16, meme source que le prix affiche dans la fenetre Go
+   Atlas : license.getgoatlas.com, action get_prices, public et sans cle.
+
+   LA REMISE FONDATEUR (-100 EUR) N'EST PAS LUE : Lemon Squeezy n'expose
+   aucune API publique sur un code de reduction. Le prix plein arrive donc en
+   direct, la remise reste calculee ici. Si le prix plein change dans Lemon
+   Squeezy, la carte le suit tout seul ; si la remise change, ce fichier doit
+   suivre a la main.
+   ========================================================================== */
+(function () {
+    var fullEl = document.querySelector("[data-price-full]");
+    var earlyEl = document.querySelector("[data-price-early]");
+    if (!fullEl || !earlyEl || !window.fetch) return;
+
+    var FOUNDER_DISCOUNT_EUR = 100;
+    var ENDPOINT = "https://license.getgoatlas.com";
+
+    fetch(ENDPOINT, {
+        method: "POST",
+        mode: "cors",
+        cache: "no-store",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "get_prices" })
+    })
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (data) {
+            var early = data && data.prices && data.prices.earlyAccess;
+            if (!early) return; // pas de prix sur : la carte garde le texte ecrit dans le HTML
+            var full = Number(String(early).replace(/[^\d.]/g, ""));
+            if (!full) return;
+            fullEl.textContent = "€" + full;
+            earlyEl.textContent = "€" + Math.max(0, full - FOUNDER_DISCOUNT_EUR);
+        })
+        .catch(function () { /* silence voulu : la carte garde le prix ecrit dans le HTML */ });
+})();

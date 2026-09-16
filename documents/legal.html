@@ -341,8 +341,8 @@
                 <h3>5.1 Early Access</h3>
                 <p>
                     Go Atlas is currently sold as a limited <strong>Early Access</strong> offer: a one-time payment of
-                    &euro;199 for a perpetual license, restricted to a fixed number of seats. When those seats are sold, the
-                    offer closes.
+                    &euro;249 for a perpetual license. The first 30 licenses carry a &euro;100 discount (&euro;149). When
+                    those 30 are sold, the discount ends and the full price applies.
                 </p>
                 <p>
                     "Perpetual" means the license does not expire and is not billed again. It does not mean the Software will
@@ -840,7 +840,7 @@
             <section id="opensource" class="legal-doc" data-doc-panel="opensource">
                 <h1>Open Source Licenses</h1>
                 <!-- TPL:OPENSOURCE:START -->
-      <p class="tpl-meta">Generated 2026-08-31 &middot; 37 components distributed with, or relied upon by, the Go Atlas plugin for DaVinci Resolve.</p>
+      <p class="tpl-meta">Generated 2026-09-04 &middot; 37 components distributed with, or relied upon by, the Go Atlas plugin for DaVinci Resolve.</p>
       <p>Go Atlas incorporates the third-party open-source software listed below. Each component remains under its own license; copyright notices are reproduced as required. This list is generated from the licence files of the components actually linked into the shipped binaries.</p>
       <h2>Components requiring particular attention</h2>
       <h3>MapLibre Native &mdash; BSD-2-Clause</h3>
@@ -2465,17 +2465,26 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
       <h3>MapTiler and OpenStreetMap</h3>
       <p class="tpl-meta">License: MapTiler ToS; ODbL &middot; Use: network service &middot; Site: <a href="https://www.maptiler.com/" rel="noopener noreferrer" target="_blank">https://www.maptiler.com/</a></p>
-      <pre>Map tiles, glyphs and the vector style are served by MapTiler AG
-(Switzerland) and are built from OpenStreetMap data, licensed under the Open Database License
-(ODbL) by the OpenStreetMap Foundation.
+      <pre>Map tiles, glyphs and the vector style are built from OpenStreetMap data,
+licensed under the Open Database License (ODbL) by the OpenStreetMap Foundation. That is true
+of every tile source this plugin has used or may use, and it is why the credit below is
+unconditional.
 
-The required credit — &quot;(c) MapTiler (c) OpenStreetMap contributors&quot; — is composited into every
-frame the plugin renders by openfx/Attribution.h. It is drawn into the image rather than
-served from a removable resource, because an attribution a user can delete is not an
-attribution. Removing or obscuring it breaches both the MapTiler terms of service and the ODbL.
+The required credit — &quot;(c) OpenStreetMap contributors&quot; — is composited into every frame the
+plugin renders by openfx/Attribution.h. It is drawn into the image rather than served from a
+removable resource, because an attribution a user can delete is not an attribution. Removing or
+obscuring it breaches the ODbL.
 
-Sources: https://www.maptiler.com/copyright/
-         https://www.openstreetmap.org/copyright
+WHO SERVES THE TILES IS CONFIGURATION, NOT SOURCE. The style address comes from the licence
+server (`credentials.styleURL`), so this file cannot name a provider without going stale — and
+it did: it credited MapTiler AG as the server long after openfx/Attribution.h stopped drawing
+their logo on 2026-09-02, on the strength of ADR-022 making Go Atlas its own tile provider.
+
+The consequence to keep in mind rather than to assume away: a commercial provider&#x27;s terms apply
+IN ADDITION to the ODbL for as long as the style in force points at them. MapTiler&#x27;s free plan,
+for one, requires their logo to be visible. Whoever changes `styleURL` owns that question.
+
+Sources: https://www.openstreetmap.org/copyright
          https://opendatacommons.org/licenses/odbl/</pre>
       <h3>Natural Earth</h3>
       <p class="tpl-meta">License: Public Domain &middot; Use: bundled data &middot; Site: <a href="https://www.naturalearthdata.com/" rel="noopener noreferrer" target="_blank">https://www.naturalearthdata.com/</a></p>
