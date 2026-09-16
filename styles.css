@@ -1694,6 +1694,11 @@ main > section:not(.hero).pricing {
     align-items: stretch;
 }
 
+.pricing-grid--two {
+    max-width: 740px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
 .price-context {
     font-size: 0.78rem;
     color: var(--text-muted);
