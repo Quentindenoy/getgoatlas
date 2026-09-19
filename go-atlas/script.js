@@ -358,11 +358,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!data || typeof data.remaining !== "number") return;
             if (data.remaining <= 0) {
                 slot.textContent = " (sold out)";
-                slot.hidden = false;
+                slot.removeAttribute("data-pending"); slot.removeAttribute("aria-hidden");
                 return;
             }
             slot.textContent = " (" + data.remaining + " remaining)";
-            slot.hidden = false;
+            slot.removeAttribute("data-pending"); slot.removeAttribute("aria-hidden");
         })
         .catch(function () { /* silence voulu : la carte reste lisible sans le nombre */ });
 })();
