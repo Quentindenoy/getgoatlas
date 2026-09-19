@@ -2808,3 +2808,22 @@ main > section:not(.hero).pricing {
 @media (max-width: 900px) {
     .legal-layout { padding-top: 40px; }
 }
+
+/* THE PRICE CARDS DO NOT MOVE OR GROW ON HOVER. They are laid out side by side and centred as a block; reaching this page from
+   the home page leaves the pointer over one of them, and a moment after load that card rose (4px for Early access, 6px for
+   Lifetime) and its shadow swelled, so it looked as if it had suddenly grown while the other stayed put. Only the border answers
+   the pointer now. */
+.pricing-card:hover {
+    transform: none;
+    box-shadow:
+        0 18px 42px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(233, 221, 200, 0.07);
+}
+.pricing-card--early:hover {
+    transform: none;
+    box-shadow: 0 18px 46px rgba(0, 0, 0, 0.42);
+}
+
+/* THE SEAT COUNT ARRIVES FROM THE NETWORK, after the page is drawn. It fades in rather than popping into the title. */
+.seats-left { animation: seats-in 0.4s ease both; }
+@keyframes seats-in { from { opacity: 0; } to { opacity: 1; } }
