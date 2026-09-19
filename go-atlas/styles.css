@@ -2796,3 +2796,15 @@ main > section:not(.hero).pricing {
 .hero--prices .atlas-name { transform: translateX(-0.12em); }
 .hero--prices .atlas-sub { color: #6b675e; }
 .hero--prices .go-mark { background-image: linear-gradient(135deg, #a9502a 0%, #cf7448 48%, #e3a35c 100%); }
+
+/* THE TOP BAND IS PART OF THE PAGE NOW. It used to be a fixed bar the pages padded around; it is the shared band of the whole
+   site (shared/css/bars.css), in the flow, so the hero and the legal page give its height back. */
+.hero--prices {
+    min-height: calc(100svh - 59px);
+    min-height: calc(100dvh - 59px);
+    padding-top: clamp(32px, 6vh, 72px);
+}
+.legal-layout { padding-top: 64px; }
+@media (max-width: 900px) {
+    .legal-layout { padding-top: 40px; }
+}

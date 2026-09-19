@@ -1,0 +1,66 @@
+/* THE TOP AND BOTTOM BANDS, THE SAME ON EVERY PAGE OF THE SITE.
+   One file, loaded by the hub, the three product pages and the legal page. It carries its own colours and its own
+   font stack on purpose: the pages around it use two different stylesheets, and nothing here may depend on either.
+   The markup is identical on every page except for the path prefix and which name is marked as the current page. */
+
+.gp-bar, .gp-foot {
+    --gp-bg: #222220;
+    --gp-text: #eee7d5;
+    --gp-link: #c2bdae;
+    --gp-muted: #949186;
+    --gp-line: rgba(233, 221, 200, 0.12);
+    background: var(--gp-bg);
+    color: var(--gp-link);
+    font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    z-index: 50;
+}
+.gp-bar *, .gp-foot * { box-sizing: border-box; }
+.gp-bar { border-bottom: 1px solid var(--gp-line); }
+.gp-foot { border-top: 1px solid var(--gp-line); }
+
+.gp-in {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px 32px;
+}
+.gp-bar .gp-in { min-height: 58px; }
+.gp-foot .gp-in { padding-top: 22px; padding-bottom: 22px; }
+/* The same large-screen rule as the home page's grid, so the bands and the cards share their edges. */
+@media (min-width: 1600px) and (min-height: 900px) {
+    .gp-in { max-width: 1480px; }
+}
+
+.gp-bar a, .gp-foot a { color: var(--gp-link); text-decoration: none; transition: color 0.2s ease; }
+.gp-bar a:hover, .gp-foot a:hover { color: var(--gp-text); }
+.gp-bar a:focus-visible, .gp-foot a:focus-visible { outline: 2px solid var(--gp-text); outline-offset: 4px; }
+
+.gp-brand { font-weight: 800; font-size: 15px; letter-spacing: 0; color: var(--gp-text) !important; }
+/* The copper "Go", a little lighter than on paper so it holds on the dark grey. */
+.gp-bar .go-mark, .gp-foot .go-mark {
+    background: linear-gradient(135deg, #d9774a 0%, #e99a63 48%, #f0bd78 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    padding-right: 0.02em;
+}
+
+.gp-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 28px; }
+.gp-links a[aria-current="page"] { color: var(--gp-text); }
+
+.gp-foot { color: var(--gp-muted); font-size: 13px; }
+.gp-foot-note { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 20px; }
+
+@media (max-width: 640px) {
+    .gp-bar .gp-in { padding-top: 10px; padding-bottom: 10px; }
+    .gp-links { gap: 4px 18px; }
+}

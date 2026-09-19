@@ -1,4 +1,4 @@
-# Go Atlas — open to all crawlers, including AI / LLM engines.
+# Go Plugins — open to all crawlers, including AI / LLM engines.
 User-agent: *
 Allow: /
 

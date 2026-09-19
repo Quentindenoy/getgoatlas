@@ -1,0 +1,15 @@
+/* THE GO GLOW AND GO MOTION BLUR PAGES ARE BUILT ON THE GO ATLAS PAGE.
+   They load go-atlas/styles.css as it is and add only what a product without a price yet needs: a single card, a light
+   backdrop where the map would be, and a card that writes to us instead of opening a checkout. */
+
+.hero--product {
+    background:
+        radial-gradient(ellipse 75% 46% at 50% 0%, #faf5e9 0%, #f3ecdc 74%),
+        #f3ecdc;
+}
+
+/* One card, exactly as wide as a Go Atlas card: the pair there is 740px wide with a 22px gap. */
+.pricing-grid--one {
+    max-width: calc((740px - 22px) / 2);
+    grid-template-columns: 1fr;
+}

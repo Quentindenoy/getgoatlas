@@ -1,0 +1,2950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal | Go Atlas</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icon.ico">
+    <link rel="icon" type="image/png" sizes="512x512" href="../assets/icone.png">
+    <link rel="apple-touch-icon" href="../assets/icone.png">
+    <link rel="preload" href="../fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../fonts.css">
+    <link rel="stylesheet" href="../styles.css?v=20260527-btns2">
+    <style>
+      #opensource pre { white-space: pre-wrap; word-break: break-word; font-family: 'JetBrains Mono', monospace; font-size: 12px; line-height: 1.5; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 8px; padding: 12px; overflow-x: auto; }
+      .legal-doc code { font-family: 'JetBrains Mono', monospace; font-size: .88em; background: rgba(255,255,255,.06); border-radius: 4px; padding: .1em .35em; word-break: break-all; }
+      #opensource h3 { margin-top: 2rem; word-break: break-word; }
+      #opensource .tpl-meta { opacity: .7; font-size: 13px; margin: .25rem 0 .5rem; }
+      #opensource .tpl-note { opacity: .6; font-style: italic; }
+      #opensource .tpl-summary { columns: 2; font-size: 13px; }
+      @media (max-width: 600px) { #opensource .tpl-summary { columns: 1; } }
+    </style>
+    <link rel="stylesheet" href="../../shared/css/bars.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <div class="site-bg"></div>
+    <div class="site-grid"></div>
+
+    <header class="gp-bar">
+        <div class="gp-in">
+            <a href="../../index.html" class="gp-brand"><span class="go-mark">Go</span> Plugins</a>
+            <nav class="gp-links" aria-label="Primary">
+                <a href="../../go-atlas/index.html">Go Atlas</a>
+                <a href="../../go-glow/index.html">Go Glow</a>
+                <a href="../../go-motion-blur/index.html">Go Motion Blur</a>
+                <a href="../../go-atlas/documents/legal.html" aria-current="page">Legal</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="legal-layout">
+        <aside class="legal-sidebar" aria-label="Legal documents">
+            <a href="#privacy" data-doc-link="privacy" class="active" aria-current="page">Privacy</a>
+            <a href="#terms" data-doc-link="terms">Terms</a>
+            <a href="#eula" data-doc-link="eula">EULA</a>
+            <a href="#legal" data-doc-link="legal">Legal</a>
+            <a href="#opensource" data-doc-link="opensource">Open Source</a>
+        </aside>
+
+        <div class="legal-content">
+            <section id="privacy" class="legal-doc is-active" data-doc-panel="privacy">
+                <h1>Privacy Policy</h1>
+                <p><strong>Effective Date:</strong> August 2026</p>
+
+                <p>
+                    This Privacy Policy describes how Neovi Media ("we", "us", "our") processes personal data in connection
+                    with Go Atlas, a plugin for DaVinci Resolve, and the website getgoatlas.com.
+                </p>
+                <p>
+                    It is written from what the software actually does. Where a section names a field, a hostname or a
+                    retention period, that is the value in the shipping build, not a general description.
+                </p>
+
+                <h2>1. Data Controller</h2>
+                <p>
+                    Neovi Media<br>
+                    Micro-entreprise (France)<br>
+                    SIRET: 852 949 841 00013<br>
+                    Address: 101 AV CLAUDE BERNARD, 11000 CARCASSONNE, France<br>
+                    Email: contact@getgoatlas.com
+                </p>
+
+                <h2>2. Data We Process</h2>
+
+                <h3>2.1 License Activation and Validation</h3>
+                <p>
+                    Activating and validating your license sends the following to our license service, hosted on Google Cloud
+                    Functions in the United States (region us-central1):
+                </p>
+                <ul>
+                    <li><strong>Your license key</strong>, as issued by Lemon Squeezy on purchase.</li>
+                    <li><strong>A machine identifier</strong>, sent only when you activate. It is a SHA-256 hash of two values
+                        read from your Windows registry: the Windows installation identifier (MachineGuid) and your processor
+                        model name. It is a one-way hash: neither value can be recovered from it.</li>
+                    <li><strong>An instance identifier</strong>, returned by Lemon Squeezy at activation and sent back on each
+                        later validation and on deactivation.</li>
+                </ul>
+                <p>
+                    We do not collect your name, your computer name, your Windows user name, your MAC address, your disk serial
+                    numbers, your installed memory or your core count. Four of those were used by an earlier version and were
+                    deliberately removed: they changed on their own and locked out paying customers.
+                </p>
+                <p>
+                    Validation happens when the plugin starts and periodically while it runs, so that a license can be
+                    suspended if it is shared or refunded.
+                </p>
+
+                <h3>2.2 Abuse Prevention</h3>
+                <p>
+                    To stop automated license-key guessing, our license service counts requests per IP address, per license key,
+                    per machine and per activation instance. <strong>Each of those identifiers is hashed with SHA-256 before it
+                    is stored</strong>; the stored record holds only that hash, a counter and a timestamp. Records are kept in
+                    Google Cloud Datastore.
+                </p>
+
+                <h3>2.3 Server Logs</h3>
+                <p>
+                    Requests to our license service are logged with the source IP address, the User-Agent string, the HTTP
+                    method, the request path and a timestamp. License keys are never written to logs. Logs are held by Google
+                    Cloud Logging.
+                </p>
+
+                <h3>2.4 Map, Search and Routing Requests</h3>
+                <p>
+                    Rendering a map sends map coordinates, a zoom level and a style identifier to
+                    <strong>Go Atlas's own map infrastructure</strong>, which returns map tiles, fonts and sprites; parts of
+                    that infrastructure may themselves run on a third-party host from time to time. Searching for a place is
+                    answered from a place index bundled with the Software; the text you typed is never sent anywhere. Tracing
+                    a route sends the coordinates of the stops you placed to <strong>openrouteservice</strong>, operated by
+                    HeiGIT gGmbH (Germany).
+                </p>
+                <p>
+                    These requests carry your IP address to whichever infrastructure or provider handles them, as any network
+                    request does. Where a third party is involved, that request is handled under its own privacy policy. The
+                    rendering engine we use, MapLibre Native, contains
+                    <strong>no telemetry</strong>: it reports nothing about your usage to anyone, including us.
+                </p>
+
+                <h3>2.5 Payment and Billing Data</h3>
+                <p>
+                    Payments are handled by Lemon Squeezy (Merchant of Record). Lemon Squeezy processes billing and payment data
+                    under its own privacy policy and acts as an independent data controller for payment processing. We receive
+                    limited transaction metadata (such as order status and license key state) necessary for licensing. We never
+                    see your card details.
+                </p>
+
+                <h3>2.6 Support Communications</h3>
+                <p>
+                    If you contact us, we process the information you provide (such as email content and attachments) to answer
+                    requests and provide support.
+                </p>
+
+                <h3>2.7 What Stays on Your Computer</h3>
+                <p>
+                    The following are written to your machine and are never transmitted to us:
+                </p>
+                <ul>
+                    <li><strong>Your license session</strong>, in <code>%APPDATA%\GoAtlasResolvePlugin\native-session.dat</code>,
+                        encrypted with the Windows Data Protection API and readable only by your Windows account on that machine.</li>
+                    <li><strong>A map cache</strong>, in <code>%APPDATA%\GoAtlasResolvePlugin\map-cache.sqlite</code>, holding
+                        map tiles already downloaded so that the same view is not paid for twice.</li>
+                    <li><strong>Your projects and the maps you create.</strong> They live in your DaVinci Resolve project and on
+                        your disk. We have no server that stores them, no account that syncs them, and no way to see them.</li>
+                    <li><strong>Diagnostic logs</strong>, in the same folder, recording what the Software did so that a fault
+                        can be investigated. The licence log deliberately records <em>neither your license key nor your machine
+                        identifier</em> &mdash; only a verdict, an HTTP status and a timestamp &mdash; precisely because a log
+                        is a plaintext file people attach to bug reports. Nothing in this folder is sent anywhere unless you
+                        choose to send it to us yourself.</li>
+                </ul>
+
+                <h3>2.8 The Website</h3>
+                <p>
+                    getgoatlas.com sets <strong>no cookies</strong> and runs <strong>no analytics or behavioural tracking</strong>.
+                    Web fonts are served from this site, not from Google Fonts, so browsing these pages sends your IP address
+                    to no third party for the sake of a typeface.
+                </p>
+                <p>
+                    One request does leave your browser: the pricing page asks our own counter function, hosted on Google
+                    Cloud, how many early-access seats remain. It conveys your IP address to Google as the host of that
+                    function, carries no identifier of any kind, and returns a number only.
+                </p>
+
+                <h2>3. Purposes and Legal Bases (GDPR)</h2>
+                <ul>
+                    <li><strong>Contract performance</strong> (Art. 6(1)(b)): license activation and validation, delivery of the
+                        map credentials the plugin needs to work, support.</li>
+                    <li><strong>Legitimate interests</strong> (Art. 6(1)(f)): fraud prevention, rate limiting, abuse detection,
+                        and keeping the service available. Our interest is protecting a paid product against key sharing and
+                        automated attack; the data used is hashed or short-lived.</li>
+                    <li><strong>Legal obligations</strong> (Art. 6(1)(c)): accounting, tax and compliance records where required
+                        by law.</li>
+                </ul>
+
+                <h2>4. Data Sharing</h2>
+                <p>We do not sell your personal data, and we do not share it for advertising.</p>
+                <p>Data reaches the following providers, each strictly to operate part of the service:</p>
+                <ul>
+                    <li><strong>Lemon Squeezy, LLC</strong> (United States) &mdash; payment, invoicing, and the license key
+                        system itself. Merchant of Record.</li>
+                    <li><strong>Google LLC / Google Cloud</strong> (United States) &mdash; hosting of the license service, its
+                        rate-limit store and its logs, and of the seat counter the pricing page calls.</li>
+                    <li><strong>Go Atlas's own map infrastructure</strong>, which may itself run on a third-party host &mdash;
+                        map tiles, fonts and sprites. Place search runs from a bundled index and reaches no third party.</li>
+                    <li><strong>HeiGIT gGmbH</strong> (Germany) &mdash; route calculation, when you trace a route.</li>
+                    <li><strong>Vercel Inc.</strong> (United States) &mdash; hosting of getgoatlas.com.</li>
+                </ul>
+                <p>We do not use tracking technologies, cookies, or behavioral analytics within the Software.</p>
+
+                <h2>5. International Transfers</h2>
+                <p>
+                    Lemon Squeezy, Google and Vercel process data in the <strong>United States</strong>. Those transfers rely on
+                    the EU&ndash;US Data Privacy Framework where the provider is certified, and otherwise on Standard
+                    Contractual Clauses.
+                </p>
+                <p>
+                    Where Go Atlas's own map infrastructure runs on a host outside the European Economic Area, that transfer
+                    relies on an adequacy decision where one applies to that host's country, and on Standard Contractual
+                    Clauses otherwise. HeiGIT processes data in <strong>Germany</strong>, inside the European Economic Area.
+                </p>
+
+                <h2>6. Retention</h2>
+                <ul>
+                    <li><strong>Rate-limit records</strong>: hashed identifiers with counters, kept for the length of their
+                        window &mdash; 15 minutes or one hour depending on the action. A counter of repeated failures resets
+                        after 24 hours.</li>
+                    <li><strong>Server logs</strong>: kept under Google Cloud Logging's default retention of 30 days, then
+                        deleted automatically.</li>
+                    <li><strong>License records</strong>: held by Lemon Squeezy for as long as the license exists, and
+                        thereafter as their retention policy and our accounting obligations require.</li>
+                    <li><strong>Accounting records</strong>: 10 years, as French commercial law requires.</li>
+                    <li><strong>Support emails</strong>: kept while the request is open and for a reasonable period afterwards.</li>
+                </ul>
+
+                <h2>7. Security</h2>
+                <ul>
+                    <li>All communication with our services uses HTTPS.</li>
+                    <li>Your license session is stored on your machine encrypted with the Windows Data Protection API. There is
+                        no plaintext fallback: if it cannot be encrypted, it is not written.</li>
+                    <li>The map credentials the plugin needs are never written to disk in the clear and are never placed in the
+                        environment of a child process.</li>
+                    <li>Identifiers used for rate limiting are hashed before storage.</li>
+                    <li>Our API keys are held in Google Secret Manager, not in the software you download.</li>
+                </ul>
+
+                <h2>8. Your Rights</h2>
+                <p>Under GDPR, you may have rights to:</p>
+                <ul>
+                    <li>Access your data</li>
+                    <li>Rectify inaccurate data</li>
+                    <li>Request erasure</li>
+                    <li>Restrict or object to processing</li>
+                    <li>Data portability (where applicable)</li>
+                </ul>
+                <p>
+                    To exercise your rights, contact: <strong>contact@getgoatlas.com</strong>
+                </p>
+                <p>
+                    Note that erasing the machine identifier tied to your license means deactivating it. You can do this
+                    yourself from the plugin, which releases the machine and lets you activate elsewhere.
+                </p>
+                <p>
+                    You also have the right to lodge a complaint with your local supervisory authority, including the CNIL in France.
+                </p>
+
+                <h2>9. Minors</h2>
+                <p>
+                    Go Atlas is not intended for individuals under 18.
+                </p>
+
+                <h2>10. Changes</h2>
+                <p>
+                    We may update this Privacy Policy from time to time. Continued use of Go Atlas after an update means
+                    you acknowledge the revised policy.
+                </p>
+
+                <h2>11. Contact</h2>
+                <p>
+                    If you have any questions about this Privacy Policy, contact us at:
+                    <br><strong>contact@getgoatlas.com</strong>
+                </p>
+            </section>
+
+            <section id="terms" class="legal-doc" data-doc-panel="terms">
+                <h1>Terms and Conditions</h1>
+                <p><strong>Effective Date:</strong> August 2026</p>
+
+                <p>
+                    These Terms and Conditions ("Terms") govern your purchase and use of the Go Atlas software ("Software"), provided by
+                    Neovi Media ("we", "us", "our").
+                </p>
+                <p>
+                    By purchasing, downloading, activating, or using the Software, you agree to be bound by these Terms.
+                    If you do not agree, you must not use the Software.
+                </p>
+
+                <h2>1. Legal Information</h2>
+                <p>
+                    Neovi Media<br>
+                    Micro-entreprise (France)<br>
+                    SIRET: 852 949 841 00013<br>
+                    Address: 101 AV CLAUDE BERNARD, 11000 CARCASSONNE, France<br>
+                    Email: contact@getgoatlas.com
+                </p>
+
+                <h2>2. Merchant of Record</h2>
+                <p>All payments are processed by Lemon Squeezy, LLC, acting as the Merchant of Record.</p>
+                <p>As Merchant of Record, Lemon Squeezy is responsible for:</p>
+                <ul>
+                    <li>Payment processing</li>
+                    <li>Billing and invoicing</li>
+                    <li>Handling applicable taxes (including VAT)</li>
+                </ul>
+                <p>Neovi Media is solely responsible for:</p>
+                <ul>
+                    <li>The Software</li>
+                    <li>Its functionality</li>
+                    <li>Support and licensing</li>
+                </ul>
+
+                <h2>3. Eligibility</h2>
+                <p>You must be at least 18 years old to purchase the Software.</p>
+                <p>If you are purchasing on behalf of a company, you confirm that you are authorized to bind that entity.</p>
+
+                <h2>4. Product Description and Requirements</h2>
+                <p>
+                    Go Atlas is an <strong>OpenFX plugin for DaVinci Resolve</strong>. It is not a standalone application: it
+                    installs into DaVinci Resolve and runs inside it, alongside a companion editing window used to compose and
+                    animate your maps.
+                </p>
+                <p>To use the Software you need:</p>
+                <ul>
+                    <li><strong>Windows 10 or Windows 11, 64-bit.</strong> There is no macOS or Linux build.</li>
+                    <li><strong>DaVinci Resolve</strong>, installed and working, supplied by Blackmagic Design and not by us.</li>
+                    <li><strong>An internet connection.</strong> Map rendering needs network access: views you have not
+                        already cached cannot be rendered offline. Your license is revalidated periodically, but a failure to
+                        reach our service does not lock you out &mdash; the Software keeps working for up to 72 hours offline,
+                        and only an explicit refusal from the license service revokes access.</li>
+                </ul>
+                <p>
+                    We publish the requirements we have tested. We cannot guarantee that a future version of DaVinci Resolve,
+                    or a particular hardware configuration, will remain compatible, and a change made by Blackmagic Design is
+                    outside our control. Where such a change breaks the Software, we will make reasonable efforts to restore
+                    compatibility.
+                </p>
+                <p>The Software is licensed, not sold, and is subject to the End-User License Agreement (EULA).</p>
+
+                <h2>5. Pricing and Payment</h2>
+                <h3>5.1 Early Access</h3>
+                <p>
+                    Go Atlas is currently sold as a limited <strong>Early Access</strong> offer: a one-time payment of
+                    &euro;249 for a perpetual license. The first 30 licenses carry a &euro;100 discount (&euro;149). When
+                    those 30 are sold, the discount ends and the full price applies.
+                </p>
+                <p>
+                    "Perpetual" means the license does not expire and is not billed again. It does not mean the Software will
+                    be developed, supported or supplied with map data indefinitely; section 5.3 and section 14 state the limits.
+                </p>
+                <p>Prices may change at any time. A change never affects a purchase already made.</p>
+
+                <h3>5.2 Subscriptions</h3>
+                <p>
+                    Monthly and annual subscription plans are <strong>not currently offered for sale</strong>. If subscription
+                    plans are reintroduced, they will be billed in advance, renew automatically until cancelled, and be
+                    cancellable at any time with access continuing to the end of the paid period. Anyone holding an existing
+                    subscription keeps the terms under which they subscribed.
+                </p>
+
+                <h3>5.3 Map Services and Their Cost</h3>
+                <p>
+                    The Software renders maps built from OpenStreetMap and other open data, served through infrastructure that
+                    Go Atlas itself operates and pays for. Access is provided as part of your license and is subject to fair
+                    use: automated, industrial-scale or abusive rendering that generates disproportionate cost may be
+                    rate-limited or suspended, after we have contacted you where practicable.
+                </p>
+                <p>
+                    We provide this map service for as long as Go Atlas is published and maintained. We cannot guarantee it
+                    indefinitely, and you should not purchase on the assumption that we can; we will give reasonable notice
+                    before discontinuing or materially degrading it, as section 14 also states. Parts of this infrastructure
+                    may themselves depend on a commercial provider from time to time &mdash; that dependency is ours to manage,
+                    not a condition of your license.
+                </p>
+
+                <h2>6. Refunds: 14 Days, No Questions Asked</h2>
+                <p>
+                    <strong>You may request a full refund within fourteen (14) days of purchase, for any reason or for no
+                    reason at all.</strong> Activating your license does not forfeit this. Installing it, rendering with it and
+                    deciding it is not for you does not forfeit it either.
+                </p>
+                <p>
+                    To request one, write to <strong>contact@getgoatlas.com</strong> from the address you purchased with, or use
+                    the contact details on your Lemon Squeezy receipt. Refunds are issued to the original payment method. Your
+                    license is deactivated when the refund is processed, and you must stop using the Software and uninstall it.
+                </p>
+                <p>
+                    This is a commercial promise that goes beyond what the law requires of us, and it is deliberate: Go Atlas is
+                    a plugin that has to work inside your own DaVinci Resolve installation, on your own hardware, with your own
+                    projects. No description replaces trying it. We would rather refund you than argue with you.
+                </p>
+                <p>
+                    The one thing it does not cover is abuse &mdash; a license refunded and then used, purchases made to be
+                    refunded repeatedly, or a refund requested after the Software has been redistributed. In those cases we
+                    apply section 10 instead.
+                </p>
+
+                <h2>7. Statutory Rights (EU Consumers)</h2>
+                <p>
+                    Nothing in section 6 replaces or restricts your rights under law; it sits on top of them.
+                </p>
+                <p>
+                    If you are a consumer located in the European Union, you have a statutory right of withdrawal within
+                    fourteen (14) days. For digital content supplied immediately, that right can be waived by express consent,
+                    and many software vendors ask for that waiver at checkout. <strong>We do not.</strong> Our fourteen-day
+                    refund runs alongside your statutory period rather than cancelling it.
+                </p>
+                <p>
+                    Separately, if the Software is faulty or does not match its description, French law gives you a legal
+                    guarantee of conformity and a guarantee against hidden defects. Those apply beyond the fourteen days and no
+                    clause in these Terms restricts them.
+                </p>
+
+                <h2>8. License and Access</h2>
+                <p>Use of the Software requires a valid license key, activated online.</p>
+                <p>The license is:</p>
+                <ul>
+                    <li>Non-exclusive</li>
+                    <li>Non-transferable</li>
+                    <li>Limited to a single user</li>
+                    <li>Active on one machine at a time, which you can change yourself by deactivating and reactivating</li>
+                </ul>
+                <p>Further terms are defined in the EULA.</p>
+
+                <h2>9. License Activation and Security</h2>
+                <p>After purchase, a license key is provided.</p>
+                <p>You are responsible for:</p>
+                <ul>
+                    <li>Keeping the license key secure</li>
+                    <li>Preventing unauthorized use</li>
+                </ul>
+                <p>Any misuse may result in suspension or termination.</p>
+
+                <h2>10. License Abuse and Enforcement</h2>
+                <p>Neovi Media reserves the right to suspend or permanently deactivate any license in case of:</p>
+                <ul>
+                    <li>Sharing, reselling, or distributing license keys</li>
+                    <li>Circumvention of licensing mechanisms</li>
+                    <li>Unauthorized or abusive use of the Software</li>
+                </ul>
+                <p>
+                    Where we act on suspicion rather than proof, we will contact you at the address associated with your
+                    purchase and give you an opportunity to respond before a suspension becomes permanent, unless doing so
+                    would defeat the purpose of the measure. A license suspended in error is restored.
+                </p>
+                <p>Where abuse is confirmed, access may be revoked and no refund will be issued.</p>
+
+                <h2>11. User Responsibilities</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the Software in compliance with applicable laws</li>
+                    <li>Not misuse or attempt to exploit the Software</li>
+                    <li>Maintain the security of your license</li>
+                    <li>Preserve the map attribution rendered into the image, as section 13 requires</li>
+                </ul>
+                <p>You are responsible for all activity associated with your license.</p>
+
+                <h2>12. User Content</h2>
+                <p>You retain full ownership of all content created using the Software.</p>
+                <p>Neovi Media does not claim ownership over any user-generated content, and holds no copy of it.</p>
+
+                <h2>13. Third-Party Services and Attribution</h2>
+                <p>
+                    Map tiles are served by infrastructure Go Atlas itself operates, built from OpenStreetMap and other
+                    open data &mdash; no third-party map provider is involved. Place search runs from an index bundled
+                    with the Software and reaches no third party either. The Software relies on one third-party
+                    service: <strong>openrouteservice</strong> (HeiGIT gGmbH) for route calculation, also built from
+                    OpenStreetMap data.
+                </p>
+                <p>
+                    Map data is licensed under the Open Database License. The credit "&copy; OpenStreetMap contributors" is
+                    composited into every frame the Software renders. <strong>You agree not to remove, crop out, obscure or
+                    otherwise defeat that credit</strong>, in the Software or in any work exported from it. Doing so breaches
+                    the Open Database License and terminates your license under the EULA. Whichever map provider is active
+                    behind the Software may additionally require its own credit under its own terms; that provider's terms
+                    apply on top of this one, not instead of it.
+                </p>
+                <p>We are not responsible for:</p>
+                <ul>
+                    <li>Availability</li>
+                    <li>Changes in pricing or terms</li>
+                    <li>Service interruptions</li>
+                </ul>
+                <p>Your use of such services is subject to their respective terms.</p>
+
+                <h2>14. Availability and Modifications</h2>
+                <p>We do not guarantee:</p>
+                <ul>
+                    <li>Continuous availability of the license or map services</li>
+                    <li>Error-free operation</li>
+                </ul>
+                <p>We reserve the right to:</p>
+                <ul>
+                    <li>Modify or discontinue features</li>
+                    <li>Update the Software at any time</li>
+                </ul>
+                <p>
+                    If we discontinue Go Atlas entirely, we will give holders of a perpetual license at least ninety (90) days'
+                    notice by email, and during that period we will publish whatever is needed to keep already-installed
+                    versions working for as long as the underlying services allow.
+                </p>
+
+                <h2>15. Disclaimer of Warranties</h2>
+                <p>
+                    To the extent permitted by law, the Software is provided "as is" and "as available", without warranties of
+                    any kind. Nothing here excludes the legal guarantees that French law gives consumers, including the
+                    guarantee of conformity and the guarantee against hidden defects.
+                </p>
+
+                <h2>16. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law:</p>
+                <p>Neovi Media shall not be liable for:</p>
+                <ul>
+                    <li>Indirect or consequential damages</li>
+                    <li>Loss of data, profits, or business opportunities</li>
+                </ul>
+                <p>
+                    Our total liability shall not exceed the total amount you paid for the Software. Nothing in these Terms
+                    limits liability for death, personal injury, fraud, or gross negligence, or any other liability that cannot
+                    lawfully be limited.
+                </p>
+
+                <h2>17. Termination</h2>
+                <p>We may suspend or terminate access if you violate these Terms or the EULA.</p>
+                <p>Upon termination:</p>
+                <ul>
+                    <li>Your license is revoked</li>
+                    <li>You must stop using the Software</li>
+                </ul>
+                <p>Work you have already created with the Software remains yours.</p>
+
+                <h2>18. Changes to Terms</h2>
+                <p>
+                    We may update these Terms. Where a change materially affects a perpetual license already purchased, we will
+                    notify holders by email before it takes effect. Continued use after that date constitutes acceptance.
+                </p>
+
+                <h2>19. Governing Law and Jurisdiction</h2>
+                <p>These Terms are governed by the laws of France.</p>
+                <p>
+                    Any disputes shall be subject to the jurisdiction of French courts. If you are a consumer, this does not
+                    deprive you of the protection of the mandatory law of your country of residence, nor of your right to bring
+                    proceedings there. You may also use the European Commission's online dispute resolution platform.
+                </p>
+
+                <h2>20. Contact</h2>
+                <p>
+                    If you have any questions about these Terms, contact us at:
+                    <br><strong>contact@getgoatlas.com</strong>
+                </p>
+            </section>
+
+            <section id="eula" class="legal-doc" data-doc-panel="eula">
+                <h1>End-User License Agreement</h1>
+                <p><strong>Effective Date:</strong> August 2026</p>
+
+                <p>
+                    This End-User License Agreement ("Agreement") is a legally binding agreement between you ("User", "Licensee")
+                    and Neovi Media ("Licensor") governing your use of the Go Atlas software ("Software"), an OpenFX plugin for
+                    DaVinci Resolve.
+                </p>
+                <p>
+                    By installing, activating, or using the Software, you agree to be bound by this Agreement.
+                    If you do not agree, you must not use the Software.
+                </p>
+
+                <h2>1. License Grant</h2>
+                <p>Subject to this Agreement, Neovi Media grants you a:</p>
+                <ul>
+                    <li>Limited</li>
+                    <li>Non-exclusive</li>
+                    <li>Non-transferable</li>
+                    <li>Non-sublicensable</li>
+                </ul>
+                <p>license to use the Software.</p>
+                <p>This license:</p>
+                <ul>
+                    <li>Is granted to one (1) user</li>
+                    <li>Is active on one (1) machine at a time</li>
+                    <li>Is perpetual where purchased as Early Access, or lasts for the paid period where purchased as a subscription</li>
+                    <li>Requires online license validation</li>
+                </ul>
+                <p>
+                    You may install the Software on more than one machine, but it can be activated on only one at a time. You
+                    can move it yourself: deactivating on one machine frees the activation for another. No request to us is
+                    needed.
+                </p>
+                <p>All rights not expressly granted are reserved.</p>
+
+                <h2>2. License Activation and Validation</h2>
+                <p>Use of the Software requires:</p>
+                <ul>
+                    <li>A valid license key issued upon purchase</li>
+                    <li>Successful verification through our license validation system</li>
+                    <li>An active internet connection</li>
+                </ul>
+                <p>License validation may occur:</p>
+                <ul>
+                    <li>At activation</li>
+                    <li>Each time the Software starts</li>
+                    <li>Periodically during use</li>
+                </ul>
+                <p>
+                    Activation sends your license key and a one-way hash identifying your machine. What that hash is built from,
+                    and what is deliberately not collected, is set out in the <a href="#privacy">Privacy Policy</a>.
+                </p>
+                <p>
+                    A validation that cannot reach our service does not revoke your license: the Software continues to work
+                    for up to 72 hours offline, and only an explicit refusal from the license service ends access. Beyond that
+                    window, functionality may be restricted until validation succeeds again.
+                </p>
+
+                <h2>3. Permitted Use</h2>
+                <p>You may use the Software to create content for:</p>
+                <ul>
+                    <li>Personal use</li>
+                    <li>Commercial use (including freelance, studio, broadcast, or enterprise use)</li>
+                </ul>
+                <p>
+                    You retain full ownership of all content created using the Software. There is no royalty, no revenue share,
+                    and no limit on how you distribute or monetise what you create, provided the map attribution described in
+                    section 8 remains visible.
+                </p>
+
+                <h2>4. Prohibited Uses</h2>
+                <p>You agree NOT to:</p>
+                <ul>
+                    <li>Share, distribute, or resell your license key</li>
+                    <li>Allow multiple users to use a single license</li>
+                    <li>Remove, crop out or obscure the map attribution rendered into the image</li>
+                    <li>Use the Software to bulk-download, scrape, mirror or redistribute map tiles or map data, or to build a
+                        map data cache for use outside the Software</li>
+                    <li>Reverse engineer, decompile, or disassemble the Software, except to the extent that applicable law
+                        expressly permits it notwithstanding this restriction, and in particular for the purposes of
+                        interoperability under Article L122-6-1 of the French Intellectual Property Code</li>
+                    <li>Attempt to bypass or circumvent license validation or security systems</li>
+                    <li>Use the Software to build or support a competing product or service</li>
+                    <li>Reproduce, distribute, or exploit the Software in any unauthorized way</li>
+                </ul>
+
+                <h2>5. Anti-Abuse and Enforcement</h2>
+                <p>Neovi Media reserves the right to:</p>
+                <ul>
+                    <li>Suspend or permanently deactivate any license</li>
+                    <li>Restrict access to the Software</li>
+                    <li>Block access to license validation systems</li>
+                </ul>
+                <p>in case of suspected or confirmed violation of this Agreement.</p>
+                <p>This includes (but is not limited to):</p>
+                <ul>
+                    <li>License sharing</li>
+                    <li>Piracy</li>
+                    <li>Unauthorized redistribution</li>
+                    <li>Circumvention of technical protections</li>
+                    <li>Abuse of the map services accessed through the Software</li>
+                </ul>
+                <p>
+                    Where we act on suspicion rather than proof, we will contact you at the address associated with your
+                    purchase and give you an opportunity to respond before a suspension becomes permanent, unless doing so
+                    would defeat the purpose of the measure. A license suspended in error is restored, and no refund is due
+                    where abuse is confirmed.
+                </p>
+
+                <h2>6. Intellectual Property</h2>
+                <p>The Software is licensed, not sold.</p>
+                <p>Neovi Media retains all rights, title, and interest in and to the Software, including:</p>
+                <ul>
+                    <li>Source code</li>
+                    <li>Architecture</li>
+                    <li>Algorithms</li>
+                    <li>User interface</li>
+                    <li>Graphics and assets</li>
+                    <li>Trademarks ("Go Atlas", "Neovi Media")</li>
+                </ul>
+                <p>The Software is protected by:</p>
+                <ul>
+                    <li>French intellectual property law</li>
+                    <li>European Union copyright directives</li>
+                    <li>International copyright treaties</li>
+                </ul>
+                <p>
+                    This section does not apply to the third-party open-source components listed on the
+                    <a href="#opensource">Open Source Licenses</a> tab, nor to map data, which remain the property of their
+                    respective owners under their own licenses.
+                </p>
+
+                <h2>7. Legal Enforcement</h2>
+                <p>Any unauthorized use of the Software constitutes an infringement of intellectual property rights.</p>
+                <p>Under applicable French and European law, such infringement may result in:</p>
+                <ul>
+                    <li>Civil liability (including damages and legal costs)</li>
+                    <li>Injunctive relief (including immediate cessation of use)</li>
+                    <li>Criminal penalties in serious cases of counterfeiting or piracy</li>
+                </ul>
+                <p>Neovi Media reserves the right to pursue all available legal remedies.</p>
+
+                <h2>8. Third-Party Services and Open-Source Software</h2>
+                <p>
+                    Map tiles are served by infrastructure Go Atlas itself operates, built from OpenStreetMap and other
+                    open data licensed under the Open Database License &mdash; no third-party map provider is involved.
+                    Place search runs from an index bundled with the Software and reaches no third party either. The
+                    Software relies on one third-party map service: <strong>openrouteservice</strong> (HeiGIT gGmbH),
+                    for route calculation, also built from OpenStreetMap data.
+                </p>
+                <p>
+                    The credit "&copy; OpenStreetMap contributors" is composited into every frame the Software renders. It is
+                    drawn into the image rather than served from a file you could delete. Removing, cropping out or obscuring
+                    it breaches the Open Database License and terminates this license. Whichever map provider is active behind
+                    the Software may additionally require its own credit under its own terms, on top of this one.
+                </p>
+                <p>
+                    The Software also incorporates third-party open-source components, each licensed under its own terms. A complete list of these components and their licenses is provided on the <a href="#opensource">Open Source Licenses</a> tab. These components remain governed by their respective licenses, and nothing in this Agreement limits any rights granted to you under those licenses.
+                </p>
+                <p>
+                    <strong>Go Atlas is not affiliated with, endorsed by, or sponsored by Blackmagic Design.</strong> DaVinci
+                    Resolve is required to use the Software but is supplied by Blackmagic Design under its own terms, which you
+                    must accept separately.
+                </p>
+                <p>Neovi Media is not responsible for:</p>
+                <ul>
+                    <li>Availability or performance of such services</li>
+                    <li>Changes to their APIs, pricing, or terms</li>
+                </ul>
+                <p>Use of such services is subject to their respective terms.</p>
+
+                <h2>9. Updates and Modifications</h2>
+                <p>We may:</p>
+                <ul>
+                    <li>Provide updates, patches, or improvements</li>
+                    <li>Modify or discontinue features</li>
+                    <li>Require an update for continued use, where an older version can no longer work with our services</li>
+                </ul>
+                <p>
+                    An Early Access license includes updates to the Software for as long as it is published, at no further
+                    charge. This does not commit us to any particular feature, release schedule, or duration of development.
+                </p>
+
+                <h2>10. Termination</h2>
+                <p>This license will terminate automatically if:</p>
+                <ul>
+                    <li>You violate this Agreement</li>
+                    <li>Your subscription expires or is cancelled, where the license was purchased as a subscription</li>
+                </ul>
+                <p>A perpetual license does not terminate on its own, and does not expire.</p>
+                <p>Upon termination:</p>
+                <ul>
+                    <li>Your rights to use the Software cease immediately</li>
+                    <li>You must stop using the Software and uninstall it</li>
+                </ul>
+                <p>Work you have already created with the Software remains yours.</p>
+
+                <h2>11. Disclaimer of Warranties</h2>
+                <p>
+                    To the extent permitted by law, the Software is provided "as is" and "as available", without warranties of
+                    any kind. Nothing here excludes the legal guarantees that French law gives consumers, including the
+                    guarantee of conformity and the guarantee against hidden defects.
+                </p>
+
+                <h2>12. Limitation of Liability</h2>
+                <p>To the maximum extent permitted by law:</p>
+                <p>Neovi Media shall not be liable for:</p>
+                <ul>
+                    <li>Indirect or consequential damages</li>
+                    <li>Loss of data, revenue, or business opportunities</li>
+                </ul>
+                <p>
+                    Our total liability shall not exceed the total amount you paid for the Software. Nothing in this Agreement
+                    limits liability for death, personal injury, fraud, or gross negligence, or any other liability that cannot
+                    lawfully be limited.
+                </p>
+
+                <h2>13. Governing Law</h2>
+                <p>This Agreement is governed by the laws of France.</p>
+                <p>
+                    Any dispute shall be subject to the jurisdiction of French courts. If you are a consumer, this does not
+                    deprive you of the protection of the mandatory law of your country of residence.
+                </p>
+
+                <h2>14. Contact</h2>
+                <p>
+                    If you have any questions about this Agreement, contact us at:
+                    <br><strong>contact@getgoatlas.com</strong>
+                </p>
+            </section>
+
+            <section id="legal" class="legal-doc" data-doc-panel="legal">
+                <h1>Legal Notice</h1>
+
+                <p><strong>Publisher</strong></p>
+                <p>
+                    Neovi Media<br>
+                    Micro-entreprise (France)<br>
+                    SIRET: 852 949 841 00013<br>
+                    Address: 101 AV CLAUDE BERNARD, 11000 CARCASSONNE, France<br>
+                    Email: contact@getgoatlas.com
+                </p>
+                <p>Publication director: the legal representative of Neovi Media.</p>
+
+                <p><strong>Website</strong></p>
+                <p>
+                    This website is operated by Neovi Media.
+                    This website is directed to a global audience.
+                </p>
+
+                <p><strong>Hosting</strong></p>
+                <p>
+                    Vercel Inc.<br>
+                    440 N Barranca Ave #4133<br>
+                    Covina, CA 91723<br>
+                    United States
+                </p>
+
+                <p><strong>Trademarks</strong></p>
+                <p>
+                    DaVinci Resolve and Blackmagic Design are trademarks of Blackmagic Design Pty Ltd.
+                    <strong>Go Atlas is an independent product and is not affiliated with, endorsed by, or sponsored by
+                    Blackmagic Design.</strong> The DaVinci Resolve name and logo are used solely to identify the software that
+                    Go Atlas works inside.
+                </p>
+                <p>
+                    MapTiler is a trademark of MapTiler AG. OpenStreetMap is a trademark of the OpenStreetMap Foundation. All
+                    other trademarks are the property of their respective owners.
+                </p>
+
+                <p><strong>Map Data</strong></p>
+                <p>
+                    Maps rendered by Go Atlas contain data &copy; OpenStreetMap contributors, served through Go Atlas's own
+                    map infrastructure and available under the <a href="https://opendatacommons.org/licenses/odbl/" rel="noopener noreferrer" target="_blank">Open Database License</a>.
+                    Bundled country and region outlines are derived from
+                    <a href="https://www.naturalearthdata.com/" rel="noopener noreferrer" target="_blank">Natural Earth</a>, which is in the public domain.
+                </p>
+
+                <p><strong>Intellectual Property</strong></p>
+                <p>
+                    All content on this website, including text, images, branding, and software elements,
+                    is the property of Neovi Media and may not be reproduced without permission, with the exception of
+                    third-party material identified as such on the <a href="#opensource">Open Source Licenses</a> tab.
+                </p>
+
+                <p><strong>Reporting a Problem</strong></p>
+                <p>
+                    To report a security issue, a licensing problem, or content you believe infringes your rights, write to
+                    contact@getgoatlas.com.
+                </p>
+            </section>
+
+            <section id="opensource" class="legal-doc" data-doc-panel="opensource">
+                <h1>Open Source Licenses</h1>
+                <!-- TPL:OPENSOURCE:START -->
+      <p class="tpl-meta">Generated 2026-09-04 &middot; 37 components distributed with, or relied upon by, the Go Atlas plugin for DaVinci Resolve.</p>
+      <p>Go Atlas incorporates the third-party open-source software listed below. Each component remains under its own license; copyright notices are reproduced as required. This list is generated from the licence files of the components actually linked into the shipped binaries.</p>
+      <h2>Components requiring particular attention</h2>
+      <h3>MapLibre Native &mdash; BSD-2-Clause</h3>
+      <p>The renderer. Forked from Mapbox GL Native at its last open-source commit; the copyright line therefore names MapLibre contributors, MapTiler and Mapbox.</p>
+      <h3>FreeType &mdash; FreeType License (FTL)</h3>
+      <p>FreeType is dual-licensed under the FreeType License (BSD-style with a credit requirement) and GPLv2. Go Atlas uses it under the FreeType License; the credit it requires is given by this page.</p>
+      <h3>ICU (International Components for Unicode) &mdash; Unicode License v3</h3>
+      <p>Built in (MLN_USE_BUILTIN_ICU=ON) rather than taken from the system, so the notice travels with the binary.</p>
+      <h3>SQLite &mdash; Public Domain</h3>
+      <p>Holds the on-disk tile and resource cache at %APPDATA%\GoAtlasResolvePlugin\map-cache.sqlite.</p>
+      <h3>OpenFX API and Support Library &mdash; BSD-3-Clause</h3>
+      <p>The plugin interface. Headers and the Support library come from the OpenFX SDK distributed inside DaVinci Resolve; the Support library is compiled into GoAtlasMap.ofx.</p>
+      <h3>GCC runtime and mingw-w64 runtime &mdash; GPL-3.0 WITH GCC-exception-3.1; mingw-w64 licence</h3>
+      <p>The only copyleft licence in this list, and the exception is what makes the static link lawful. Worth reading before changing how the node is linked.</p>
+      <h3>Natural Earth &mdash; Public Domain</h3>
+      <p>The bundled country and region geometry.</p>
+      <h3>MapTiler and OpenStreetMap &mdash; MapTiler ToS; ODbL</h3>
+      <p>The credit is composited into every rendered frame and must not be removed.</p>
+      <h2>License summary</h2>
+      <ul class="tpl-summary">
+        <li>MIT &mdash; 6</li>
+        <li>BSD-2-Clause &mdash; 4</li>
+        <li>BSD-3-Clause &mdash; 4</li>
+        <li>ISC &mdash; 4</li>
+        <li>Boost Software License 1.0 &mdash; 3</li>
+        <li>Apache-2.0 &mdash; 2</li>
+        <li>Public Domain &mdash; 2</li>
+        <li>curl License &mdash; 2</li>
+        <li>BSD-2-Clause / Boost &mdash; 1</li>
+        <li>CC BY 4.0; ODbL &mdash; 1</li>
+        <li>FreeType License (FTL) &mdash; 1</li>
+        <li>GPL-3.0 WITH GCC-exception-3.1; mingw-w64 licence &mdash; 1</li>
+        <li>IJG / BSD-3-Clause / Zlib &mdash; 1</li>
+        <li>MIT (Old MIT) &mdash; 1</li>
+        <li>MapTiler ToS; ODbL &mdash; 1</li>
+        <li>PNG Reference Library License v2 &mdash; 1</li>
+        <li>Unicode License v3 &mdash; 1</li>
+        <li>Zlib &mdash; 1</li>
+      </ul>
+      <h2>All components</h2>
+      <h3>Boost (headers)</h3>
+      <p class="tpl-meta">License: Boost Software License 1.0 &middot; Use: header-only, compiled in &middot; Site: <a href="https://www.boost.org/" rel="noopener noreferrer" target="_blank">https://www.boost.org/</a></p>
+      <pre>Boost Software License - Version 1.0 - August 17th, 2003
+
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the &quot;Software&quot;) to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+      <h3>csscolorparser</h3>
+      <p class="tpl-meta">License: MIT &middot; Use: statically linked &middot; Site: <a href="https://github.com/deanm/css-color-parser-js" rel="noopener noreferrer" target="_blank">https://github.com/deanm/css-color-parser-js</a></p>
+      <pre>(c) Dean McNamee &lt;dean@gmail.com&gt;, 2012.
+(c) Konstantin Käfer &lt;mail@kkaefer.com&gt;, 2014.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.</pre>
+      <h3>curl (libcurl) 8.13.0</h3>
+      <p class="tpl-meta">License: curl License &middot; Use: statically linked &middot; Site: <a href="https://curl.se/" rel="noopener noreferrer" target="_blank">https://curl.se/</a></p>
+      <pre>COPYING:
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1996 - 2025, Daniel Stenberg, &lt;daniel@haxx.se&gt;, and many
+contributors, see the THANKS file.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright
+notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not
+be used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization of the copyright holder.
+
+
+krb5.c Notice:
+
+/* GSSAPI/krb5 support for FTP - loosely based on old krb4.c
+ *
+ * Copyright (c) 1995, 1996, 1997, 1998, 1999 Kungliga Tekniska Högskolan
+ * (Royal Institute of Technology, Stockholm, Sweden).
+ * Copyright (C) Daniel Stenberg
+ * All rights reserved.
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the Institute nor the names of its contributors
+ *    may be used to endorse or promote products derived from this software
+ *    without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE INSTITUTE AND CONTRIBUTORS ``AS IS&#x27;&#x27; AND
+ * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED. IN NO EVENT SHALL THE INSTITUTE OR CONTRIBUTORS BE LIABLE
+ * FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+ * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS
+ * OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
+ * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY
+ * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.  */
+
+
+
+inet_ntop.c and inet_pton.c Notice:
+
+/*
+ * Copyright (C) 1996-2022  Internet Software Consortium.
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND INTERNET SOFTWARE CONSORTIUM
+ * DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL
+ * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL
+ * INTERNET SOFTWARE CONSORTIUM BE LIABLE FOR ANY SPECIAL, DIRECT,
+ * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING
+ * FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+ * NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+ * WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ *
+ * SPDX-License-Identifier: ISC
+ */
+/*
+ * Original code by Paul Vixie. &quot;curlified&quot; by Gisle Vanem.
+ */</pre>
+      <h3>earcut.hpp</h3>
+      <p class="tpl-meta">License: ISC &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/earcut.hpp" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/earcut.hpp</a></p>
+      <pre>ISC License
+
+Copyright (c) 2015, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.</pre>
+      <h3>eternal</h3>
+      <p class="tpl-meta">License: MIT &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/eternal" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/eternal</a></p>
+      <pre>ISC License
+
+Copyright (c) 2018, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS
+OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF
+THIS SOFTWARE.</pre>
+      <h3>expected-lite</h3>
+      <p class="tpl-meta">License: Boost Software License 1.0 &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/martinmoene/expected-lite" rel="noopener noreferrer" target="_blank">https://github.com/martinmoene/expected-lite</a></p>
+      <pre>Boost Software License - Version 1.0 - August 17th, 2003
+
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the &quot;Software&quot;) to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+      <h3>FastPFor</h3>
+      <p class="tpl-meta">License: Apache-2.0 &middot; Use: statically linked &middot; Site: <a href="https://github.com/lemire/FastPFor" rel="noopener noreferrer" target="_blank">https://github.com/lemire/FastPFor</a></p>
+      <p class="tpl-note">Pulled in by maplibre-tile-spec and covered by the same Apache-2.0 text.</p>
+      <pre>Apache License
+                        Version 2.0, January 2004
+                     http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+   &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+   and distribution as defined by Sections 1 through 9 of this document.
+
+   &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+   the copyright owner that is granting the License.
+
+   &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+   other entities that control, are controlled by, or are under common
+   control with that entity. For the purposes of this definition,
+   &quot;control&quot; means (i) the power, direct or indirect, to cause the
+   direction or management of such entity, whether by contract or
+   otherwise, or (ii) ownership of fifty percent (50%) or more of the
+   outstanding shares, or (iii) beneficial ownership of such entity.
+
+   &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+   exercising permissions granted by this License.
+
+   &quot;Source&quot; form shall mean the preferred form for making modifications,
+   including but not limited to software source code, documentation
+   source, and configuration files.
+
+   &quot;Object&quot; form shall mean any form resulting from mechanical
+   transformation or translation of a Source form, including but
+   not limited to compiled object code, generated documentation,
+   and conversions to other media types.
+
+   &quot;Work&quot; shall mean the work of authorship, whether in Source or
+   Object form, made available under the License, as indicated by a
+   copyright notice that is included in or attached to the work
+   (an example is provided in the Appendix below).
+
+   &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+   form, that is based on (or derived from) the Work and for which the
+   editorial revisions, annotations, elaborations, or other modifications
+   represent, as a whole, an original work of authorship. For the purposes
+   of this License, Derivative Works shall not include works that remain
+   separable from, or merely link (or bind by name) to the interfaces of,
+   the Work and Derivative Works thereof.
+
+   &quot;Contribution&quot; shall mean any work of authorship, including
+   the original version of the Work and any modifications or additions
+   to that Work or Derivative Works thereof, that is intentionally
+   submitted to Licensor for inclusion in the Work by the copyright owner
+   or by an individual or Legal Entity authorized to submit on behalf of
+   the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+   means any form of electronic, verbal, or written communication sent
+   to the Licensor or its representatives, including but not limited to
+   communication on electronic mailing lists, source code control systems,
+   and issue tracking systems that are managed by, or on behalf of, the
+   Licensor for the purpose of discussing and improving the Work, but
+   excluding communication that is conspicuously marked or otherwise
+   designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+   &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+   on behalf of whom a Contribution has been received by Licensor and
+   subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright license to reproduce, prepare Derivative Works of,
+   publicly display, publicly perform, sublicense, and distribute the
+   Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   (except as stated in this section) patent license to make, have made,
+   use, offer to sell, sell, import, and otherwise transfer the Work,
+   where such license applies only to those patent claims licensable
+   by such Contributor that are necessarily infringed by their
+   Contribution(s) alone or by combination of their Contribution(s)
+   with the Work to which such Contribution(s) was submitted. If You
+   institute patent litigation against any entity (including a
+   cross-claim or counterclaim in a lawsuit) alleging that the Work
+   or a Contribution incorporated within the Work constitutes direct
+   or contributory patent infringement, then any patent licenses
+   granted to You under this License for that Work shall terminate
+   as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the
+   Work or Derivative Works thereof in any medium, with or without
+   modifications, and in Source or Object form, provided that You
+   meet the following conditions:
+
+   (a) You must give any other recipients of the Work or
+       Derivative Works a copy of this License; and
+
+   (b) You must cause any modified files to carry prominent notices
+       stating that You changed the files; and
+
+   (c) You must retain, in the Source form of any Derivative Works
+       that You distribute, all copyright, patent, trademark, and
+       attribution notices from the Source form of the Work,
+       excluding those notices that do not pertain to any part of
+       the Derivative Works; and
+
+   (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+       distribution, then any Derivative Works that You distribute must
+       include a readable copy of the attribution notices contained
+       within such NOTICE file, excluding those notices that do not
+       pertain to any part of the Derivative Works, in at least one
+       of the following places: within a NOTICE text file distributed
+       as part of the Derivative Works; within the Source form or
+       documentation, if provided along with the Derivative Works; or,
+       within a display generated by the Derivative Works, if and
+       wherever such third-party notices normally appear. The contents
+       of the NOTICE file are for informational purposes only and
+       do not modify the License. You may add Your own attribution
+       notices within Derivative Works that You distribute, alongside
+       or as an addendum to the NOTICE text from the Work, provided
+       that such additional attribution notices cannot be construed
+       as modifying the License.
+
+   You may add Your own copyright statement to Your modifications and
+   may provide additional or different license terms and conditions
+   for use, reproduction, or distribution of Your modifications, or
+   for any such Derivative Works as a whole, provided Your use,
+   reproduction, and distribution of the Work otherwise complies with
+   the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise,
+   any Contribution intentionally submitted for inclusion in the Work
+   by You to the Licensor shall be under the terms and conditions of
+   this License, without any additional terms or conditions.
+   Notwithstanding the above, nothing herein shall supersede or modify
+   the terms of any separate license agreement you may have executed
+   with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade
+   names, trademarks, service marks, or product names of the Licensor,
+   except as required for reasonable and customary use in describing the
+   origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or
+   agreed to in writing, Licensor provides the Work (and each
+   Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+   implied, including, without limitation, any warranties or conditions
+   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+   PARTICULAR PURPOSE. You are solely responsible for determining the
+   appropriateness of using or redistributing the Work and assume any
+   risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory,
+   whether in tort (including negligence), contract, or otherwise,
+   unless required by applicable law (such as deliberate and grossly
+   negligent acts) or agreed to in writing, shall any Contributor be
+   liable to You for damages, including any direct, indirect, special,
+   incidental, or consequential damages of any character arising as a
+   result of this License or out of the use or inability to use the
+   Work (including but not limited to damages for loss of goodwill,
+   work stoppage, computer failure or malfunction, or any and all
+   other commercial damages or losses), even if such Contributor
+   has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing
+   the Work or Derivative Works thereof, You may choose to offer,
+   and charge a fee for, acceptance of support, warranty, indemnity,
+   or other liability obligations and/or rights consistent with this
+   License. However, in accepting such obligations, You may act only
+   on Your own behalf and on Your sole responsibility, not on behalf
+   of any other Contributor, and only if You agree to indemnify,
+   defend, and hold each Contributor harmless for any liability
+   incurred by, or claims asserted against, such Contributor by reason
+   of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+APPENDIX: How to apply the Apache License to your work.
+
+   To apply the Apache License to your work, attach the following
+   boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;
+   replaced with your own identifying information. (Don&#x27;t include
+   the brackets!)  The text should be enclosed in the appropriate
+   comment syntax for the file format. We also recommend that a
+   file or class name and description of purpose be included on the
+   same &quot;printed page&quot; as the copyright notice for easier
+   identification within third-party archives.
+
+Copyright 2024 MapLibre contributors
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</pre>
+      <h3>FreeType</h3>
+      <p class="tpl-meta">License: FreeType License (FTL) &middot; Use: statically linked &middot; Site: <a href="https://freetype.org/" rel="noopener noreferrer" target="_blank">https://freetype.org/</a></p>
+      <pre>FREETYPE LICENSES
+-----------------
+
+The FreeType  2 font  engine is  copyrighted work  and cannot  be used
+legally without  a software  license.  In order  to make  this project
+usable to  a vast majority of  developers, we distribute it  under two
+mutually exclusive open-source licenses.
+
+This means that *you* must choose  *one* of the two licenses described
+below, then obey all its terms and conditions when using FreeType 2 in
+any of your projects or products.
+
+  - The FreeType License,  found in the file  `docs/FTL.TXT`, which is
+    similar to the  original BSD license *with*  an advertising clause
+    that forces  you to explicitly  cite the FreeType project  in your
+    product&#x27;s  documentation.  All  details are  in the  license file.
+    This license is suited to products which don&#x27;t use the GNU General
+    Public License.
+
+    Note that  this license  is compatible to  the GNU  General Public
+    License version 3, but not version 2.
+
+  - The   GNU   General   Public   License   version   2,   found   in
+    `docs/GPLv2.TXT`  (any  later  version  can  be  used  also),  for
+    programs  which  already  use  the  GPL.  Note  that  the  FTL  is
+    incompatible with GPLv2 due to its advertisement clause.
+
+The contributed  BDF and PCF  drivers come  with a license  similar to
+that  of the  X Window  System.   It is  compatible to  the above  two
+licenses (see files `src/bdf/README`  and `src/pcf/README`).  The same
+holds   for   the   source    code   files   `src/base/fthash.c`   and
+`include/freetype/internal/fthash.h`; they were part of the BDF driver
+in earlier FreeType versions.
+
+The gzip  module uses the  zlib license (see  `src/gzip/zlib.h`) which
+too is compatible to the above two licenses.
+
+The files `src/autofit/ft-hb.c` and `src/autofit/ft-hb.h` contain code
+taken almost  verbatim from the  HarfBuzz file `hb-ft.cc`,  which uses
+the &#x27;Old MIT&#x27; license, compatible to the above two licenses.
+
+The  MD5 checksum  support  (only used  for  debugging in  development
+builds) is in the public domain.
+
+
+--- end of LICENSE.TXT ---</pre>
+      <h3>GCC runtime and mingw-w64 runtime</h3>
+      <p class="tpl-meta">License: GPL-3.0 WITH GCC-exception-3.1; mingw-w64 licence &middot; Use: statically linked &middot; Site: <a href="https://www.mingw-w64.org/" rel="noopener noreferrer" target="_blank">https://www.mingw-w64.org/</a></p>
+      <pre>The plugin and goatlas-core.dll are linked statically against the GCC
+runtime libraries (libstdc++, libgcc) supplied by the mingw-w64 toolchain. Those libraries are
+covered by the GNU General Public License version 3 WITH the GCC Runtime Library Exception,
+which expressly permits distributing a work in object or executable form that is linked
+against them under a licence of your choosing, provided the work is compiled with a compliant
+compiler. No GPL obligation is therefore placed on Go Atlas by this link.
+
+The mingw-w64 runtime itself (libwinpthread and the Windows API import libraries) is
+distributed under the mingw-w64 licence, a permissive BSD/Zope-style licence.
+
+Sources: https://gcc.gnu.org/onlinedocs/gcc/Copyright.html
+         https://www.gnu.org/licenses/gcc-exception-3.1.html
+         https://sourceforge.net/p/mingw-w64/mingw-w64/ci/master/tree/COPYING</pre>
+      <h3>ghc filesystem</h3>
+      <p class="tpl-meta">License: MIT &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/gulrak/filesystem" rel="noopener noreferrer" target="_blank">https://github.com/gulrak/filesystem</a></p>
+      <pre>Copyright (c) 2018, Steffen Schümann &lt;s.schuemann@pobox.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+      <h3>HarfBuzz</h3>
+      <p class="tpl-meta">License: MIT (Old MIT) &middot; Use: statically linked &middot; Site: <a href="https://harfbuzz.github.io/" rel="noopener noreferrer" target="_blank">https://harfbuzz.github.io/</a></p>
+      <pre>HarfBuzz is licensed under the so-called &quot;Old MIT&quot; license.  Details follow.
+For parts of HarfBuzz that are licensed under different licenses see individual
+files names COPYING in subdirectories where applicable.
+
+Copyright © 2010-2022  Google, Inc.
+Copyright © 2015-2020  Ebrahim Byagowi
+Copyright © 2019,2020  Facebook, Inc.
+Copyright © 2012,2015  Mozilla Foundation
+Copyright © 2011  Codethink Limited
+Copyright © 2008,2010  Nokia Corporation and/or its subsidiary(-ies)
+Copyright © 2009  Keith Stribley
+Copyright © 2011  Martin Hosken and SIL International
+Copyright © 2007  Chris Wilson
+Copyright © 2005,2006,2020,2021,2022,2023  Behdad Esfahbod
+Copyright © 2004,2007,2008,2009,2010,2013,2021,2022,2023  Red Hat, Inc.
+Copyright © 1998-2005  David Turner and Werner Lemberg
+Copyright © 2016  Igalia S.L.
+Copyright © 2022  Matthias Clasen
+Copyright © 2018,2021  Khaled Hosny
+Copyright © 2018,2019,2020  Adobe, Inc
+Copyright © 2013-2015  Alexei Podtelezhnikov
+
+For full copyright notices consult the individual files in the package.
+
+
+Permission is hereby granted, without written agreement and without
+license or royalty fees, to use, copy, modify, and distribute this
+software and its documentation for any purpose, provided that the
+above copyright notice and the following two paragraphs appear in
+all copies of this software.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE TO ANY PARTY FOR
+DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES
+ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN
+IF THE COPYRIGHT HOLDER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+THE COPYRIGHT HOLDER SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING,
+BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE.  THE SOFTWARE PROVIDED HEREUNDER IS
+ON AN &quot;AS IS&quot; BASIS, AND THE COPYRIGHT HOLDER HAS NO OBLIGATION TO
+PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.</pre>
+      <h3>ICU (International Components for Unicode)</h3>
+      <p class="tpl-meta">License: Unicode License v3 &middot; Use: statically linked &middot; Site: <a href="https://icu.unicode.org/" rel="noopener noreferrer" target="_blank">https://icu.unicode.org/</a></p>
+      <pre>COPYRIGHT AND PERMISSION NOTICE (ICU 58 and later)
+
+Copyright © 1991-2018 Unicode, Inc. All rights reserved.
+Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of the Unicode data files and any associated documentation
+(the &quot;Data Files&quot;) or Unicode software and any associated documentation
+(the &quot;Software&quot;) to deal in the Data Files or Software
+without restriction, including without limitation the rights to use,
+copy, modify, merge, publish, distribute, and/or sell copies of
+the Data Files or Software, and to permit persons to whom the Data Files
+or Software are furnished to do so, provided that either
+(a) this copyright and permission notice appear with all copies
+of the Data Files or Software, or
+(b) this copyright and permission notice appear in associated
+Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF
+ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT OF THIRD PARTY RIGHTS.
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS
+NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL
+DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE,
+DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THE DATA FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder
+shall not be used in advertising or otherwise to promote the sale,
+use or other dealings in these Data Files or Software without prior
+written authorization of the copyright holder.
+
+---------------------
+
+Third-Party Software Licenses
+
+This section contains third-party software notices and/or additional
+terms for licensed third-party software components included within ICU
+libraries.
+
+1. ICU License - ICU 1.8.1 to ICU 57.1
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1995-2016 International Business Machines Corporation and others
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+&quot;Software&quot;), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, and/or sell copies of the Software, and to permit persons
+to whom the Software is furnished to do so, provided that the above
+copyright notice(s) and this permission notice appear in all copies of
+the Software and that both the above copyright notice(s) and this
+permission notice appear in supporting documentation.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY
+SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER
+RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF
+CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN
+CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder
+shall not be used in advertising or otherwise to promote the sale, use
+or other dealings in this Software without prior written authorization
+of the copyright holder.
+
+All trademarks and registered trademarks mentioned herein are the
+property of their respective owners.
+
+2. Chinese/Japanese Word Break Dictionary Data (cjdict.txt)
+
+ #     The Google Chrome software developed by Google is licensed under
+ # the BSD license. Other software included in this distribution is
+ # provided under other licenses, as set forth below.
+ #
+ #  The BSD License
+ #  http://opensource.org/licenses/bsd-license.php
+ #  Copyright (C) 2006-2008, Google Inc.
+ #
+ #  All rights reserved.
+ #
+ #  Redistribution and use in source and binary forms, with or without
+ # modification, are permitted provided that the following conditions are met:
+ #
+ #  Redistributions of source code must retain the above copyright notice,
+ # this list of conditions and the following disclaimer.
+ #  Redistributions in binary form must reproduce the above
+ # copyright notice, this list of conditions and the following
+ # disclaimer in the documentation and/or other materials provided with
+ # the distribution.
+ #  Neither the name of  Google Inc. nor the names of its
+ # contributors may be used to endorse or promote products derived from
+ # this software without specific prior written permission.
+ #
+ #
+ #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+ # CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ # INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ # MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ # DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+ # LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ # CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ # SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ # BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+ # LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+ # NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ #
+ #
+ #  The word list in cjdict.txt are generated by combining three word lists
+ # listed below with further processing for compound word breaking. The
+ # frequency is generated with an iterative training against Google web
+ # corpora.
+ #
+ #  * Libtabe (Chinese)
+ #    - https://sourceforge.net/project/?group_id=1519
+ #    - Its license terms and conditions are shown below.
+ #
+ #  * IPADIC (Japanese)
+ #    - http://chasen.aist-nara.ac.jp/chasen/distribution.html
+ #    - Its license terms and conditions are shown below.
+ #
+ #  ---------COPYING.libtabe ---- BEGIN--------------------
+ #
+ #  /*
+ #   * Copyright (c) 1999 TaBE Project.
+ #   * Copyright (c) 1999 Pai-Hsiang Hsiao.
+ #   * All rights reserved.
+ #   *
+ #   * Redistribution and use in source and binary forms, with or without
+ #   * modification, are permitted provided that the following conditions
+ #   * are met:
+ #   *
+ #   * . Redistributions of source code must retain the above copyright
+ #   *   notice, this list of conditions and the following disclaimer.
+ #   * . Redistributions in binary form must reproduce the above copyright
+ #   *   notice, this list of conditions and the following disclaimer in
+ #   *   the documentation and/or other materials provided with the
+ #   *   distribution.
+ #   * . Neither the name of the TaBE Project nor the names of its
+ #   *   contributors may be used to endorse or promote products derived
+ #   *   from this software without specific prior written permission.
+ #   *
+ #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ #   * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ #   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ #   * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ #   * REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ #   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ #   * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ #   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ #   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ #   * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ #   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ #   * OF THE POSSIBILITY OF SUCH DAMAGE.
+ #   */
+ #
+ #  /*
+ #   * Copyright (c) 1999 Computer Systems and Communication Lab,
+ #   *                    Institute of Information Science, Academia
+ #       *                    Sinica. All rights reserved.
+ #   *
+ #   * Redistribution and use in source and binary forms, with or without
+ #   * modification, are permitted provided that the following conditions
+ #   * are met:
+ #   *
+ #   * . Redistributions of source code must retain the above copyright
+ #   *   notice, this list of conditions and the following disclaimer.
+ #   * . Redistributions in binary form must reproduce the above copyright
+ #   *   notice, this list of conditions and the following disclaimer in
+ #   *   the documentation and/or other materials provided with the
+ #   *   distribution.
+ #   * . Neither the name of the Computer Systems and Communication Lab
+ #   *   nor the names of its contributors may be used to endorse or
+ #   *   promote products derived from this software without specific
+ #   *   prior written permission.
+ #   *
+ #   * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ #   * &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ #   * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ #   * FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ #   * REGENTS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+ #   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ #   * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ #   * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ #   * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ #   * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ #   * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ #   * OF THE POSSIBILITY OF SUCH DAMAGE.
+ #   */
+ #
+ #  Copyright 1996 Chih-Hao Tsai @ Beckman Institute,
+ #      University of Illinois
+ #  c-tsai4@uiuc.edu  http://casper.beckman.uiuc.edu/~c-tsai4
+ #
+ #  ---------------COPYING.libtabe-----END--------------------------------
+ #
+ #
+ #  ---------------COPYING.ipadic-----BEGIN-------------------------------
+ #
+ #  Copyright 2000, 2001, 2002, 2003 Nara Institute of Science
+ #  and Technology.  All Rights Reserved.
+ #
+ #  Use, reproduction, and distribution of this software is permitted.
+ #  Any copy of this software, whether in its original form or modified,
+ #  must include both the above copyright notice and the following
+ #  paragraphs.
+ #
+ #  Nara Institute of Science and Technology (NAIST),
+ #  the copyright holders, disclaims all warranties with regard to this
+ #  software, including all implied warranties of merchantability and
+ #  fitness, in no event shall NAIST be liable for
+ #  any special, indirect or consequential damages or any damages
+ #  whatsoever resulting from loss of use, data or profits, whether in an
+ #  action of contract, negligence or other tortuous action, arising out
+ #  of or in connection with the use or performance of this software.
+ #
+ #  A large portion of the dictionary entries
+ #  originate from ICOT Free Software.  The following conditions for ICOT
+ #  Free Software applies to the current dictionary as well.
+ #
+ #  Each User may also freely distribute the Program, whether in its
+ #  original form or modified, to any third party or parties, PROVIDED
+ #  that the provisions of Section 3 (&quot;NO WARRANTY&quot;) will ALWAYS appear
+ #  on, or be attached to, the Program, which is distributed substantially
+ #  in the same form as set out herein and that such intended
+ #  distribution, if actually made, will neither violate or otherwise
+ #  contravene any of the laws and regulations of the countries having
+ #  jurisdiction over the User or the intended distribution itself.
+ #
+ #  NO WARRANTY
+ #
+ #  The program was produced on an experimental basis in the course of the
+ #  research and development conducted during the project and is provided
+ #  to users as so produced on an experimental basis.  Accordingly, the
+ #  program is provided without any warranty whatsoever, whether express,
+ #  implied, statutory or otherwise.  The term &quot;warranty&quot; used herein
+ #  includes, but is not limited to, any warranty of the quality,
+ #  performance, merchantability and fitness for a particular purpose of
+ #  the program and the nonexistence of any infringement or violation of
+ #  any right of any third party.
+ #
+ #  Each user of the program will agree and understand, and be deemed to
+ #  have agreed and understood, that there is no warranty whatsoever for
+ #  the program and, accordingly, the entire risk arising from or
+ #  otherwise connected with the program is assumed by the user.
+ #
+ #  Therefore, neither ICOT, the copyright holder, or any other
+ #  organization that participated in or was otherwise related to the
+ #  development of the program and their respective officials, directors,
+ #  officers and other employees shall be held liable for any and all
+ #  damages, including, without limitation, general, special, incidental
+ #  and consequential damages, arising out of or otherwise in connection
+ #  with the use or inability to use the program or any product, material
+ #  or result produced or otherwise obtained by using the program,
+ #  regardless of whether they have been advised of, or otherwise had
+ #  knowledge of, the possibility of such damages at any time during the
+ #  project or thereafter.  Each user will be deemed to have agreed to the
+ #  foregoing by his or her commencement of use of the program.  The term
+ #  &quot;use&quot; as used herein includes, but is not limited to, the use,
+ #  modification, copying and distribution of the program and the
+ #  production of secondary products from the program.
+ #
+ #  In the case where the program, whether in its original form or
+ #  modified, was distributed or delivered to or received by a user from
+ #  any person, organization or entity other than ICOT, unless it makes or
+ #  grants independently of ICOT any specific warranty to the user in
+ #  writing, such person, organization or entity, will also be exempted
+ #  from and not be held liable to the user for any such damages as noted
+ #  above as far as the program is concerned.
+ #
+ #  ---------------COPYING.ipadic-----END----------------------------------
+
+3. Lao Word Break Dictionary Data (laodict.txt)
+
+ #  Copyright (c) 2013 International Business Machines Corporation
+ #  and others. All Rights Reserved.
+ #
+ # Project: http://code.google.com/p/lao-dictionary/
+ # Dictionary: http://lao-dictionary.googlecode.com/git/Lao-Dictionary.txt
+ # License: http://lao-dictionary.googlecode.com/git/Lao-Dictionary-LICENSE.txt
+ #              (copied below)
+ #
+ #  This file is derived from the above dictionary, with slight
+ #  modifications.
+ #  ----------------------------------------------------------------------
+ #  Copyright (C) 2013 Brian Eugene Wilson, Robert Martin Campbell.
+ #  All rights reserved.
+ #
+ #  Redistribution and use in source and binary forms, with or without
+ #  modification,
+ #  are permitted provided that the following conditions are met:
+ #
+ #
+ # Redistributions of source code must retain the above copyright notice, this
+ #  list of conditions and the following disclaimer. Redistributions in
+ #  binary form must reproduce the above copyright notice, this list of
+ #  conditions and the following disclaimer in the documentation and/or
+ #  other materials provided with the distribution.
+ #
+ #
+ # THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ # &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ # LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+ # FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE
+ # COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+ # INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ # (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+ # SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+ # HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+ # STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+ # OF THE POSSIBILITY OF SUCH DAMAGE.
+ #  --------------------------------------------------------------------------
+
+4. Burmese Word Break Dictionary Data (burmesedict.txt)
+
+ #  Copyright (c) 2014 International Business Machines Corporation
+ #  and others. All Rights Reserved.
+ #
+ #  This list is part of a project hosted at:
+ #    github.com/kanyawtech/myanmar-karen-word-lists
+ #
+ #  --------------------------------------------------------------------------
+ #  Copyright (c) 2013, LeRoy Benjamin Sharon
+ #  All rights reserved.
+ #
+ #  Redistribution and use in source and binary forms, with or without
+ #  modification, are permitted provided that the following conditions
+ #  are met: Redistributions of source code must retain the above
+ #  copyright notice, this list of conditions and the following
+ #  disclaimer.  Redistributions in binary form must reproduce the
+ #  above copyright notice, this list of conditions and the following
+ #  disclaimer in the documentation and/or other materials provided
+ #  with the distribution.
+ #
+ #    Neither the name Myanmar Karen Word Lists, nor the names of its
+ #    contributors may be used to endorse or promote products derived
+ #    from this software without specific prior written permission.
+ #
+ #  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+ #  CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ #  INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+ #  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ #  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS
+ #  BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ #  EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+ #  TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ #  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ #  ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+ #  TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
+ #  THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ #  SUCH DAMAGE.
+ #  --------------------------------------------------------------------------
+
+5. Time Zone Database
+
+  ICU uses the public domain data and code derived from Time Zone
+Database for its time zone support. The ownership of the TZ database
+is explained in BCP 175: Procedure for Maintaining the Time Zone
+Database section 7.
+
+ # 7.  Database Ownership
+ #
+ #    The TZ database itself is not an IETF Contribution or an IETF
+ #    document.  Rather it is a pre-existing and regularly updated work
+ #    that is in the public domain, and is intended to remain in the
+ #    public domain.  Therefore, BCPs 78 [RFC5378] and 79 [RFC3979] do
+ #    not apply to the TZ Database or contributions that individuals make
+ #    to it.  Should any claims be made and substantiated against the TZ
+ #    Database, the organization that is providing the IANA
+ #    Considerations defined in this RFC, under the memorandum of
+ #    understanding with the IETF, currently ICANN, may act in accordance
+ #    with all competent court orders.  No ownership claims will be made
+ #    by ICANN or the IETF Trust on the database or the code.  Any person
+ #    making a contribution to the database or code waives all rights to
+ #    future claims in that contribution or in the TZ Database.
+
+6. Google double-conversion
+
+Copyright 2006-2011, the V8 project authors. All rights reserved.
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above
+      copyright notice, this list of conditions and the following
+      disclaimer in the documentation and/or other materials provided
+      with the distribution.
+    * Neither the name of Google Inc. nor the names of its
+      contributors may be used to endorse or promote products derived
+      from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+&quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
+      <h3>kdbush.hpp</h3>
+      <p class="tpl-meta">License: ISC &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mourner/kdbush.hpp" rel="noopener noreferrer" target="_blank">https://github.com/mourner/kdbush.hpp</a></p>
+      <p class="tpl-note">Shipped by Mapbox under the same ISC text as polylabel.</p>
+      <pre>ISC License
+Copyright (c) 2016 Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND ISC DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS.
+IN NO EVENT SHALL ISC BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA
+OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
+ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
+SOFTWARE.</pre>
+      <h3>libjpeg-turbo 3.1.0</h3>
+      <p class="tpl-meta">License: IJG / BSD-3-Clause / Zlib &middot; Use: statically linked &middot; Site: <a href="https://libjpeg-turbo.org/" rel="noopener noreferrer" target="_blank">https://libjpeg-turbo.org/</a></p>
+      <pre>libjpeg-turbo Licenses
+======================
+
+libjpeg-turbo is covered by two compatible BSD-style open source licenses:
+
+- The IJG (Independent JPEG Group) License, which is listed in
+  [README.ijg](README.ijg)
+
+  This license applies to the libjpeg API library and associated programs,
+  including any code inherited from libjpeg and any modifications to that
+  code.  Note that the libjpeg-turbo SIMD source code bears the
+  [zlib License](https://opensource.org/licenses/Zlib), but in the context of
+  the overall libjpeg API library, the terms of the zlib License are subsumed
+  by the terms of the IJG License.
+
+- The Modified (3-clause) BSD License, which is listed below
+
+  This license applies to the TurboJPEG API library and associated programs, as
+  well as the build system.  Note that the TurboJPEG API library wraps the
+  libjpeg API library, so in the context of the overall TurboJPEG API library,
+  both the terms of the IJG License and the terms of the Modified (3-clause)
+  BSD License apply.
+
+
+Complying with the libjpeg-turbo Licenses
+=========================================
+
+This section provides a roll-up of the libjpeg-turbo licensing terms, to the
+best of our understanding.  This is not a license in and of itself.  It is
+intended solely for clarification.
+
+1.  If you are distributing a modified version of the libjpeg-turbo source,
+    then:
+
+    1.  You cannot alter or remove any existing copyright or license notices
+        from the source.
+
+        **Origin**
+        - Clause 1 of the IJG License
+        - Clause 1 of the Modified BSD License
+        - Clauses 1 and 3 of the zlib License
+
+    2.  You must add your own copyright notice to the header of each source
+        file you modified, so others can tell that you modified that file.  (If
+        there is not an existing copyright header in that file, then you can
+        simply add a notice stating that you modified the file.)
+
+        **Origin**
+        - Clause 1 of the IJG License
+        - Clause 2 of the zlib License
+
+    3.  You must include the IJG README file, and you must not alter any of the
+        copyright or license text in that file.
+
+        **Origin**
+        - Clause 1 of the IJG License
+
+2.  If you are distributing only libjpeg-turbo binaries without the source, or
+    if you are distributing an application that statically links with
+    libjpeg-turbo, then:
+
+    1.  Your product documentation must include a message stating:
+
+        This software is based in part on the work of the Independent JPEG
+        Group.
+
+        **Origin**
+        - Clause 2 of the IJG license
+
+    2.  If your binary distribution includes or uses the TurboJPEG API, then
+        your product documentation must include the text of the Modified BSD
+        License (see below.)
+
+        **Origin**
+        - Clause 2 of the Modified BSD License
+
+3.  You cannot use the name of the IJG or The libjpeg-turbo Project or the
+    contributors thereof in advertising, publicity, etc.
+
+    **Origin**
+    - IJG License
+    - Clause 3 of the Modified BSD License
+
+4.  The IJG and The libjpeg-turbo Project do not warrant libjpeg-turbo to be
+    free of defects, nor do we accept any liability for undesirable
+    consequences resulting from your use of the software.
+
+    **Origin**
+    - IJG License
+    - Modified BSD License
+    - zlib License
+
+
+The Modified (3-clause) BSD License
+===================================
+
+Copyright (C)2009-2024 D. R. Commander.  All Rights Reserved.&lt;br&gt;
+Copyright (C)2015 Viktor Szathmáry.  All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice,
+  this list of conditions and the following disclaimer.
+- Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+- Neither the name of the libjpeg-turbo Project nor the names of its
+  contributors may be used to endorse or promote products derived from this
+  software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;,
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT HOLDERS OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+Why Two Licenses?
+=================
+
+The zlib License could have been used instead of the Modified (3-clause) BSD
+License, and since the IJG License effectively subsumes the distribution
+conditions of the zlib License, this would have effectively placed
+libjpeg-turbo binary distributions under the IJG License.  However, the IJG
+License specifically refers to the Independent JPEG Group and does not extend
+attribution and endorsement protections to other entities.  Thus, it was
+desirable to choose a license that granted us the same protections for new code
+that were granted to the IJG for code derived from their software.</pre>
+      <h3>libpng 1.6.46</h3>
+      <p class="tpl-meta">License: PNG Reference Library License v2 &middot; Use: statically linked &middot; Site: <a href="http://www.libpng.org/" rel="noopener noreferrer" target="_blank">http://www.libpng.org/</a></p>
+      <pre>COPYRIGHT NOTICE, DISCLAIMER, and LICENSE
+=========================================
+
+PNG Reference Library License version 2
+---------------------------------------
+
+ * Copyright (c) 1995-2025 The PNG Reference Library Authors.
+ * Copyright (c) 2018-2025 Cosmin Truta.
+ * Copyright (c) 2000-2002, 2004, 2006-2018 Glenn Randers-Pehrson.
+ * Copyright (c) 1996-1997 Andreas Dilger.
+ * Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.
+
+The software is supplied &quot;as is&quot;, without warranty of any kind,
+express or implied, including, without limitation, the warranties
+of merchantability, fitness for a particular purpose, title, and
+non-infringement.  In no event shall the Copyright owners, or
+anyone distributing the software, be liable for any damages or
+other liability, whether in contract, tort or otherwise, arising
+from, out of, or in connection with the software, or the use or
+other dealings in the software, even if advised of the possibility
+of such damage.
+
+Permission is hereby granted to use, copy, modify, and distribute
+this software, or portions hereof, for any purpose, without fee,
+subject to the following restrictions:
+
+ 1. The origin of this software must not be misrepresented; you
+    must not claim that you wrote the original software.  If you
+    use this software in a product, an acknowledgment in the product
+    documentation would be appreciated, but is not required.
+
+ 2. Altered source versions must be plainly marked as such, and must
+    not be misrepresented as being the original software.
+
+ 3. This Copyright notice may not be removed or altered from any
+    source or altered source distribution.
+
+
+PNG Reference Library License version 1 (for libpng 0.5 through 1.6.35)
+-----------------------------------------------------------------------
+
+libpng versions 1.0.7, July 1, 2000, through 1.6.35, July 15, 2018 are
+Copyright (c) 2000-2002, 2004, 2006-2018 Glenn Randers-Pehrson, are
+derived from libpng-1.0.6, and are distributed according to the same
+disclaimer and license as libpng-1.0.6 with the following individuals
+added to the list of Contributing Authors:
+
+    Simon-Pierre Cadieux
+    Eric S. Raymond
+    Mans Rullgard
+    Cosmin Truta
+    Gilles Vollant
+    James Yu
+    Mandar Sahastrabuddhe
+    Google Inc.
+    Vadim Barkov
+
+and with the following additions to the disclaimer:
+
+    There is no warranty against interference with your enjoyment of
+    the library or against infringement.  There is no warranty that our
+    efforts or the library will fulfill any of your particular purposes
+    or needs.  This library is provided with all faults, and the entire
+    risk of satisfactory quality, performance, accuracy, and effort is
+    with the user.
+
+Some files in the &quot;contrib&quot; directory and some configure-generated
+files that are distributed with libpng have other copyright owners, and
+are released under other open source licenses.
+
+libpng versions 0.97, January 1998, through 1.0.6, March 20, 2000, are
+Copyright (c) 1998-2000 Glenn Randers-Pehrson, are derived from
+libpng-0.96, and are distributed according to the same disclaimer and
+license as libpng-0.96, with the following individuals added to the
+list of Contributing Authors:
+
+    Tom Lane
+    Glenn Randers-Pehrson
+    Willem van Schaik
+
+libpng versions 0.89, June 1996, through 0.96, May 1997, are
+Copyright (c) 1996-1997 Andreas Dilger, are derived from libpng-0.88,
+and are distributed according to the same disclaimer and license as
+libpng-0.88, with the following individuals added to the list of
+Contributing Authors:
+
+    John Bowler
+    Kevin Bracey
+    Sam Bushell
+    Magnus Holmgren
+    Greg Roelofs
+    Tom Tanner
+
+Some files in the &quot;scripts&quot; directory have other copyright owners,
+but are released under this license.
+
+libpng versions 0.5, May 1995, through 0.88, January 1996, are
+Copyright (c) 1995-1996 Guy Eric Schalnat, Group 42, Inc.
+
+For the purposes of this copyright and license, &quot;Contributing Authors&quot;
+is defined as the following set of individuals:
+
+    Andreas Dilger
+    Dave Martindale
+    Guy Eric Schalnat
+    Paul Schmidt
+    Tim Wegner
+
+The PNG Reference Library is supplied &quot;AS IS&quot;.  The Contributing
+Authors and Group 42, Inc. disclaim all warranties, expressed or
+implied, including, without limitation, the warranties of
+merchantability and of fitness for any purpose.  The Contributing
+Authors and Group 42, Inc. assume no liability for direct, indirect,
+incidental, special, exemplary, or consequential damages, which may
+result from the use of the PNG Reference Library, even if advised of
+the possibility of such damage.
+
+Permission is hereby granted to use, copy, modify, and distribute this
+source code, or portions hereof, for any purpose, without fee, subject
+to the following restrictions:
+
+ 1. The origin of this source code must not be misrepresented.
+
+ 2. Altered versions must be plainly marked as such and must not
+    be misrepresented as being the original source.
+
+ 3. This Copyright notice may not be removed or altered from any
+    source or altered source distribution.
+
+The Contributing Authors and Group 42, Inc. specifically permit,
+without fee, and encourage the use of this source code as a component
+to supporting the PNG file format in commercial products.  If you use
+this source code in a product, acknowledgment is not required but would
+be appreciated.</pre>
+      <h3>libuv 1.50.0</h3>
+      <p class="tpl-meta">License: MIT &middot; Use: statically linked &middot; Site: <a href="https://libuv.org/" rel="noopener noreferrer" target="_blank">https://libuv.org/</a></p>
+      <pre>Copyright (c) 2015-present libuv project contributors.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to
+deal in the Software without restriction, including without limitation the
+rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+sell copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.</pre>
+      <h3>libwebp 1.5.0</h3>
+      <p class="tpl-meta">License: BSD-3-Clause &middot; Use: statically linked &middot; Site: <a href="https://developers.google.com/speed/webp" rel="noopener noreferrer" target="_blank">https://developers.google.com/speed/webp</a></p>
+      <p class="tpl-note">Includes libsharpyuv, libwebpdecoder, libwebpdemux and libwebpmux, all under the same notice.</p>
+      <pre>COPYING:
+
+Copyright (c) 2010, Google Inc. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+  * Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+
+  * Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the
+    distribution.
+
+  * Neither the name of Google nor the names of its contributors may
+    be used to endorse or promote products derived from this software
+    without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+&quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+
+
+PATENTS:
+
+Additional IP Rights Grant (Patents)
+------------------------------------
+
+&quot;These implementations&quot; means the copyrightable works that implement the WebM
+codecs distributed by Google as part of the WebM Project.
+
+Google hereby grants to you a perpetual, worldwide, non-exclusive, no-charge,
+royalty-free, irrevocable (except as stated in this section) patent license to
+make, have made, use, offer to sell, sell, import, transfer, and otherwise
+run, modify and propagate the contents of these implementations of WebM, where
+such license applies only to those patent claims, both currently owned by
+Google and acquired in the future, licensable by Google that are necessarily
+infringed by these implementations of WebM. This grant does not include claims
+that would be infringed only as a consequence of further modification of these
+implementations. If you or your agent or exclusive licensee institute or order
+or agree to the institution of patent litigation or any other patent
+enforcement activity against any entity (including a cross-claim or
+counterclaim in a lawsuit) alleging that any of these implementations of WebM
+or any code incorporated within any of these implementations of WebM
+constitute direct or contributory patent infringement, or inducement of
+patent infringement, then any patent rights granted to you under this License
+for these implementations of WebM shall terminate as of the date such
+litigation is filed.</pre>
+      <h3>MapLibre Native</h3>
+      <p class="tpl-meta">License: BSD-2-Clause &middot; Use: statically linked &middot; Site: <a href="https://github.com/maplibre/maplibre-native" rel="noopener noreferrer" target="_blank">https://github.com/maplibre/maplibre-native</a></p>
+      <pre>BSD 2-Clause License
+
+Copyright (c) 2021 MapLibre contributors
+
+Copyright (c) 2018-2021 MapTiler.com
+
+Copyright (c) 2014-2020 Mapbox
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+* Redistributions of source code must retain the above copyright
+  notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright
+  notice, this list of conditions and the following disclaimer in
+  the documentation and/or other materials provided with the
+  distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS
+IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
+      <h3>MapLibre Tile Spec (mlt-cpp)</h3>
+      <p class="tpl-meta">License: Apache-2.0 &middot; Use: statically linked &middot; Site: <a href="https://github.com/maplibre/maplibre-tile-spec" rel="noopener noreferrer" target="_blank">https://github.com/maplibre/maplibre-tile-spec</a></p>
+      <pre>Apache License
+                        Version 2.0, January 2004
+                     http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+   &quot;License&quot; shall mean the terms and conditions for use, reproduction,
+   and distribution as defined by Sections 1 through 9 of this document.
+
+   &quot;Licensor&quot; shall mean the copyright owner or entity authorized by
+   the copyright owner that is granting the License.
+
+   &quot;Legal Entity&quot; shall mean the union of the acting entity and all
+   other entities that control, are controlled by, or are under common
+   control with that entity. For the purposes of this definition,
+   &quot;control&quot; means (i) the power, direct or indirect, to cause the
+   direction or management of such entity, whether by contract or
+   otherwise, or (ii) ownership of fifty percent (50%) or more of the
+   outstanding shares, or (iii) beneficial ownership of such entity.
+
+   &quot;You&quot; (or &quot;Your&quot;) shall mean an individual or Legal Entity
+   exercising permissions granted by this License.
+
+   &quot;Source&quot; form shall mean the preferred form for making modifications,
+   including but not limited to software source code, documentation
+   source, and configuration files.
+
+   &quot;Object&quot; form shall mean any form resulting from mechanical
+   transformation or translation of a Source form, including but
+   not limited to compiled object code, generated documentation,
+   and conversions to other media types.
+
+   &quot;Work&quot; shall mean the work of authorship, whether in Source or
+   Object form, made available under the License, as indicated by a
+   copyright notice that is included in or attached to the work
+   (an example is provided in the Appendix below).
+
+   &quot;Derivative Works&quot; shall mean any work, whether in Source or Object
+   form, that is based on (or derived from) the Work and for which the
+   editorial revisions, annotations, elaborations, or other modifications
+   represent, as a whole, an original work of authorship. For the purposes
+   of this License, Derivative Works shall not include works that remain
+   separable from, or merely link (or bind by name) to the interfaces of,
+   the Work and Derivative Works thereof.
+
+   &quot;Contribution&quot; shall mean any work of authorship, including
+   the original version of the Work and any modifications or additions
+   to that Work or Derivative Works thereof, that is intentionally
+   submitted to Licensor for inclusion in the Work by the copyright owner
+   or by an individual or Legal Entity authorized to submit on behalf of
+   the copyright owner. For the purposes of this definition, &quot;submitted&quot;
+   means any form of electronic, verbal, or written communication sent
+   to the Licensor or its representatives, including but not limited to
+   communication on electronic mailing lists, source code control systems,
+   and issue tracking systems that are managed by, or on behalf of, the
+   Licensor for the purpose of discussing and improving the Work, but
+   excluding communication that is conspicuously marked or otherwise
+   designated in writing by the copyright owner as &quot;Not a Contribution.&quot;
+
+   &quot;Contributor&quot; shall mean Licensor and any individual or Legal Entity
+   on behalf of whom a Contribution has been received by Licensor and
+   subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   copyright license to reproduce, prepare Derivative Works of,
+   publicly display, publicly perform, sublicense, and distribute the
+   Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of
+   this License, each Contributor hereby grants to You a perpetual,
+   worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+   (except as stated in this section) patent license to make, have made,
+   use, offer to sell, sell, import, and otherwise transfer the Work,
+   where such license applies only to those patent claims licensable
+   by such Contributor that are necessarily infringed by their
+   Contribution(s) alone or by combination of their Contribution(s)
+   with the Work to which such Contribution(s) was submitted. If You
+   institute patent litigation against any entity (including a
+   cross-claim or counterclaim in a lawsuit) alleging that the Work
+   or a Contribution incorporated within the Work constitutes direct
+   or contributory patent infringement, then any patent licenses
+   granted to You under this License for that Work shall terminate
+   as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the
+   Work or Derivative Works thereof in any medium, with or without
+   modifications, and in Source or Object form, provided that You
+   meet the following conditions:
+
+   (a) You must give any other recipients of the Work or
+       Derivative Works a copy of this License; and
+
+   (b) You must cause any modified files to carry prominent notices
+       stating that You changed the files; and
+
+   (c) You must retain, in the Source form of any Derivative Works
+       that You distribute, all copyright, patent, trademark, and
+       attribution notices from the Source form of the Work,
+       excluding those notices that do not pertain to any part of
+       the Derivative Works; and
+
+   (d) If the Work includes a &quot;NOTICE&quot; text file as part of its
+       distribution, then any Derivative Works that You distribute must
+       include a readable copy of the attribution notices contained
+       within such NOTICE file, excluding those notices that do not
+       pertain to any part of the Derivative Works, in at least one
+       of the following places: within a NOTICE text file distributed
+       as part of the Derivative Works; within the Source form or
+       documentation, if provided along with the Derivative Works; or,
+       within a display generated by the Derivative Works, if and
+       wherever such third-party notices normally appear. The contents
+       of the NOTICE file are for informational purposes only and
+       do not modify the License. You may add Your own attribution
+       notices within Derivative Works that You distribute, alongside
+       or as an addendum to the NOTICE text from the Work, provided
+       that such additional attribution notices cannot be construed
+       as modifying the License.
+
+   You may add Your own copyright statement to Your modifications and
+   may provide additional or different license terms and conditions
+   for use, reproduction, or distribution of Your modifications, or
+   for any such Derivative Works as a whole, provided Your use,
+   reproduction, and distribution of the Work otherwise complies with
+   the conditions stated in this License.
+
+5. Submission of Contributions. Unless You explicitly state otherwise,
+   any Contribution intentionally submitted for inclusion in the Work
+   by You to the Licensor shall be under the terms and conditions of
+   this License, without any additional terms or conditions.
+   Notwithstanding the above, nothing herein shall supersede or modify
+   the terms of any separate license agreement you may have executed
+   with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade
+   names, trademarks, service marks, or product names of the Licensor,
+   except as required for reasonable and customary use in describing the
+   origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or
+   agreed to in writing, Licensor provides the Work (and each
+   Contributor provides its Contributions) on an &quot;AS IS&quot; BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+   implied, including, without limitation, any warranties or conditions
+   of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+   PARTICULAR PURPOSE. You are solely responsible for determining the
+   appropriateness of using or redistributing the Work and assume any
+   risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory,
+   whether in tort (including negligence), contract, or otherwise,
+   unless required by applicable law (such as deliberate and grossly
+   negligent acts) or agreed to in writing, shall any Contributor be
+   liable to You for damages, including any direct, indirect, special,
+   incidental, or consequential damages of any character arising as a
+   result of this License or out of the use or inability to use the
+   Work (including but not limited to damages for loss of goodwill,
+   work stoppage, computer failure or malfunction, or any and all
+   other commercial damages or losses), even if such Contributor
+   has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing
+   the Work or Derivative Works thereof, You may choose to offer,
+   and charge a fee for, acceptance of support, warranty, indemnity,
+   or other liability obligations and/or rights consistent with this
+   License. However, in accepting such obligations, You may act only
+   on Your own behalf and on Your sole responsibility, not on behalf
+   of any other Contributor, and only if You agree to indemnify,
+   defend, and hold each Contributor harmless for any liability
+   incurred by, or claims asserted against, such Contributor by reason
+   of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+APPENDIX: How to apply the Apache License to your work.
+
+   To apply the Apache License to your work, attach the following
+   boilerplate notice, with the fields enclosed by brackets &quot;[]&quot;
+   replaced with your own identifying information. (Don&#x27;t include
+   the brackets!)  The text should be enclosed in the appropriate
+   comment syntax for the file format. We also recommend that a
+   file or class name and description of purpose be included on the
+   same &quot;printed page&quot; as the copyright notice for easier
+   identification within third-party archives.
+
+Copyright 2024 MapLibre contributors
+
+Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.</pre>
+      <h3>maplibre-native-base</h3>
+      <p class="tpl-meta">License: BSD-2-Clause &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/maplibre/maplibre-native-base" rel="noopener noreferrer" target="_blank">https://github.com/maplibre/maplibre-native-base</a></p>
+      <p class="tpl-note">Bundles geometry.hpp, variant, geojson.hpp, geojson-vt-cpp and optional.</p>
+      <pre>Copyright (c) 2022 MapLibre contributors
+Copyright (c) MapBox
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+- Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+- Redistributions in binary form must reproduce the above copyright notice, this
+  list of conditions and the following disclaimer in the documentation and/or
+  other materials provided with the distribution.
+- Neither the name &quot;MapBox&quot; nor the names of its contributors may be
+  used to endorse or promote products derived from this software without
+  specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
+      <h3>MapTiler and OpenStreetMap</h3>
+      <p class="tpl-meta">License: MapTiler ToS; ODbL &middot; Use: network service &middot; Site: <a href="https://www.maptiler.com/" rel="noopener noreferrer" target="_blank">https://www.maptiler.com/</a></p>
+      <pre>Map tiles, glyphs and the vector style are built from OpenStreetMap data,
+licensed under the Open Database License (ODbL) by the OpenStreetMap Foundation. That is true
+of every tile source this plugin has used or may use, and it is why the credit below is
+unconditional.
+
+The required credit — &quot;(c) OpenStreetMap contributors&quot; — is composited into every frame the
+plugin renders by openfx/Attribution.h. It is drawn into the image rather than served from a
+removable resource, because an attribution a user can delete is not an attribution. Removing or
+obscuring it breaches the ODbL.
+
+WHO SERVES THE TILES IS CONFIGURATION, NOT SOURCE. The style address comes from the licence
+server (`credentials.styleURL`), so this file cannot name a provider without going stale — and
+it did: it credited MapTiler AG as the server long after openfx/Attribution.h stopped drawing
+their logo on 2026-09-02, on the strength of ADR-022 making Go Atlas its own tile provider.
+
+The consequence to keep in mind rather than to assume away: a commercial provider&#x27;s terms apply
+IN ADDITION to the ODbL for as long as the style in force points at them. MapTiler&#x27;s free plan,
+for one, requires their logo to be visible. Whoever changes `styleURL` owns that question.
+
+Sources: https://www.openstreetmap.org/copyright
+         https://opendatacommons.org/licenses/odbl/</pre>
+      <h3>Natural Earth</h3>
+      <p class="tpl-meta">License: Public Domain &middot; Use: bundled data &middot; Site: <a href="https://www.naturalearthdata.com/" rel="noopener noreferrer" target="_blank">https://www.naturalearthdata.com/</a></p>
+      <pre>The country and region outlines bundled with the plugin
+(Resources/geodata/countries.bin and regions.bin) are derived from Natural Earth.
+
+All versions of Natural Earth raster and vector map data found on this website are in the
+public domain. You may use the maps in any manner, including modifying the content and design,
+electronic dissemination, and offset printing. The primary authors, Tom Patterson and Nathaniel
+Vaughn Kelso, and all other contributors renounce all financial claim to the maps and invite
+you to use them for personal, educational, and commercial purposes. No permission is needed to
+use Natural Earth. Crediting the authors is unnecessary.
+
+Source: https://www.naturalearthdata.com/about/terms-of-use/</pre>
+      <h3>nunicode</h3>
+      <p class="tpl-meta">License: BSD-2-Clause &middot; Use: statically linked &middot; Site: <a href="https://bitbucket.org/alekseyt/nunicode" rel="noopener noreferrer" target="_blank">https://bitbucket.org/alekseyt/nunicode</a></p>
+      <pre>Copyright (c) 2013 Aleksey Tulinov &lt;aleksey.tulinov@gmail.com&gt;
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.</pre>
+      <h3>OpenFX API and Support Library 1.4</h3>
+      <p class="tpl-meta">License: BSD-3-Clause &middot; Use: statically linked &middot; Site: <a href="https://openeffects.org/" rel="noopener noreferrer" target="_blank">https://openeffects.org/</a></p>
+      <pre>Copyright OpenFX and contributors to the OpenFX project.
+All Rights Reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted
+provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of
+  conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of
+  conditions and the following disclaimer in the documentation and/or other materials
+  provided with the distribution.
+* Neither the name The Open Effects Association Ltd, nor the names of its contributors may be
+  used to endorse or promote products derived from this software without specific prior
+  written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR
+IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+Source: https://github.com/AcademySoftwareFoundation/openfx</pre>
+      <h3>openrouteservice (HeiGIT)</h3>
+      <p class="tpl-meta">License: CC BY 4.0; ODbL &middot; Use: network service &middot; Site: <a href="https://openrouteservice.org/" rel="noopener noreferrer" target="_blank">https://openrouteservice.org/</a></p>
+      <pre>Route geometry is computed by openrouteservice, operated by the
+Heidelberg Institute for Geoinformation Technology (HeiGIT gGmbH, Germany), from OpenStreetMap
+data. The service is used over its public API; no openrouteservice code is distributed with the
+plugin. Directions and the underlying data are licensed under CC BY 4.0 and the ODbL
+respectively.
+
+Sources: https://openrouteservice.org/terms-of-service/
+         https://www.openstreetmap.org/copyright</pre>
+      <h3>parsedate</h3>
+      <p class="tpl-meta">License: curl License &middot; Use: statically linked &middot; Site: <a href="https://curl.se/" rel="noopener noreferrer" target="_blank">https://curl.se/</a></p>
+      <pre>COPYRIGHT AND PERMISSION NOTICE
+
+Copyright (c) 1996 - 2020, Daniel Stenberg, &lt;daniel@haxx.se&gt;, and many
+contributors, see the THANKS file.
+
+All rights reserved.
+
+Permission to use, copy, modify, and distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright
+notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF THIRD PARTY RIGHTS. IN
+NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+OR OTHER DEALINGS IN THE SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall not
+be used in advertising or otherwise to promote the sale, use or other dealings
+in this Software without prior written authorization of the copyright holder.</pre>
+      <h3>PMTiles</h3>
+      <p class="tpl-meta">License: BSD-3-Clause &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/protomaps/PMTiles" rel="noopener noreferrer" target="_blank">https://github.com/protomaps/PMTiles</a></p>
+      <pre>The below license (BSD-3) applies to the reference implementations in this repository.
+
+The PMTiles specification itself is public domain, or CC0 where applicable.
+
+Sample tilesets available in this repository are subject to their own license terms.
+
+---
+
+Copyright 2021 Protomaps LLC
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
+      <h3>polylabel</h3>
+      <p class="tpl-meta">License: ISC &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/polylabel" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/polylabel</a></p>
+      <pre>ISC License
+Copyright (c) 2016 Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND ISC DISCLAIMS ALL WARRANTIES WITH REGARD TO
+THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS.
+IN NO EVENT SHALL ISC BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR
+CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA
+OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS
+ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
+SOFTWARE.</pre>
+      <h3>protozero</h3>
+      <p class="tpl-meta">License: BSD-2-Clause &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/protozero" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/protozero</a></p>
+      <pre>protozero copyright (c) Mapbox.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the
+      distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS
+IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</pre>
+      <h3>RapidJSON</h3>
+      <p class="tpl-meta">License: MIT &middot; Use: header-only, compiled in &middot; Site: <a href="https://rapidjson.org/" rel="noopener noreferrer" target="_blank">https://rapidjson.org/</a></p>
+      <pre>Tencent is pleased to support the open source community by making RapidJSON available. 
+ 
+Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip.  All rights reserved.
+
+If you have downloaded a copy of the RapidJSON binary from Tencent, please note that the RapidJSON binary is licensed under the MIT License.
+If you have downloaded a copy of the RapidJSON source code from Tencent, please note that RapidJSON source code is licensed under the MIT License, except for the third-party components listed below which are subject to different license terms.  Your integration of RapidJSON into your own projects may require compliance with the MIT License, as well as the other licenses applicable to the third-party components included within RapidJSON. To avoid the problematic JSON license in your own projects, it&#x27;s sufficient to exclude the bin/jsonchecker/ directory, as it&#x27;s the only code under the JSON license.
+A copy of the MIT License is included in this file.
+
+Other dependencies and licenses:
+
+Open Source Software Licensed Under the BSD License:
+--------------------------------------------------------------------
+
+The msinttypes r29 
+Copyright (c) 2006-2013 Alexander Chemeris 
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer. 
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the name of  copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE REGENTS AND CONTRIBUTORS ``AS IS&#x27;&#x27; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE REGENTS AND CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+Open Source Software Licensed Under the JSON License:
+--------------------------------------------------------------------
+
+json.org 
+Copyright (c) 2002 JSON.org
+All Rights Reserved.
+
+JSON_checker
+Copyright (c) 2002 JSON.org
+All Rights Reserved.
+
+	
+Terms of the JSON License:
+---------------------------------------------------
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+The Software shall be used for Good, not Evil.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+Terms of the MIT License:
+--------------------------------------------------------------------
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</pre>
+      <h3>SQLite</h3>
+      <p class="tpl-meta">License: Public Domain &middot; Use: statically linked &middot; Site: <a href="https://www.sqlite.org/" rel="noopener noreferrer" target="_blank">https://www.sqlite.org/</a></p>
+      <pre>All of the code and documentation in SQLite has been dedicated to the public
+domain by the authors. All code authors, and representatives of the companies they work for,
+have signed affidavits dedicating their contributions to the public domain and originals of
+those signed affidavits are stored in a firesafe at the main offices of Hwaci. Anyone is free
+to copy, modify, publish, use, compile, sell, or distribute the original SQLite code, either
+in source code form or as a compiled binary, for any purpose, commercial or non-commercial,
+and by any means.
+
+Source: https://www.sqlite.org/copyright.html</pre>
+      <h3>supercluster.hpp</h3>
+      <p class="tpl-meta">License: ISC &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/supercluster.hpp" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/supercluster.hpp</a></p>
+      <pre>Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</pre>
+      <h3>unique_resource</h3>
+      <p class="tpl-meta">License: Boost Software License 1.0 &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/okdshin/unique_resource" rel="noopener noreferrer" target="_blank">https://github.com/okdshin/unique_resource</a></p>
+      <pre>Boost Software License - Version 1.0 - August 17th, 2003
+
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the &quot;Software&quot;) to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+      <h3>unordered_dense</h3>
+      <p class="tpl-meta">License: MIT &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/martinus/unordered_dense" rel="noopener noreferrer" target="_blank">https://github.com/martinus/unordered_dense</a></p>
+      <pre>MIT License
+
+Copyright (c) 2022 Martin Leitner-Ankerl
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the &quot;Software&quot;), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+      <h3>vector-tile</h3>
+      <p class="tpl-meta">License: BSD-3-Clause &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/vector-tile" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/vector-tile</a></p>
+      <pre>Copyright (c) 2024 MapLibre contributors
+
+Copyright (c) 2016, Mapbox
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</pre>
+      <h3>wagyu</h3>
+      <p class="tpl-meta">License: BSD-2-Clause / Boost &middot; Use: header-only, compiled in &middot; Site: <a href="https://github.com/mapbox/wagyu" rel="noopener noreferrer" target="_blank">https://github.com/mapbox/wagyu</a></p>
+      <pre>Parts of the code in the Wagyu Library are derived from the version of the 
+Clipper Library by Angus Johnson listed below.
+
+Author    :  Angus Johnson
+Version   :  6.4.0
+Date      :  2 July 2015
+Website   :  http://www.angusj.com
+
+Copyright for portions of the derived code in the Wagyu library are held 
+by Angus Johnson, 2010-2015. Copyright for the &quot;include/mapbox/geometry/wagyu/almost_equal.hpp&quot; 
+file is held by Google Inc and its license is listed at the top of that file.
+All other copyright for the Wagyu Library are held by Mapbox, 2016. This code 
+is published in accordance with, and retains the same license as the Clipper 
+Library by Angus Johnson.
+
+Copyright (c) 2010-2015, Angus Johnson
+Copyright (c) 2016-2020, Mapbox
+
+Permission is hereby granted, free of charge, to any person or organization
+obtaining a copy of the software and accompanying documentation covered by
+this license (the &quot;Software&quot;) to use, reproduce, display, distribute,
+execute, and transmit the Software, and to prepare derivative works of the
+Software, and to permit third-parties to whom the Software is furnished to
+do so, all subject to the following:
+
+The copyright notices in the Software and this entire statement, including
+the above license grant, this restriction and the following disclaimer,
+must be included in all copies of the Software, in whole or in part, and
+all derivative works of the Software, unless such copies or derivative
+works are solely in the form of machine-executable object code generated by
+a source language processor.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NON-INFRINGEMENT. IN NO EVENT
+SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
+FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
+ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</pre>
+      <h3>zlib 1.3.1</h3>
+      <p class="tpl-meta">License: Zlib &middot; Use: statically linked &middot; Site: <a href="https://zlib.net/" rel="noopener noreferrer" target="_blank">https://zlib.net/</a></p>
+      <pre>Copyright notice:
+
+ (C) 1995-2022 Jean-loup Gailly and Mark Adler
+
+  This software is provided &#x27;as-is&#x27;, without any express or implied
+  warranty.  In no event will the authors be held liable for any damages
+  arising from the use of this software.
+
+  Permission is granted to anyone to use this software for any purpose,
+  including commercial applications, and to alter it and redistribute it
+  freely, subject to the following restrictions:
+
+  1. The origin of this software must not be misrepresented; you must not
+     claim that you wrote the original software. If you use this software
+     in a product, an acknowledgment in the product documentation would be
+     appreciated but is not required.
+  2. Altered source versions must be plainly marked as such, and must not be
+     misrepresented as being the original software.
+  3. This notice may not be removed or altered from any source distribution.
+
+  Jean-loup Gailly        Mark Adler
+  jloup@gzip.org          madler@alumni.caltech.edu</pre>
+      <!-- TPL:OPENSOURCE:END -->
+            </section>
+
+            <p class="legal-meta">Neovi Media - Registered in France</p>
+        </div>
+    </main>
+
+    <footer class="gp-foot">
+        <div class="gp-in">
+            <div class="gp-foot-note">
+                <span>&copy; Go Plugins</span>
+                <a href="mailto:contact@getgoatlas.com">contact@getgoatlas.com</a>
+            </div>
+            <nav class="gp-links" aria-label="Footer">
+                <a href="../../go-atlas/index.html">Go Atlas</a>
+                <a href="../../go-glow/index.html">Go Glow</a>
+                <a href="../../go-motion-blur/index.html">Go Motion Blur</a>
+                <a href="../../go-atlas/documents/legal.html" aria-current="page">Legal</a>
+            </nav>
+        </div>
+    </footer>
+    <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector(".nav");
+        const navToggle = document.querySelector(".nav-toggle");
+        if (nav && navToggle) {
+            const closeNav = () => {
+                nav.classList.remove("nav-open");
+                navToggle.setAttribute("aria-expanded", "false");
+            };
+
+            navToggle.addEventListener("click", (event) => {
+                event.stopPropagation();
+                const isOpen = nav.classList.toggle("nav-open");
+                navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+            });
+
+            document.addEventListener("click", (event) => {
+                if (!event.target.closest(".nav-inner")) closeNav();
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth > 768) closeNav();
+            });
+        }
+
+        const links = [...document.querySelectorAll("[data-doc-link]")];
+        const panels = [...document.querySelectorAll("[data-doc-panel]")];
+        const allowed = new Set(panels.map((panel) => panel.dataset.docPanel));
+
+        const activate = (name) => {
+            const activeName = allowed.has(name) ? name : "privacy";
+
+            links.forEach((link) => {
+                const isActive = link.dataset.docLink === activeName;
+                link.classList.toggle("active", isActive);
+                if (isActive) {
+                    link.setAttribute("aria-current", "page");
+                } else {
+                    link.removeAttribute("aria-current");
+                }
+            });
+
+            panels.forEach((panel) => {
+                panel.classList.toggle("is-active", panel.dataset.docPanel === activeName);
+            });
+        };
+
+        const readHash = () => window.location.hash.replace("#", "").trim();
+        const initialHash = readHash();
+        const initialDoc = allowed.has(initialHash) ? initialHash : "privacy";
+        activate(initialDoc);
+
+        // The default document is shown without writing "#privacy" into the address: a fragment present when the page
+        // finishes loading makes the browser scroll down to that section, past the top band.
+
+        window.addEventListener("hashchange", () => {
+            activate(readHash());
+        });
+    });
+    </script>
+</body>
+</html>

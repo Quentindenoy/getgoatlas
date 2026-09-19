@@ -1,11 +1,17 @@
+# Go Plugins
+
+> Go Plugins makes OpenFX plugins for DaVinci Resolve on Windows: Go Atlas for animated maps, Go Glow for light, Go Motion Blur for motion.
+
+## Plugins
+- [Go Atlas](https://getgoatlas.com/go-atlas/): the video editor for maps. Timeline, keyframes, 3D camera, routes, labels, 4K export. On sale.
+- [Go Glow](https://getgoatlas.com/go-glow/): a glow that behaves like light, for any text, image or video. Not on sale yet.
+- [Go Motion Blur](https://getgoatlas.com/go-motion-blur/): one node instead of Optical Flow plus Vector Motion Blur. Not on sale yet.
+
 # Go Atlas
 
 > Go Atlas is the video editor for maps. It brings a classic video-editing workflow — timeline, keyframes, 3D camera, effects, 4K export — to animated maps, for travel films, documentary geography, and news explainers.
 
 Go Atlas is a native OpenFX plugin for DaVinci Resolve (Windows 10/11, real-time, GPU-accelerated). Projects stay local on the user's machine and are GDPR-compliant. Map tiles are served by Go Atlas itself, from open sources.
-
-## Product
-- [Home](https://getgoatlas.com): Pricing and purchase.
 
 ## What it does
 - Cinematic 3D map camera (tilt, altitude, bearing)
@@ -22,7 +28,7 @@ Go Atlas is a native OpenFX plugin for DaVinci Resolve (Windows 10/11, real-time
 Travel filmmakers, documentary editors, YouTube explainer creators, and journalists.
 
 ## Legal
-- [Privacy & legal](https://getgoatlas.com/documents/legal.html)
+- [Privacy & legal](https://getgoatlas.com/go-atlas/documents/legal.html)
 
 ## Contact
 - contact@getgoatlas.com
