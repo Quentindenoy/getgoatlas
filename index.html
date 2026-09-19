@@ -148,8 +148,6 @@
             </a>
 
             <div class="nav-menu">
-                <a href="#demo">Demo</a>
-                <a href="#features">Features</a>
                 <a href="#pricing">Pricing</a>
                 <a href="documents/legal.html">Legal</a>
             </div>
@@ -162,9 +160,9 @@
     <main id="main-content">
 
     <!-- ========================================================== -->
-    <!-- 1 — HERO                                                   -->
+    <!-- 1 — PRICES: the map, the name and the two licences          -->
     <!-- ========================================================== -->
-    <section class="hero" id="home">
+    <section class="hero hero--prices" id="home">
         <div class="hero-video-bg" aria-hidden="true">
             <video autoplay muted loop playsinline preload="auto" data-lazy poster="assets/startup-background-poster.jpg">
                 <source src="assets/startup-background.mp4" type="video/mp4">
@@ -176,244 +174,49 @@
         <div class="hero-compass" aria-hidden="true"></div>
         <div class="hero-compass-2" aria-hidden="true"></div>
 
-        <div class="hero-content">
-            <img src="assets/loading.gif" alt="Go Atlas animated logo" class="hero-logo" width="120" height="120">
-            <h1 class="hero-title">
-                <span class="hero-title-line">Animated maps for</span>
-                <span class="hero-title-line hero-title-line--logo">
-                    <span class="gradient-text">Davinci Resolve</span>
-					<img src="assets/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve" class="hero-title-logo" width="128" height="128" loading="eager" decoding="async">
-                </span>
-            </h1>
+        <div class="hero-pricing" id="pricing">
+            <div class="atlas-title">
+                <h1 class="atlas-name"><span class="go-mark">Go</span> Atlas</h1>
+                <p class="atlas-sub">for DaVinci&nbsp;Resolve<img class="atlas-sub-logo" src="assets/DaVinci_Resolve_Studio.png" alt="DaVinci Resolve logo" width="80" height="80"></p>
+            </div>
 
-            <p class="hero-lead">
-                Go Atlas installs as a native plugin in DaVinci Resolve. Cinematic 3D map camera, GPU accelerated &mdash; without ever leaving your project.
-            </p>
+            <div class="pricing-grid pricing-grid--two">
+                <a
+                    href="https://goatlas.lemonsqueezy.com/checkout/buy/dc22a797-22cb-4081-8000-efcf7ecd5afd?checkout[discount_code]=K5MJY5MA"
+                    class="pricing-card pricing-card--early"
+                    data-checkout="early"
+                >
+                    <span class="pricing-badge pricing-badge--early">Save &euro;100</span>
+                    <h3>Early access<span class="seats-left" data-seats hidden></span></h3>
+                    <div class="price"><span class="price-was" data-price-full>&euro;249</span> <span data-price-early>&euro;149</span><span> once</span></div>
+                    <p class="price-note">First 30 licenses only</p>
+                    <ul class="pricing-features">
+                        <li>The DaVinci Resolve plugin, for good</li>
+                        <li>Every update as it ships</li>
+                        <li>Cinematic 3D map camera</li>
+                        <li>Timeline &amp; bezier keyframe editor</li>
+                        <li>4K export &mdash; videos you own</li>
+                    </ul>
+                </a>
 
-            <div class="hero-cta">
-                <a href="#pricing" class="btn-primary btn-lg">Get Go Atlas<span class="brand-c">©</span></a>
-                <a href="#demo" class="btn-ghost btn-lg">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                        <polygon points="5 3 19 12 5 21 5 3"/>
-                    </svg>
-                    Watch demo
+                <a
+                    href="https://goatlas.lemonsqueezy.com/checkout/buy/dc22a797-22cb-4081-8000-efcf7ecd5afd"
+                    class="pricing-card"
+                    data-checkout="full"
+                >
+                    <h3>Lifetime</h3>
+                    <div class="price"><span data-price-full>&euro;249</span><span> once</span></div>
+                    <p class="price-note">One payment &middot; no subscription</p>
+                    <ul class="pricing-features">
+                        <li>The DaVinci Resolve plugin, for good</li>
+                        <li>Every update as it ships</li>
+                        <li>Cinematic 3D map camera</li>
+                        <li>Timeline &amp; bezier keyframe editor</li>
+                        <li>4K export &mdash; videos you own</li>
+                    </ul>
                 </a>
             </div>
         </div>
-    </section>
-
-    <!-- ========================================================== -->
-    <!-- 2 — ESSENCE (problem + demo + outputs/audiences merged)     -->
-    <!-- ========================================================== -->
-    <section class="essence" id="demo">
-        <div class="section-intro">
-            <h2 class="section-headline">
-                Go Atlas<span class="brand-c">©</span> gives you the full toolkit<br>
-                <span class="gradient-text gradient-text--teal">inside DaVinci Resolve.</span>
-            </h2>
-            <p class="section-lead">
-                Maps, countries, 3D cameras, routes, pen tools, text tools, effects, 4K rendering,
-                and much more — with every element fully customizable.
-            </p>
-        </div>
-
-        <!-- Full product walkthrough — click-to-play with audio, replay on end -->
-        <div class="demo-stage">
-            <div class="walkthrough" data-walkthrough>
-                <video
-                    class="walkthrough-video"
-                    src="assets/Walkthrough.mp4"
-                    data-src-mobile="assets/Walkthrough-mobile.mp4"
-                    playsinline
-                    preload="none"
-                    poster="assets/Walkthrough-poster.jpg"
-                    aria-label="Full Go Atlas product walkthrough"
-                ></video>
-
-                <button class="walkthrough-overlay walkthrough-overlay--play" type="button" aria-label="Play the full product walkthrough">
-                    <span class="walkthrough-icon">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <polygon points="6 4 20 12 6 20 6 4"/>
-                        </svg>
-                    </span>
-                </button>
-
-                <div class="walkthrough-overlay walkthrough-overlay--replay">
-                    <button class="walkthrough-replay-btn" type="button" aria-label="Replay the walkthrough">
-                        <span class="walkthrough-icon">
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/>
-                                <polyline points="3 3 3 8 8 8"/>
-                            </svg>
-                        </span>
-                    </button>
-                    <a href="#pricing" class="btn-primary walkthrough-cta">Get Go Atlas<span class="brand-c">©</span></a>
-                </div>
-
-                <!-- Custom YouTube-style control bar -->
-                <div class="wt-controls">
-                    <div class="wt-progress" role="slider" aria-label="Seek" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-                        <div class="wt-progress-track">
-                            <div class="wt-progress-buffered"></div>
-                            <div class="wt-progress-played"></div>
-                            <div class="wt-progress-thumb"></div>
-                        </div>
-                    </div>
-                    <div class="wt-controls-row">
-                        <div class="wt-controls-left">
-                            <button class="wt-btn wt-play" type="button" aria-label="Play / pause">
-                                <svg class="wt-ic-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
-                                <svg class="wt-ic-pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
-                            </button>
-                            <div class="wt-volume">
-                                <button class="wt-btn wt-mute" type="button" aria-label="Mute / unmute">
-                                    <svg class="wt-ic-volume" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10v4h4l5 5V5L7 10H3zm13.5 2a4.5 4.5 0 0 0-2.5-4.03v8.06A4.5 4.5 0 0 0 16.5 12zM14 3.23v2.06a7 7 0 0 1 0 13.42v2.06a9 9 0 0 0 0-17.54z"/></svg>
-                                    <svg class="wt-ic-muted" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.5 12A4.5 4.5 0 0 0 14 7.97v2.21l2.45 2.45c.03-.2.05-.41.05-.63zM19 12c0 .94-.2 1.82-.54 2.64l1.51 1.51A8.8 8.8 0 0 0 21 12a9 9 0 0 0-7-8.77v2.06A7 7 0 0 1 19 12zM4.27 3 3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06a9 9 0 0 0 3.69-1.81L19.73 21 21 19.73 4.27 3zM12 4 9.91 6.09 12 8.18V4z"/></svg>
-                                </button>
-                                <input class="wt-volume-slider" type="range" min="0" max="100" value="100" step="1" aria-label="Volume">
-                            </div>
-                            <span class="wt-time"><span class="wt-time-current">0:00</span> / <span class="wt-time-duration">0:00</span></span>
-                        </div>
-                        <div class="wt-controls-right">
-                            <button class="wt-btn wt-fullscreen" type="button" aria-label="Fullscreen">
-                                <svg class="wt-ic-enter" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/></svg>
-                                <svg class="wt-ic-exit" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 16h3v3h2v-5H5v2zm3-8H5v2h5V5H8v3zm6 11h2v-3h3v-2h-5v5zm2-11V5h-2v5h5V8h-3z"/></svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 3 outputs with audience labels -->
-        <div class="outputs-grid">
-            <article class="output-card">
-                <span class="output-audience">
-                    <span class="output-label-mobile">Travel</span>
-                </span>
-                <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
-                    <video
-                        src="assets/Travel.mp4"
-                        data-src-mobile="assets/Travel-mobile.mp4"
-                        data-lazy muted loop playsinline
-                        preload="none"
-                        poster="assets/Travel-poster.jpg"
-                        aria-label="Animated travel route from Rome to Pisa"
-                    ></video>
-                </div>
-                <h3>
-                    <span class="output-title-desktop">For Travel YouTubers</span>
-                    <span class="output-title-mobile">Travel</span>
-                </h3>
-                <p>From one place to another. Add labels, trim paths, add glow. Yours to direct.</p>
-            </article>
-
-            <article class="output-card">
-                <span class="output-audience">
-                    <span class="output-label-mobile">Documentary</span>
-                </span>
-                <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
-                    <video
-                        src="assets/Documentary.mp4"
-                        data-src-mobile="assets/Documentary-mobile.mp4"
-                        data-lazy muted loop playsinline
-                        preload="none"
-                        poster="assets/Documentary-poster.jpg"
-                        aria-label="Documentary geography animation"
-                    ></video>
-                </div>
-                <h3>
-                    <span class="output-label-desktop">For Documentary Editors</span>
-                    <span class="output-title-mobile">Documentary</span>
-                </h3>
-                <p>Build animated maps with icons, effects, and cinematic storytelling.</p>
-            </article>
-
-            <article class="output-card">
-                <span class="output-audience">
-                    <span class="output-label-mobile">News</span>
-                </span>
-                <div class="video-placeholder video-placeholder--16x9 has-video" data-lightbox-video>
-                    <video
-                        src="assets/News.mp4"
-                        data-src-mobile="assets/News-mobile.mp4"
-                        data-lazy muted loop playsinline
-                        preload="none"
-                        poster="assets/News-poster.jpg"
-                        aria-label="News explainer animation"
-                    ></video>
-                </div>
-                <h3>
-                    <span class="output-title-desktop">For TV &amp; Journalism</span>
-                    <span class="output-title-mobile">News</span>
-                </h3>
-                <p>Draw regions.Broadcast quality, no motion graphics team required.</p>
-            </article>
-        </div>
-    </section>
-
-    <!-- ========================================================== -->
-    <!-- 3 — FEATURE BENTO                                           -->
-    <!-- ========================================================== -->
-    <section class="bento" id="features">
-        <div class="section-intro">
-            <h2 class="section-headline">Go Atlas<span class="brand-c">©</span><br>is built <span class="gradient-text gradient-text--teal">for editors.</span></h2>
-        </div>
-
-        <div class="bento-grid">
-            <!-- Row 1: KF editor + Camera (top "editor area") -->
-
-        </div>
-    </section>
-
-    <!-- ========================================================== -->
-    <!-- 4 — PRICING                                                 -->
-    <!-- ========================================================== -->
-    <section id="pricing" class="pricing">
-        <div class="section-intro">
-            <h2 class="section-headline">
-                One payment.<br>
-                No subscription.<br>
-                <span class="gradient-text">No Hidden Costs.</span>
-            </h2>
-        </div>
-        <div class="pricing-grid pricing-grid--two">
-            <a
-                href="https://goatlas.lemonsqueezy.com/checkout/buy/dc22a797-22cb-4081-8000-efcf7ecd5afd?checkout[discount_code]=K5MJY5MA"
-                class="pricing-card pricing-card--early"
-                data-checkout="early"
-            >
-                <span class="pricing-badge pricing-badge--early">Save &euro;100</span>
-                <h3>Early access<span class="seats-left" data-seats hidden></span></h3>
-                <div class="price"><span class="price-was" data-price-full>&euro;249</span> <span data-price-early>&euro;149</span><span> once</span></div>
-                <p class="price-note">First 30 licenses only</p>
-                <ul class="pricing-features">
-                    <li>The DaVinci Resolve plugin, for good</li>
-                    <li>Every update as it ships</li>
-                    <li>Cinematic 3D map camera</li>
-                    <li>Timeline &amp; bezier keyframe editor</li>
-                    <li>4K export &mdash; videos you own</li>
-                </ul>
-            </a>
-
-            <a
-                href="https://goatlas.lemonsqueezy.com/checkout/buy/dc22a797-22cb-4081-8000-efcf7ecd5afd"
-                class="pricing-card"
-                data-checkout="full"
-            >
-                <h3>Lifetime</h3>
-                <div class="price"><span data-price-full>&euro;249</span><span> once</span></div>
-                <p class="price-note">One payment &middot; no subscription</p>
-                <ul class="pricing-features">
-                    <li>The DaVinci Resolve plugin, for good</li>
-                    <li>Every update as it ships</li>
-                    <li>Cinematic 3D map camera</li>
-                    <li>Timeline &amp; bezier keyframe editor</li>
-                    <li>4K export &mdash; videos you own</li>
-                </ul>
-            </a>
-        </div>
-
     </section>
 
     <!-- ========================================================== -->
@@ -421,7 +224,7 @@
     <!-- ========================================================== -->
     <section class="close" id="faq">
         <div class="section-intro">
-            <h2 class="section-headline">Still <span class="gradient-text gradient-text--teal">curious</span>?</h2>
+            <h2 class="section-headline">More <span class="gradient-text gradient-text--teal">questions</span>?</h2>
         </div>
 
         <div class="faq-list">

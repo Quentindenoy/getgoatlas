@@ -2705,3 +2705,94 @@ main > section:not(.hero).pricing {
     .hero-title-line:first-child { transform: translateX(-0.06em); }
     .hero-title-line--logo { transform: translateX(-0.18em); }
 }
+
+
+/* ==========================================================
+   THE PAGE IS A PRICE PAGE (2026-09-19)
+   The map, its veil and its compass roses stay as the backdrop; on it, the name and the two licences.
+   The name is set as on the Go Plugins home: Inter 800, with a copper "Go".
+   ========================================================== */
+.hero-pricing {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--page-pad);
+}
+
+.atlas-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: clamp(6px, 1vh, 12px);
+    margin-bottom: clamp(26px, 4.5vh, 48px);
+}
+
+.atlas-name {
+    font-size: clamp(2.6rem, min(6.4vw, 10vh), 4.8rem);
+    font-weight: 800;
+    letter-spacing: 0;
+    line-height: 1.02;
+    color: var(--text);
+}
+
+.go-mark {
+    background: linear-gradient(135deg, #c9683a 0%, #e08f5c 48%, #ecb46e 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    padding-right: 0.02em;
+}
+
+.atlas-sub {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    font-size: clamp(0.85rem, min(1.1vw, 2.2vh), 1.05rem);
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.atlas-sub-logo { width: 1.05em; height: 1.05em; }
+
+@media (max-width: 560px) {
+    /* the cards scroll sideways on a phone and bring their own side padding */
+    .hero-pricing { padding: 0; }
+    .atlas-title { padding-inline: var(--page-pad); }
+}
+
+/* ==========================================================
+   LIGHT OVERLAY (2026-09-19)
+   The veil over the map is paper, not night: the map shows through as a tinted print, the name is set
+   in ink like the Go Plugins home, and the two dark licence cards stand out against it. The compass
+   roses and the grid were drawn in eggshell for a dark backdrop, so they are flipped to ink here.
+   ========================================================== */
+.hero--prices { background: #f3ecdc; }
+
+.hero--prices .hero-video-bg { opacity: 0.55; }
+.hero--prices .hero-video-bg video { filter: brightness(1.7) saturate(0.4) sepia(0.12) contrast(0.9); }
+
+.hero--prices .hero-veil {
+    background:
+        radial-gradient(ellipse at center, rgba(243, 236, 220, 0.70) 0%, rgba(243, 236, 220, 0.46) 55%, rgba(243, 236, 220, 0.78) 100%),
+        linear-gradient(180deg, rgba(243, 236, 220, 0.30) 0%, transparent 28%, rgba(243, 236, 220, 0.88) 100%);
+}
+
+.hero--prices .hero-glow { display: none; }
+
+.hero--prices .hero-grid {
+    background-image:
+        linear-gradient(rgba(22, 21, 19, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22, 21, 19, 0.06) 1px, transparent 1px);
+}
+
+.hero--prices .hero-compass,
+.hero--prices .hero-compass-2 { filter: invert(1) blur(0.8px); opacity: 0.09; }
+
+.hero--prices .atlas-name { color: #1a1917; }
+/* Same optical correction as the Go Plugins home: the lighter "Go" leaves the weight to the right (measured +34 px at 1440 px). */
+.hero--prices .atlas-name { transform: translateX(-0.12em); }
+.hero--prices .atlas-sub { color: #6b675e; }
+.hero--prices .go-mark { background-image: linear-gradient(135deg, #a9502a 0%, #cf7448 48%, #e3a35c 100%); }
