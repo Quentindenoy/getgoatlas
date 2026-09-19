@@ -30,9 +30,7 @@
         <div class="gp-in">
             <a href="../index.html" class="gp-brand"><span class="go-mark">Go</span> Plugins</a>
             <nav class="gp-links" aria-label="Primary">
-                <a href="../go-atlas/index.html">Go Atlas</a>
                 <a href="../go-glow/index.html" aria-current="page">Go Glow</a>
-                <a href="../go-motion-blur/index.html">Go Motion Blur</a>
                 <a href="../go-atlas/documents/legal.html">Legal</a>
             </nav>
         </div>
@@ -46,21 +44,57 @@
         <div class="hero-pricing" id="pricing">
             <div class="atlas-title">
                 <h1 class="atlas-name"><span class="go-mark">Go</span> Glow</h1>
-                <p class="atlas-sub">for DaVinci&nbsp;Resolve<img class="atlas-sub-logo" src="../shared/img/davinci-resolve.png" alt="DaVinci Resolve logo" width="80" height="80"></p>
+                <p class="atlas-sub">for DaVinci&nbsp;Resolve on&nbsp;Windows<img class="atlas-sub-logo" src="../shared/img/davinci-resolve.png" alt="DaVinci Resolve logo" width="80" height="80"></p>
             </div>
 
-            <div class="pricing-grid pricing-grid--one">
-                <a href="mailto:contact@getgoatlas.com?subject=Go%20Glow%20launch" class="pricing-card">
-                    <h3>Launch</h3>
-                    <div class="price"><span>Coming soon</span></div>
-                    <p class="price-note">Price announced at launch &middot; click to be told</p>
+            <div class="pricing-grid pricing-grid--two">
+                <a href="https://goatlas.lemonsqueezy.com/checkout/buy/88ef6781-6830-4136-b464-e4ccd86edc0e?checkout[discount_code]=MZMTE3OA" class="pricing-card pricing-card--early">
+                    <span class="pricing-badge pricing-badge--early">Save &euro;10</span>
+                    <h3>Launch offer</h3>
+                    <div class="price"><span class="price-was">&euro;35</span> <span>&euro;25</span><span> once</span></div>
+                    <p class="price-note">First 30 licenses only</p>
                     <ul class="pricing-features">
                         <li>A glow that behaves like light</li>
                         <li>One slider: size and strength</li>
                         <li>Threshold, Tint and Quality</li>
                         <li>Text, images and video</li>
-                        <li>GPU-accelerated on NVIDIA</li>
+                        <li>GPU-accelerated on NVIDIA (Resolve 21.1)</li>
+                        <li>Windows 10 and 11</li>
                     </ul>
+                    <span class="card-buy" aria-live="polite">
+                        <span class="card-buy-idle">
+                            <svg class="card-buy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3 3h8.5v8.5H3zM12.5 3H21v8.5h-8.5zM3 12.5h8.5V21H3zM12.5 12.5H21V21h-8.5z"/></svg>
+                            <span>Buy for Windows</span>
+                        </span>
+                        <span class="card-buy-busy">
+                            <span class="card-buy-spinner" aria-hidden="true"></span>
+                            <span>Opening checkout&hellip;</span>
+                        </span>
+                    </span>
+                </a>
+
+                <a href="https://goatlas.lemonsqueezy.com/checkout/buy/88ef6781-6830-4136-b464-e4ccd86edc0e" class="pricing-card">
+                    <h3>Lifetime</h3>
+                    <div class="price"><span>&euro;35</span><span> once</span></div>
+                    <p class="price-note">One payment &middot; no subscription</p>
+                    <ul class="pricing-features">
+                        <li>A glow that behaves like light</li>
+                        <li>One slider: size and strength</li>
+                        <li>Threshold, Tint and Quality</li>
+                        <li>Text, images and video</li>
+                        <li>GPU-accelerated on NVIDIA (Resolve 21.1)</li>
+                        <li>Windows 10 and 11</li>
+                    </ul>
+                    <span class="card-buy" aria-live="polite">
+                        <span class="card-buy-idle">
+                            <svg class="card-buy-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M3 3h8.5v8.5H3zM12.5 3H21v8.5h-8.5zM3 12.5h8.5V21H3zM12.5 12.5H21V21h-8.5z"/></svg>
+                            <span>Buy for Windows</span>
+                        </span>
+                        <span class="card-buy-busy">
+                            <span class="card-buy-spinner" aria-hidden="true"></span>
+                            <span>Opening checkout&hellip;</span>
+                        </span>
+                    </span>
                 </a>
             </div>
         </div>
@@ -84,12 +118,22 @@
 
             <details class="faq-item">
                 <summary>What machine do I need?</summary>
-                <p>Windows and DaVinci Resolve, which is sold separately by Blackmagic Design. On NVIDIA graphics cards Go Glow renders on the GPU with CUDA, currently enabled for DaVinci Resolve 21.1. Everywhere else it uses a multi-threaded CPU path, so it still works.</p>
+                <p>Windows and DaVinci Resolve, which is sold separately by Blackmagic Design. Go Glow is tested with DaVinci Resolve Studio; the free version has not been tested. On NVIDIA graphics cards Go Glow renders on the GPU with CUDA, currently enabled for DaVinci Resolve 21.1. Everywhere else it uses a multi-threaded CPU path, so it still works.</p>
             </details>
 
             <details class="faq-item">
-                <summary>When can I buy it?</summary>
-                <p>Not yet: Go Glow is not on sale, and its price is announced at launch. Write to <a href="mailto:contact@getgoatlas.com?subject=Go%20Glow%20launch">contact@getgoatlas.com</a> and we will tell you when it is ready.</p>
+                <summary>Does it work on Mac or Linux?</summary>
+                <p>No. Go Glow is for Windows only.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Can I turn the GPU off?</summary>
+                <p>Yes, and Go Glow then uses your processor. Open a Windows terminal, type <strong>setx GOGLOW_CUDA 0</strong>, then restart DaVinci Resolve. To go back, type <strong>setx GOGLOW_CUDA auto</strong> and restart it again.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>How much is it?</summary>
+                <p>&euro;35, once. The first 30 licenses are &euro;25. There is no subscription.</p>
             </details>
         </div>
     </section>
@@ -103,12 +147,31 @@
                 <a href="mailto:contact@getgoatlas.com">contact@getgoatlas.com</a>
             </div>
             <nav class="gp-links" aria-label="Footer">
-                <a href="../go-atlas/index.html">Go Atlas</a>
                 <a href="../go-glow/index.html" aria-current="page">Go Glow</a>
-                <a href="../go-motion-blur/index.html">Go Motion Blur</a>
                 <a href="../go-atlas/documents/legal.html">Legal</a>
             </nav>
         </div>
     </footer>
+    <script>
+        // THE CHECKOUT TAKES A MOMENT TO OPEN, AND A CLICK THAT SHOWS NOTHING READS AS A CLICK THAT FAILED. The card that was
+        // clicked turns into a spinner and "Opening checkout", the other one steps back so it cannot be clicked twice. The
+        // click itself is left alone: the browser navigates as it always did. A new tab or window (ctrl, shift, middle
+        // button) keeps this page as it is, so there is nothing to wait for here.
+        (function () {
+            var cards = document.querySelectorAll('.pricing-card[href]');
+            Array.prototype.forEach.call(cards, function (card) {
+                card.addEventListener('click', function (event) {
+                    if (event.defaultPrevented || event.button !== 0 || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+                    card.classList.add('is-loading');
+                    document.body.classList.add('is-opening');
+                });
+            });
+            // The Back button restores this page exactly as it was left, spinner included: undo it.
+            window.addEventListener('pageshow', function () {
+                Array.prototype.forEach.call(cards, function (card) { card.classList.remove('is-loading'); });
+                document.body.classList.remove('is-opening');
+            });
+        })();
+    </script>
 </body>
 </html>

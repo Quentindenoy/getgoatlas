@@ -444,6 +444,12 @@ main > section:not(.hero)::before {
     grid-template-columns: repeat(2, 1fr);
 }
 
+/* One card, as wide as one of the two above. */
+.pricing-grid--one {
+    max-width: calc((740px - 22px) / 2);
+    grid-template-columns: 1fr;
+}
+
 .pricing-badge {
     position: absolute;
     top: -12px;

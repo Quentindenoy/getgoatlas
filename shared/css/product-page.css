@@ -13,3 +13,87 @@
     max-width: calc((740px - 22px) / 2);
     grid-template-columns: 1fr;
 }
+
+/* UNDER THE POINTER THE CARD BECOMES ONE BUTTON. Everything the card says fades out and "Buy for Windows" takes its
+   place, centred, so the card asks for exactly one thing. The button floats: it takes no room, so nothing about the
+   card's size depends on the pointer. The same holds for a keyboard on the card. A screen with no pointer has no hover
+   to wait for, and covering the text there would hide the price, so it shows the button below the list instead. */
+.pricing-card { cursor: pointer; }
+
+.pricing-card > * { transition: opacity 0.2s ease; }
+.card-buy {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.65em;
+    padding: 1em 2.2em;
+    border-radius: 10px;
+    background: #f3ecdc;
+    color: #161513;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, calc(-50% + 6px));
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.card-buy-icon { width: 1.05em; height: 1.05em; flex: none; }
+.pricing-card:hover > *:not(.card-buy),
+.pricing-card:focus-visible > *:not(.card-buy) { opacity: 0; }
+.pricing-card:hover .card-buy,
+.pricing-card:focus-visible .card-buy { opacity: 1; transform: translate(-50%, -50%); }
+
+@media (hover: none) {
+    .pricing-card:hover > *:not(.card-buy) { opacity: 1; }
+    .card-buy {
+        position: static;
+        align-self: stretch;
+        opacity: 1;
+        transform: none;
+        font-size: 16px;
+        padding: 0.85em 1.2em;
+    }
+}
+
+/* THE CLICK. The card presses in, then its button becomes a ring turning in the copper of the "Go", with what is
+   happening said in words. The state holds whether or not the pointer is still over the card: the checkout can take
+   longer than it takes to move a mouse. */
+.card-buy-idle,
+.card-buy-busy { align-items: center; gap: 0.65em; }
+.card-buy-idle { display: inline-flex; }
+.card-buy-busy { display: none; }
+
+.pricing-card:active .card-buy { transform: translate(-50%, -50%) scale(0.97); }
+
+.pricing-card.is-loading > *:not(.card-buy) { opacity: 0; }
+.pricing-card.is-loading .card-buy { opacity: 1; transform: translate(-50%, -50%); }
+.pricing-card.is-loading .card-buy-idle { display: none; }
+.pricing-card.is-loading .card-buy-busy { display: inline-flex; }
+
+/* The card that was not chosen steps back, and cannot be chosen now. */
+.is-opening .pricing-card:not(.is-loading) { opacity: 0.4; pointer-events: none; transition: opacity 0.25s ease; }
+
+.card-buy-spinner {
+    width: 1.1em;
+    height: 1.1em;
+    flex: none;
+    border-radius: 50%;
+    border: 2.5px solid rgba(22, 21, 19, 0.16);
+    border-top-color: #c9683a;
+    animation: card-spin 0.8s linear infinite;
+}
+@keyframes card-spin { to { transform: rotate(360deg); } }
+/* The ring is information, not decoration: it slows down for people who asked for less motion instead of stopping. */
+@media (prefers-reduced-motion: reduce) { .card-buy-spinner { animation-duration: 2.4s; } }
+
+/* No pointer: the text stays, the button is already below the list, and it is the button that turns into the ring. */
+@media (hover: none) {
+    .pricing-card.is-loading > *:not(.card-buy) { opacity: 1; }
+    .pricing-card:active .card-buy { transform: scale(0.97); }
+    .pricing-card.is-loading .card-buy { transform: none; }
+}
