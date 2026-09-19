@@ -1040,12 +1040,12 @@ main > section:not(.hero)::before {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: clamp(6px, 1vh, 12px);
-    margin-bottom: clamp(26px, 4.5vh, 48px);
+    gap: var(--title-gap);
+    margin-bottom: var(--title-margin);
 }
 
 .atlas-name {
-    font-size: clamp(2.6rem, min(6.4vw, 10vh), 4.8rem);
+    font-size: var(--name-size);
     font-weight: 800;
     letter-spacing: 0;
     line-height: 1.02;
@@ -1065,7 +1065,7 @@ main > section:not(.hero)::before {
     display: inline-flex;
     align-items: center;
     gap: 0.55em;
-    font-size: clamp(0.85rem, min(1.1vw, 2.2vh), 1.05rem);
+    font-size: var(--sub-size);
     font-weight: 500;
     color: var(--text-muted);
 }
@@ -1114,10 +1114,31 @@ main > section:not(.hero)::before {
 
 /* THE TOP BAND IS PART OF THE PAGE NOW. It used to be a fixed bar the pages padded around; it is the shared band of the whole
    site (shared/css/bars.css), in the flow, so the hero and the legal page give its height back. */
+/* THE NAME AND THE CARDS SIT AT THE SAME HEIGHT ON EVERY PAGE THAT SHARES THIS HERO (Go Atlas, Go Glow, Go Motion Blur), whatever
+   the height of the cards. The block used to be centred on its own height, so a page whose cards were shorter than Go Atlas's
+   (they wrap differently as soon as the browser's font size is larger) sat lower. Where the cards make a single row (wider than
+   1080px, where Go Atlas's two sit side by side) it is now placed from the top, with exactly the offset the centring gave for a row
+   as tall as it is at the default font size (26.5625rem): nothing moves at the default size, and no page depends on the height of
+   its own cards. The title's sizes are variables so that the offset and the title are computed from the same numbers. Narrower,
+   the cards stack, Go Atlas has two and the others one, and the block stays centred on its own height. */
 .hero--prices {
+    --hero-top: clamp(32px, 6vh, 72px);
+    --hero-bottom: clamp(48px, 7vh, 88px);
+    --title-gap: clamp(6px, 1vh, 12px);
+    --title-margin: clamp(26px, 4.5vh, 48px);
+    --name-size: clamp(2.6rem, min(6.4vw, 10vh), 4.8rem);
+    --sub-size: clamp(0.85rem, min(1.1vw, 2.2vh), 1.05rem);
+    --block-height: calc(var(--name-size) * 1.02 + var(--title-gap) + var(--sub-size) * 1.55 + var(--title-margin) + 26.5625rem);
     min-height: calc(100svh - 59px);
     min-height: calc(100dvh - 59px);
-    padding-top: clamp(32px, 6vh, 72px);
+    padding-top: var(--hero-top);
+}
+@media (min-width: 1081px) {
+    .hero--prices {
+        justify-content: flex-start;
+        padding-top: calc(var(--hero-top) + max(0px, (100svh - 59px - var(--hero-top) - var(--hero-bottom) - var(--block-height)) / 2));
+        padding-top: calc(var(--hero-top) + max(0px, (100dvh - 59px - var(--hero-top) - var(--hero-bottom) - var(--block-height)) / 2));
+    }
 }
 .legal-layout { padding-top: 64px; }
 @media (max-width: 900px) {
